@@ -1,0 +1,17 @@
+=== FIB V5 DECISION ENGINE ===
+
+decision: WATCH_ONLY
+permission: ALERT_ONLY
+state: FIB_ZONE_ACTIVE
+reason: Hay setup activo, pero todavía no existe señal de entrada.
+
+--- ALERTA ---
+setup_active: True
+entry_signal: False
+bias: BEARISH
+current_price: 64036.63
+
+--- RIESGO ---
+risk_check: NO_ENTRY_SIGNAL
+
+Nota: Este módulo no ejecuta operaciones. Solo clasifica la señal y el riesgo.

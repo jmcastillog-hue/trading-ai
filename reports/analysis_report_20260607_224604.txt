@@ -1,0 +1,3 @@
+**Resumen breve**: El activo presentó fluctuaciones en el precio entre 104,800 y 108,100 durante 5 días, con un promedio de 106,320.
+**Tendencia observada**: Se observa una ligera presión descendente en el precio, ya que el promedio (106,320) está ligeramente por debajo del punto medio de la variación (106,450).
+**Conclusión**: El activo mostró moderada volatilidad en el periodo analizado, con una tendencia levemente negativa. Sin embargo, los datos son limitados (5 días), lo que sugiere la necesidad de más información para confirmar una dirección clara o detectar patrones futuros.

@@ -1,0 +1,88 @@
+=== FIB V5 LIVE ALERT ENGINE ===
+
+generated_at: 2026-06-14 16:55:31
+symbol: BTCUSDT
+htf: 4h
+ltf: 30m
+
+setup_active: True
+state: FIB_ZONE_ACTIVE
+bias: BEARISH
+current_price: 64036.63
+comment: El precio está dentro de la zona Fibonacci 0.236–0.382. Buscar vela bajista 30m.
+
+candidates_scanned: 5
+
+--- CANDIDATO #1 ---
+state: SCENARIO_INVALIDATED
+active: False
+entry_signal: False
+impulse_high: 64234.68
+impulse_low: 60755.00
+drop_pct: 5.42%
+zone: 61576.20 - 62084.24
+stop: 62905.44
+target: 60755.00
+distance_to_zone_pct: 3.05%
+
+--- CANDIDATO #2 ---
+state: SCENARIO_INVALIDATED
+active: False
+entry_signal: False
+impulse_high: 64200.00
+impulse_low: 60755.00
+drop_pct: 5.37%
+zone: 61568.02 - 62070.99
+stop: 62884.01
+target: 60755.00
+distance_to_zone_pct: 3.07%
+
+--- CANDIDATO #3 ---
+state: FIB_ZONE_ACTIVE
+active: True
+entry_signal: False
+impulse_high: 77404.18
+impulse_low: 59130.91
+drop_pct: 23.61%
+zone: 63443.40 - 66111.30
+stop: 70423.79
+target: 59130.91
+distance_to_zone_pct: 0.00%
+
+--- CANDIDATO #4 ---
+state: FIB_ZONE_ACTIVE
+active: True
+entry_signal: False
+impulse_high: 77543.15
+impulse_low: 59130.91
+drop_pct: 23.74%
+zone: 63476.20 - 66164.39
+stop: 70509.67
+target: 59130.91
+distance_to_zone_pct: 0.00%
+
+--- CANDIDATO #5 ---
+state: FIB_ZONE_ACTIVE
+active: True
+entry_signal: False
+impulse_high: 77905.52
+impulse_low: 59130.91
+drop_pct: 24.10%
+zone: 63561.72 - 66302.81
+stop: 70733.62
+target: 59130.91
+distance_to_zone_pct: 0.00%
+
+=== MEJOR SETUP ACTIVO ===
+state: FIB_ZONE_ACTIVE
+entry_zone_low: 63443.40
+entry_zone_high: 66111.30
+stop_price: 70423.79
+target_price: 59130.91
+entry_signal: False
+
+--- PLAN DE ESPERA ---
+No hay entrada todavía.
+Esperar cierre de vela bajista 30m dentro de la zona Fibonacci.
+
+Nota: Este reporte es solo una alerta técnica. No ejecuta operaciones ni constituye recomendación financiera.

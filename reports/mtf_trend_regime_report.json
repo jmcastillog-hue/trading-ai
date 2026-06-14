@@ -1,0 +1,156 @@
+{
+    "summary": {
+        "market_regime": "BEARISH_CONTEXT_WITH_4H_PULLBACK",
+        "preferred_direction": "SHORT_AFTER_CONFIRMATION",
+        "trend_change_risk": "MEDIUM",
+        "comment": "Diario bajista con rebote/transición en 4H, pero 1H/30M muestran debilidad. Contexto compatible con short tras confirmación.",
+        "bias_map": {
+            "1d": "BEARISH",
+            "4h": "BULLISH_TRANSITION",
+            "1h": "BEARISH_TRANSITION",
+            "30m": "BEARISH_TRANSITION"
+        }
+    },
+    "timeframes": {
+        "1d": {
+            "timeframe": "1d",
+            "valid": true,
+            "latest_timestamp": "2026-06-14 00:00:00",
+            "close": 64036.63,
+            "ema20": 66632.15563714656,
+            "ema50": 70837.59145797275,
+            "ema200": 78815.11581723519,
+            "rsi": 26.514508342211485,
+            "ema_trend": "BEARISH_TREND",
+            "momentum": "BEARISH_MOMENTUM",
+            "structure": "COMPRESSION_OR_RANGE",
+            "score": -4,
+            "final_bias": "BEARISH",
+            "last_high": {
+                "index": 142,
+                "timestamp": "2026-06-07 00:00:00",
+                "price": 64234.68
+            },
+            "previous_high": {
+                "index": 130,
+                "timestamp": "2026-05-26 00:00:00",
+                "price": 78080.0
+            },
+            "last_low": {
+                "index": 145,
+                "timestamp": "2026-06-10 00:00:00",
+                "price": 60755.0
+            },
+            "previous_low": {
+                "index": 140,
+                "timestamp": "2026-06-05 00:00:00",
+                "price": 59130.91
+            }
+        },
+        "4h": {
+            "timeframe": "4h",
+            "valid": true,
+            "latest_timestamp": "2026-06-14 20:00:00",
+            "close": 64036.63,
+            "ema20": 63825.27043258598,
+            "ema50": 63875.680306745664,
+            "ema200": 69285.2266404505,
+            "rsi": 59.70500597251332,
+            "ema_trend": "BEARISH_PULLBACK_OR_TRANSITION",
+            "momentum": "MILD_BULLISH_MOMENTUM",
+            "structure": "BULLISH_STRUCTURE",
+            "score": 0.5,
+            "final_bias": "BULLISH_TRANSITION",
+            "last_high": {
+                "index": 143,
+                "timestamp": "2026-06-13 20:00:00",
+                "price": 64762.77
+            },
+            "previous_high": {
+                "index": 135,
+                "timestamp": "2026-06-12 12:00:00",
+                "price": 64394.44
+            },
+            "last_low": {
+                "index": 133,
+                "timestamp": "2026-06-12 04:00:00",
+                "price": 62829.81
+            },
+            "previous_low": {
+                "index": 130,
+                "timestamp": "2026-06-11 16:00:00",
+                "price": 62348.0
+            }
+        },
+        "1h": {
+            "timeframe": "1h",
+            "valid": true,
+            "latest_timestamp": "2026-06-14 20:00:00",
+            "close": 64036.63,
+            "ema20": 64127.50780015706,
+            "ema50": 64007.571564825834,
+            "ema200": 63862.14855682528,
+            "rsi": 42.542582639316514,
+            "ema_trend": "BULLISH_PULLBACK_OR_TRANSITION",
+            "momentum": "MILD_BEARISH_MOMENTUM",
+            "structure": "BEARISH_STRUCTURE",
+            "score": -0.5,
+            "final_bias": "BEARISH_TRANSITION",
+            "last_high": {
+                "index": 139,
+                "timestamp": "2026-06-14 10:00:00",
+                "price": 64664.0
+            },
+            "previous_high": {
+                "index": 130,
+                "timestamp": "2026-06-14 01:00:00",
+                "price": 64710.0
+            },
+            "last_low": {
+                "index": 147,
+                "timestamp": "2026-06-14 18:00:00",
+                "price": 63678.83
+            },
+            "previous_low": {
+                "index": 143,
+                "timestamp": "2026-06-14 14:00:00",
+                "price": 63866.66
+            }
+        },
+        "30m": {
+            "timeframe": "30m",
+            "valid": true,
+            "latest_timestamp": "2026-06-14 20:30:00",
+            "close": 64036.63,
+            "ema20": 64034.76492166506,
+            "ema50": 64142.637787090534,
+            "ema200": 63670.39117430483,
+            "rsi": 39.21579149099269,
+            "ema_trend": "ABOVE_EMA200_MIXED",
+            "momentum": "BEARISH_MOMENTUM",
+            "structure": "BEARISH_STRUCTURE",
+            "score": -1,
+            "final_bias": "BEARISH_TRANSITION",
+            "last_high": {
+                "index": 140,
+                "timestamp": "2026-06-14 16:00:00",
+                "price": 64208.92
+            },
+            "previous_high": {
+                "index": 129,
+                "timestamp": "2026-06-14 10:30:00",
+                "price": 64664.0
+            },
+            "last_low": {
+                "index": 144,
+                "timestamp": "2026-06-14 18:00:00",
+                "price": 63678.83
+            },
+            "previous_low": {
+                "index": 137,
+                "timestamp": "2026-06-14 14:30:00",
+                "price": 63866.66
+            }
+        }
+    }
+}

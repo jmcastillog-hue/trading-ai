@@ -1,0 +1,66 @@
+=== MTF TREND REGIME ENGINE V1 ===
+
+market_regime: BEARISH_CONTEXT_WITH_4H_PULLBACK
+preferred_direction: SHORT_AFTER_CONFIRMATION
+trend_change_risk: MEDIUM
+comment: Diario bajista con rebote/transición en 4H, pero 1H/30M muestran debilidad. Contexto compatible con short tras confirmación.
+
+--- BIAS MAP ---
+1d: BEARISH
+4h: BULLISH_TRANSITION
+1h: BEARISH_TRANSITION
+30m: BEARISH_TRANSITION
+
+--- TIMEFRAME 1D ---
+timestamp: 2026-06-14 00:00:00
+close: 64036.63
+ema20: 66632.16
+ema50: 70837.59
+ema200: 78815.12
+rsi: 26.51
+ema_trend: BEARISH_TREND
+momentum: BEARISH_MOMENTUM
+structure: COMPRESSION_OR_RANGE
+score: -4.00
+final_bias: BEARISH
+
+--- TIMEFRAME 4H ---
+timestamp: 2026-06-14 20:00:00
+close: 64036.63
+ema20: 63825.27
+ema50: 63875.68
+ema200: 69285.23
+rsi: 59.71
+ema_trend: BEARISH_PULLBACK_OR_TRANSITION
+momentum: MILD_BULLISH_MOMENTUM
+structure: BULLISH_STRUCTURE
+score: 0.50
+final_bias: BULLISH_TRANSITION
+
+--- TIMEFRAME 1H ---
+timestamp: 2026-06-14 20:00:00
+close: 64036.63
+ema20: 64127.51
+ema50: 64007.57
+ema200: 63862.15
+rsi: 42.54
+ema_trend: BULLISH_PULLBACK_OR_TRANSITION
+momentum: MILD_BEARISH_MOMENTUM
+structure: BEARISH_STRUCTURE
+score: -0.50
+final_bias: BEARISH_TRANSITION
+
+--- TIMEFRAME 30M ---
+timestamp: 2026-06-14 20:30:00
+close: 64036.63
+ema20: 64034.76
+ema50: 64142.64
+ema200: 63670.39
+rsi: 39.22
+ema_trend: ABOVE_EMA200_MIXED
+momentum: BEARISH_MOMENTUM
+structure: BEARISH_STRUCTURE
+score: -1.00
+final_bias: BEARISH_TRANSITION
+
+Nota: Este módulo entrega contexto multi-timeframe. No ejecuta operaciones ni reemplaza la señal Fib V5.

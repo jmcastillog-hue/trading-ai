@@ -1,0 +1,278 @@
+{
+    "alert": {
+        "setup_active": true,
+        "state": "FIB_ZONE_ACTIVE",
+        "bias": "BEARISH",
+        "current_price": 64036.63,
+        "comment": "El precio está dentro de la zona Fibonacci 0.236–0.382. Buscar vela bajista 30m.",
+        "impulse": {
+            "high_index": 167,
+            "low_index": 244,
+            "high_timestamp": "2026-05-23 20:00:00",
+            "low_timestamp": "2026-06-05 16:00:00",
+            "high_price": 77404.18,
+            "low_price": 59130.91,
+            "drop_pct": 23.607601036533158
+        },
+        "fib_levels": {
+            "0.236": 63443.40172,
+            "0.382": 66111.29914,
+            "0.500": 68267.545,
+            "0.618": 70423.79086,
+            "0.786": 73493.70022,
+            "1.000": 77404.18
+        },
+        "entry_zone_low": 63443.40172,
+        "entry_zone_high": 66111.29914,
+        "stop_price": 70423.79086,
+        "target_price": 59130.91,
+        "distance_to_zone_pct": 0.0,
+        "entry_signal": false,
+        "entry": {
+            "entry_signal": false,
+            "entry_time": "2026-06-14 20:00:00",
+            "entry_price": 63923.99,
+            "candle_open": 63801.99,
+            "candle_high": 63960.0,
+            "candle_low": 63794.09,
+            "candle_close": 63923.99,
+            "comment": "Aún no hay vela bajista 30m válida dentro de la zona."
+        },
+        "entry_price": null,
+        "tp1_price": null,
+        "tp1_ratio": 0.4,
+        "tp1_close_weight": 0.5,
+        "candidates": [
+            {
+                "setup_active": false,
+                "state": "SCENARIO_INVALIDATED",
+                "bias": "NEUTRAL",
+                "current_price": 64036.63,
+                "comment": "El precio superó la invalidación 0.618. No buscar short bajo este setup.",
+                "impulse": {
+                    "high_index": 257,
+                    "low_index": 272,
+                    "high_timestamp": "2026-06-07 20:00:00",
+                    "low_timestamp": "2026-06-10 08:00:00",
+                    "high_price": 64234.68,
+                    "low_price": 60755.0,
+                    "drop_pct": 5.4171360392859444
+                },
+                "fib_levels": {
+                    "0.236": 61576.20448,
+                    "0.382": 62084.23776,
+                    "0.500": 62494.84,
+                    "0.618": 62905.442240000004,
+                    "0.786": 63490.02848,
+                    "1.000": 64234.68
+                },
+                "entry_zone_low": 61576.20448,
+                "entry_zone_high": 62084.23776,
+                "stop_price": 62905.442240000004,
+                "target_price": 60755.0,
+                "distance_to_zone_pct": 3.0488678745274287,
+                "entry_signal": false,
+                "entry": {
+                    "entry_signal": false,
+                    "entry_time": "2026-06-14 20:00:00",
+                    "entry_price": 63923.99,
+                    "candle_open": 63801.99,
+                    "candle_high": 63960.0,
+                    "candle_low": 63794.09,
+                    "candle_close": 63923.99,
+                    "comment": "Aún no hay vela bajista 30m válida dentro de la zona."
+                },
+                "entry_price": null,
+                "tp1_price": null,
+                "tp1_ratio": 0.4,
+                "tp1_close_weight": 0.5
+            },
+            {
+                "setup_active": false,
+                "state": "SCENARIO_INVALIDATED",
+                "bias": "NEUTRAL",
+                "current_price": 64036.63,
+                "comment": "El precio superó la invalidación 0.618. No buscar short bajo este setup.",
+                "impulse": {
+                    "high_index": 261,
+                    "low_index": 272,
+                    "high_timestamp": "2026-06-08 12:00:00",
+                    "low_timestamp": "2026-06-10 08:00:00",
+                    "high_price": 64200.0,
+                    "low_price": 60755.0,
+                    "drop_pct": 5.366043613707165
+                },
+                "fib_levels": {
+                    "0.236": 61568.02,
+                    "0.382": 62070.99,
+                    "0.500": 62477.5,
+                    "0.618": 62884.01,
+                    "0.786": 63462.77,
+                    "1.000": 64200.0
+                },
+                "entry_zone_low": 61568.02,
+                "entry_zone_high": 62070.99,
+                "stop_price": 62884.01,
+                "target_price": 60755.0,
+                "distance_to_zone_pct": 3.0695556590032917,
+                "entry_signal": false,
+                "entry": {
+                    "entry_signal": false,
+                    "entry_time": "2026-06-14 20:00:00",
+                    "entry_price": 63923.99,
+                    "candle_open": 63801.99,
+                    "candle_high": 63960.0,
+                    "candle_low": 63794.09,
+                    "candle_close": 63923.99,
+                    "comment": "Aún no hay vela bajista 30m válida dentro de la zona."
+                },
+                "entry_price": null,
+                "tp1_price": null,
+                "tp1_ratio": 0.4,
+                "tp1_close_weight": 0.5
+            },
+            {
+                "setup_active": true,
+                "state": "FIB_ZONE_ACTIVE",
+                "bias": "BEARISH",
+                "current_price": 64036.63,
+                "comment": "El precio está dentro de la zona Fibonacci 0.236–0.382. Buscar vela bajista 30m.",
+                "impulse": {
+                    "high_index": 167,
+                    "low_index": 244,
+                    "high_timestamp": "2026-05-23 20:00:00",
+                    "low_timestamp": "2026-06-05 16:00:00",
+                    "high_price": 77404.18,
+                    "low_price": 59130.91,
+                    "drop_pct": 23.607601036533158
+                },
+                "fib_levels": {
+                    "0.236": 63443.40172,
+                    "0.382": 66111.29914,
+                    "0.500": 68267.545,
+                    "0.618": 70423.79086,
+                    "0.786": 73493.70022,
+                    "1.000": 77404.18
+                },
+                "entry_zone_low": 63443.40172,
+                "entry_zone_high": 66111.29914,
+                "stop_price": 70423.79086,
+                "target_price": 59130.91,
+                "distance_to_zone_pct": 0.0,
+                "entry_signal": false,
+                "entry": {
+                    "entry_signal": false,
+                    "entry_time": "2026-06-14 20:00:00",
+                    "entry_price": 63923.99,
+                    "candle_open": 63801.99,
+                    "candle_high": 63960.0,
+                    "candle_low": 63794.09,
+                    "candle_close": 63923.99,
+                    "comment": "Aún no hay vela bajista 30m válida dentro de la zona."
+                },
+                "entry_price": null,
+                "tp1_price": null,
+                "tp1_ratio": 0.4,
+                "tp1_close_weight": 0.5
+            },
+            {
+                "setup_active": true,
+                "state": "FIB_ZONE_ACTIVE",
+                "bias": "BEARISH",
+                "current_price": 64036.63,
+                "comment": "El precio está dentro de la zona Fibonacci 0.236–0.382. Buscar vela bajista 30m.",
+                "impulse": {
+                    "high_index": 170,
+                    "low_index": 244,
+                    "high_timestamp": "2026-05-24 08:00:00",
+                    "low_timestamp": "2026-06-05 16:00:00",
+                    "high_price": 77543.15,
+                    "low_price": 59130.91,
+                    "drop_pct": 23.744508702573977
+                },
+                "fib_levels": {
+                    "0.236": 63476.19864,
+                    "0.382": 66164.38568,
+                    "0.500": 68337.03,
+                    "0.618": 70509.67431999999,
+                    "0.786": 73602.93063999999,
+                    "1.000": 77543.15
+                },
+                "entry_zone_low": 63476.19864,
+                "entry_zone_high": 66164.38568,
+                "stop_price": 70509.67431999999,
+                "target_price": 59130.91,
+                "distance_to_zone_pct": 0.0,
+                "entry_signal": false,
+                "entry": {
+                    "entry_signal": false,
+                    "entry_time": "2026-06-14 20:00:00",
+                    "entry_price": 63923.99,
+                    "candle_open": 63801.99,
+                    "candle_high": 63960.0,
+                    "candle_low": 63794.09,
+                    "candle_close": 63923.99,
+                    "comment": "Aún no hay vela bajista 30m válida dentro de la zona."
+                },
+                "entry_price": null,
+                "tp1_price": null,
+                "tp1_ratio": 0.4,
+                "tp1_close_weight": 0.5
+            },
+            {
+                "setup_active": true,
+                "state": "FIB_ZONE_ACTIVE",
+                "bias": "BEARISH",
+                "current_price": 64036.63,
+                "comment": "El precio está dentro de la zona Fibonacci 0.236–0.382. Buscar vela bajista 30m.",
+                "impulse": {
+                    "high_index": 177,
+                    "low_index": 244,
+                    "high_timestamp": "2026-05-25 12:00:00",
+                    "low_timestamp": "2026-06-05 16:00:00",
+                    "high_price": 77905.52,
+                    "low_price": 59130.91,
+                    "drop_pct": 24.099203753469585
+                },
+                "fib_levels": {
+                    "0.236": 63561.71796,
+                    "0.382": 66302.81102000001,
+                    "0.500": 68518.215,
+                    "0.618": 70733.61898,
+                    "0.786": 73887.75346,
+                    "1.000": 77905.52
+                },
+                "entry_zone_low": 63561.71796,
+                "entry_zone_high": 66302.81102000001,
+                "stop_price": 70733.61898,
+                "target_price": 59130.91,
+                "distance_to_zone_pct": 0.0,
+                "entry_signal": false,
+                "entry": {
+                    "entry_signal": false,
+                    "entry_time": "2026-06-14 20:00:00",
+                    "entry_price": 63923.99,
+                    "candle_open": 63801.99,
+                    "candle_high": 63960.0,
+                    "candle_low": 63794.09,
+                    "candle_close": 63923.99,
+                    "comment": "Aún no hay vela bajista 30m válida dentro de la zona."
+                },
+                "entry_price": null,
+                "tp1_price": null,
+                "tp1_ratio": 0.4,
+                "tp1_close_weight": 0.5
+            }
+        ]
+    },
+    "risk_report": {
+        "risk_check": "NO_ENTRY_SIGNAL",
+        "comment": "No hay señal de entrada activa. No se calcula tamaño de posición."
+    },
+    "decision": {
+        "decision": "WATCH_ONLY",
+        "permission": "ALERT_ONLY",
+        "reason": "Hay setup activo, pero todavía no existe señal de entrada.",
+        "state": "FIB_ZONE_ACTIVE"
+    }
+}

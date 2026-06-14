@@ -1,0 +1,22 @@
+=== ANALYST AGENT V1 ===
+
+Activo: BTCUSDT
+Timeframe: 15m
+
+Señal: WAIT
+Confianza: 55/100
+Tendencia: BULLISH
+Momentum: NEUTRAL
+Sesgo probabilístico: BEARISH
+
+Lectura técnica:
+- Las medias móviles muestran estructura alcista.
+- RSI actual: 51.90.
+- ATR actual: 181.50.
+- Continuación alcista histórica: 42.12%.
+- Continuación bajista histórica: 50.00%.
+
+Conclusión:
+El sistema recomienda esperar. No hay ventaja suficiente para tomar una decisión direccional.
+
+Nota: Este reporte no ejecuta operaciones ni constituye recomendación financiera.
