@@ -1,0 +1,57 @@
+﻿# Entorno virtual
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Variables de entorno y secretos
+.env
+.env.local
+*.key
+*.pem
+
+# Logs
+logs/*
+!logs/.gitkeep
+*.log
+
+# Datos generados por mercado
+data/*.csv
+data/*.xlsx
+data/*.json
+!data/.gitkeep
+
+# Reportes generados
+reports/*.txt
+reports/*.csv
+reports/*.json
+reports/*.xlsx
+!reports/.gitkeep
+
+# Backups locales
+_local_backup/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# VS Code
+.vscode/
+
+# Pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Archivos temporales
+*.tmp
+*.bak
