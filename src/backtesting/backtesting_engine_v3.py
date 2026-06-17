@@ -257,6 +257,7 @@ def run_backtest_v3(
     csv_path: str | Path,
     config: BacktestConfig | None = None,
     output_dir: str | Path = "reports",
+    strategy_func=None,
 ) -> tuple[pd.DataFrame, dict]:
     """
     Ejecuta Backtesting Engine V3 sobre un archivo CSV OHLCV.
@@ -291,9 +292,10 @@ def run_backtest_v3(
 
         signal = generate_basic_signal(row, direction_mode=config.direction_mode)
 
-        if signal == "NONE":
-            i += 1
-            continue
+        if strategy_func is not None:
+            signal = strategy_func(df, i, config)
+        else:
+            signal = generate_basic_signal(row, direction_mode=config.direction_mode)
 
         trade = simulate_trade(
             df=df,
