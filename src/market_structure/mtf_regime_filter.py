@@ -87,17 +87,16 @@ def enrich_15m_with_mtf_regime(
 
     return entry_df
 
-
 def short_allowed_by_mtf_regime(regime_1h: str, regime_4h: str) -> bool:
     """
-    Regla inicial conservadora:
+    Initial conservative rule for SHORT.
 
-    Permite SHORT si:
-    - 1h no está STRONG_BULLISH.
-    - 4h no está STRONG_BULLISH.
-    - 1h y 4h existen.
+    Allows SHORT if:
+    - 1h is not STRONG_BULLISH.
+    - 4h is not STRONG_BULLISH.
+    - 1h and 4h regimes exist.
 
-    Esta regla no busca predecir. Solo evita shorts contra impulso alcista fuerte.
+    This rule avoids selling against strong bullish impulse.
     """
 
     if regime_1h == "UNKNOWN" or regime_4h == "UNKNOWN":
@@ -107,6 +106,30 @@ def short_allowed_by_mtf_regime(regime_1h: str, regime_4h: str) -> bool:
         return False
 
     if regime_4h == "STRONG_BULLISH":
+        return False
+
+    return True
+
+
+def long_allowed_by_mtf_regime(regime_1h: str, regime_4h: str) -> bool:
+    """
+    Initial conservative rule for LONG.
+
+    Allows LONG if:
+    - 1h is not STRONG_BEARISH.
+    - 4h is not STRONG_BEARISH.
+    - 1h and 4h regimes exist.
+
+    This rule avoids buying against strong bearish impulse.
+    """
+
+    if regime_1h == "UNKNOWN" or regime_4h == "UNKNOWN":
+        return False
+
+    if regime_1h == "STRONG_BEARISH":
+        return False
+
+    if regime_4h == "STRONG_BEARISH":
         return False
 
     return True
