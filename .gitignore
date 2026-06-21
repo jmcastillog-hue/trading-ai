@@ -65,3 +65,6 @@ reports/cost_aware_filter_v1/
 
 # Generated outputs - Phase 2.3
 reports/monte_carlo_risk_engine_v1/
+
+# Generated outputs - Phase 2.4
+reports/position_sizing_engine_v1/
