@@ -77,3 +77,6 @@ reports/paper_trading_readiness_gate_v1/
 
 # Generated outputs - Phase 2.7
 reports/forward_observation_engine_v1/
+
+# Generated outputs - Phase 2.8
+reports/forward_signal_journal_v1/
