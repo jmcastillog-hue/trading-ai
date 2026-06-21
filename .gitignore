@@ -83,3 +83,6 @@ reports/forward_signal_journal_v1/
 
 # Generated outputs - Phase 2.9
 reports/forward_signal_recorder_v1/
+
+# Generated outputs - Phase 3.1
+reports/forward_observation_intake_v1/
