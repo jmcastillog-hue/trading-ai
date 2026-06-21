@@ -55,3 +55,7 @@ htmlcov/
 # Archivos temporales
 *.tmp
 *.bak
+
+# Generated outputs - Phase 2.1
+data/walk_forward_engine_v1/
+reports/walk_forward_engine_v1/
