@@ -1,0 +1,22 @@
+column,required,type,allowed_values,description
+observed_at,True,datetime text,YYYY-MM-DD HH:MM:SS,Date and time when the theoretical signal was observed.
+symbol,True,text,Example: BTCUSDT,Observed market symbol.
+timeframe,True,text,"Example: 15m, 1h, 4h, 1d",Chart timeframe used for the observation.
+cost_profile,True,text,"BINANCE_SCALP_BASE_ESTIMATE, QUANTFURY_SWING_BASE_ESTIMATE",Cost profile to test the observation under.
+context_name,True,text,"NORMAL_VALIDATION_CONTEXT, WAVE_5_CAUTION_CONTEXT, STRONG_MTF_CONTEXT, WAVE_3_OPPORTUNITY_CONTEXT",Manual market context classification.
+direction,True,text,"SHORT, LONG",Theoretical direction of the observed signal.
+entry_theoretical,True,float,Positive price,Theoretical entry price. This is not an executed entry.
+stop_theoretical,True,float,Positive price,Theoretical stop price. For SHORT it must be above entry. For LONG it must be below entry.
+target_theoretical,True,float,Positive price,Theoretical target price. For SHORT it must be below entry. For LONG it must be above entry.
+invalidation_level,True,float,Positive price,Manual price level that invalidates the idea.
+invalidation_reason,True,text,Free text,Why the observation should be invalidated if that level is reached.
+manual_reviewer,True,text,Free text,Person or process responsible for manual review.
+manual_notes,True,text,Free text,"Manual notes about context, setup quality, liquidity, Fibonacci, Elliott or invalidation."
+resolve_now,False,boolean,"True, False",Whether the observation is already resolved at intake time.
+observed_exit,False,float,Positive price or blank,Observed theoretical exit price if the observation is already resolved.
+exit_reason,False,text,Free text or blank,Reason why the observation was resolved.
+max_favorable_excursion_r,False,float,R multiple or blank,Maximum favorable movement in R before resolution.
+max_adverse_excursion_r,False,float,R multiple or blank,Maximum adverse movement in R before resolution.
+bars_to_resolution,False,integer,Integer or blank,Number of bars from observation to resolution.
+data_source,False,text,Free text,Manual source label. Example: TradingView manual observation.
+screenshot_path,False,text,File path or blank,Optional screenshot path for later review.
