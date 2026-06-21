@@ -71,3 +71,6 @@ reports/position_sizing_engine_v1/
 
 # Generated outputs - Phase 2.5
 reports/context_risk_router_v1/
+
+# Generated outputs - Phase 2.6
+reports/paper_trading_readiness_gate_v1/
