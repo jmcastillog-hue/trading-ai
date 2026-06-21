@@ -74,3 +74,6 @@ reports/context_risk_router_v1/
 
 # Generated outputs - Phase 2.6
 reports/paper_trading_readiness_gate_v1/
+
+# Generated outputs - Phase 2.7
+reports/forward_observation_engine_v1/
