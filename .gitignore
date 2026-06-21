@@ -89,3 +89,7 @@ reports/forward_observation_intake_v1/
 
 # Generated outputs - Phase 3.2
 reports/manual_forward_observation_template_v1/
+
+# Generated outputs - Phase 3.3
+reports/manual_observation_processor_v1/
+data/forward_observation/
