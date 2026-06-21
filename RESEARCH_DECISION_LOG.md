@@ -642,3 +642,136 @@ Estado actual:
 Proyecto en fase de investigación cuantitativa.
 Próximo foco recomendado: robust validation del lado SHORT.
 ```
+## Fase 1.29 - Strategy Candidate Decision Report
+
+### Fecha de decision
+
+2026-06-20
+
+### Estrategia candidata oficial
+
+La primera estrategia candidata seria del proyecto queda definida como:
+
+TARGET_SHORT_FIB_V5_MTF_V3_1 + FIXED_RR_2_5
+
+Componentes:
+
+* Estrategia base: SHORT_FIB_V5_MTF
+* Filtro direccional: Directional Context Filter V3.1
+* Contexto robusto principal: SHORT_CAUTION, 1H BEARISH_TREND, 4H BEARISH_OVEREXTENDED
+* Salida principal: FIXED_RR_2_5
+
+### Decision
+
+TARGET_SHORT_FIB_V5_MTF_V3_1 + FIXED_RR_2_5 queda aprobada como estrategia candidata de investigacion.
+
+No queda aprobada para paper trading.
+No queda aprobada para capital real.
+No queda aprobada para automatizacion.
+
+### Evidencia acumulada
+
+Fase 1.25 - V3.1 Extended Stress Validation:
+
+* Windows: 48
+* Trades: 212
+* Compound return: +102.09%
+* Avg PF: 1.8954
+* Worst DD: -9.07%
+* Positive window rate: 54.17%
+* Decision: STRESS_WEAK_PASS
+
+Fase 1.26 - Structural Confirmation Engine V1:
+
+* Aprobado como modulo diagnostico.
+* No aprobado como filtro de entrada superior a V3.1.
+
+Fase 1.27 - Active Exit Manager V1:
+
+* Mejor salida: FIXED_RR_2_5
+* Trades: 209
+* Compound return: +90.41%
+* Avg PF: 1.8615
+* Avg expectancy R: 0.3281
+* Worst DD: -8.86%
+* Positive window rate: 56.25%
+* Decision: EXIT_PROMISING
+
+Fase 1.28 - Benchmark Engine V1:
+
+* Target: TARGET_SHORT_FIB_V5_MTF_V3_1
+* Benchmark decision: BENCHMARK_PROMISING
+* Trades: 209
+* Compound return: +90.41%
+* Avg PF: 1.8615
+* Avg expectancy R: 0.3281
+* Worst DD: -8.86%
+* Positive window rate: 56.25%
+
+Benchmarks rechazados:
+
+* BASE_SHORT_FIB_V5_MTF: -99.86%, BENCHMARK_FAILED
+* CONTEXT_ONLY_V3_1_SHORT: -40.76%, BENCHMARK_FAILED
+* EMA_TREND_SHORT: -100.00%, BENCHMARK_FAILED
+* RANDOM_SHORT_SAME_COUNT_SEED_11: -91.07%, BENCHMARK_FAILED
+* RANDOM_SHORT_SAME_COUNT_SEED_22: -82.12%, BENCHMARK_FAILED
+* RANDOM_SHORT_SAME_COUNT_SEED_33: -95.81%, BENCHMARK_FAILED
+
+### Estrategias rechazadas durante Fase 1
+
+* EMA baseline inicial
+* FIB V5 SHORT sin validacion robusta
+* FIB V5 SHORT fuera de regimen
+* FIB V5 MTF sin V3.1
+* FIB V5 MTF Liquidity V2 como filtro superior
+* LONG espejo FIB V5
+* LONG V2 sin holdout robusto
+* LONG V2 con whitelists sobreajustadas
+* Context-only V3.1
+* EMA trend short benchmark
+* Random short baselines
+* Structural Confirmation V1 como filtro de entrada superior
+* Active exits como reemplazo de FIXED_RR_2_5
+
+### Modulos aprobados
+
+* Backtesting Engine V3: motor base de simulacion.
+* Directional Context Filter V3: filtro defensivo inicial.
+* Directional Context Filter V3.1: filtro contextual robusto.
+* Structural Confirmation Engine V1: modulo diagnostico.
+* Active Exit Manager V1: modulo de investigacion de salidas.
+* Benchmark Engine V1: modulo de comparacion contra baselines.
+* TARGET_SHORT_FIB_V5_MTF_V3_1 + FIXED_RR_2_5: estrategia candidata de investigacion.
+
+### Riesgos pendientes
+
+1. La estrategia aun tiene muchas ventanas con pocos trades.
+2. La tasa de ventanas positivas es prometedora, pero no dominante.
+3. El drawdown es controlado, pero debe validarse con mas escenarios.
+4. Falta walk-forward formal.
+5. Falta validacion de costos y slippage mas realista.
+6. Falta Monte Carlo sobre secuencia de trades.
+7. Falta prueba en datos mas recientes fuera de la muestra 2022-2025.
+8. Falta paper trading controlado.
+9. Falta definir protocolo de alertas.
+10. Falta definir limites operativos por activo y regimen.
+
+### Regla vigente del proyecto
+
+Primero medir.
+Despues probar.
+Despues alertar.
+Despues simular.
+Y solo al final automatizar.
+
+### Estado final de Fase 1.29
+
+Fase 1.29 consolida la primera estrategia candidata seria del proyecto.
+
+El proyecto pasa de busqueda de edge a validacion ampliada de una estrategia candidata.
+
+### Proxima fase recomendada
+
+Fase 1.30 - Phase 1 Closure / Phase 2 Readiness Checklist.
+
+Objetivo: revisar si la Fase 1 completa puede cerrarse formalmente y definir criterios de entrada para Fase 2.
