@@ -96,3 +96,6 @@ data/forward_observation/
 
 # Generated outputs - Phase 3.4
 reports/system_forward_observation_record_builder_v1/
+
+# Generated outputs - Phase 3.5
+reports/forward_observation_candidate_detector_v1/
