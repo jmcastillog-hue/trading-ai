@@ -108,3 +108,6 @@ reports/forward_observation_resolution_engine_v1/
 
 # Generated outputs - Phase 3.8
 reports/forward_observation_review_report_v1/
+
+# Generated outputs - Phase 3.9
+reports/phase_3_forward_observation_closure/
