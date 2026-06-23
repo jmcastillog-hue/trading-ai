@@ -114,3 +114,6 @@ reports/phase_3_forward_observation_closure/
 
 # Generated outputs - Phase 4.1
 reports/forward_dataset_quality_gate_v1/
+
+# Generated outputs - Phase 4.2
+reports/forward_performance_metrics_v1/
