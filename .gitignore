@@ -102,3 +102,6 @@ reports/forward_observation_candidate_detector_v1/
 
 # Generated outputs - Phase 3.6
 reports/forward_observation_auto_pipeline_v1/
+
+# Generated outputs - Phase 3.7
+reports/forward_observation_resolution_engine_v1/
