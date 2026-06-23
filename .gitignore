@@ -117,3 +117,6 @@ reports/forward_dataset_quality_gate_v1/
 
 # Generated outputs - Phase 4.2
 reports/forward_performance_metrics_v1/
+
+# Generated outputs - Phase 4.3
+reports/context_performance_analyzer_v1/
