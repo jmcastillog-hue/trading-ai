@@ -135,3 +135,6 @@ reports/forward_observation_batch_runner_v1/
 
 # Generated outputs - Phase 5.2
 reports/forward_observation_batch_resolver_v1/
+
+# Generated outputs - Phase 5.3
+reports/forward_evidence_accumulation_controller_v1/
