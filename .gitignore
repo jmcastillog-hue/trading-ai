@@ -138,3 +138,11 @@ reports/forward_observation_batch_resolver_v1/
 
 # Generated outputs - Phase 5.3
 reports/forward_evidence_accumulation_controller_v1/
+
+# Generated outputs - Phase 5.4
+reports/forward_evidence_dataset_persistence_v1/
+data/forward_evidence/forward_evidence_dataset_v1_validation_sample.csv
+
+# Generated outputs - Phase 5.4
+reports/forward_evidence_dataset_persistence_v1/
+data/forward_evidence/forward_evidence_dataset_v1_validation_sample.csv
