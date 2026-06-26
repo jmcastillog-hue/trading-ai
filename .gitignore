@@ -146,3 +146,9 @@ data/forward_evidence/forward_evidence_dataset_v1_validation_sample.csv
 # Generated outputs - Phase 5.4
 reports/forward_evidence_dataset_persistence_v1/
 data/forward_evidence/forward_evidence_dataset_v1_validation_sample.csv
+
+# Generated outputs - Phase 5.5
+reports/persistent_forward_evidence_cycle_runner_v1/
+data/forward_evidence/forward_evidence_dataset_v1_cycle_validation.csv
+data/forward_evidence/cycle_validation_backups/
+data/forward_evidence/cycle_validation_snapshots/
