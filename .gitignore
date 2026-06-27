@@ -186,3 +186,6 @@ reports/operational_interval_run_profiles_v1/
 
 # Generated outputs - Phase 6.7
 reports/profile_based_interval_forward_evidence_runner_v1/
+
+# Generated outputs - Phase 6.8
+reports/phase_6_8_controlled_short_observation_run_v1/
