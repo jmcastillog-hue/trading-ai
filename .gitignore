@@ -180,3 +180,6 @@ reports/controlled_forward_evidence_cycle_runner_v1/
 
 # Generated outputs - Phase 6.5
 reports/controlled_interval_forward_evidence_runner_v1/
+
+# Generated outputs - Phase 6.6
+reports/operational_interval_run_profiles_v1/
