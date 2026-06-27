@@ -177,3 +177,6 @@ reports/operational_safety_guard_preflight_v1/
 
 # Generated outputs - Phase 6.4
 reports/controlled_forward_evidence_cycle_runner_v1/
+
+# Generated outputs - Phase 6.5
+reports/controlled_interval_forward_evidence_runner_v1/
