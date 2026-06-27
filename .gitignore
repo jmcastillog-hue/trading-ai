@@ -159,3 +159,6 @@ data/forward_evidence/operational/
 
 # Generated outputs - Phase 5.7
 reports/operational_input_file_validator_adapter_v1/
+
+# Generated outputs - Phase 5.8
+reports/operational_persistent_cycle_integration_v1/
