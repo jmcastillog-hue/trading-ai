@@ -156,3 +156,6 @@ data/forward_evidence/cycle_validation_snapshots/
 # Generated outputs - Phase 5.6
 reports/operational_forward_evidence_bootstrap_v1/
 data/forward_evidence/operational/
+
+# Generated outputs - Phase 5.7
+reports/operational_input_file_validator_adapter_v1/
