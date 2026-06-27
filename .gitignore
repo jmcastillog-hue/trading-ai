@@ -162,3 +162,6 @@ reports/operational_input_file_validator_adapter_v1/
 
 # Generated outputs - Phase 5.8
 reports/operational_persistent_cycle_integration_v1/
+
+# Generated outputs - Phase 5.9
+reports/phase_5_operational_evidence_closure_v1/
