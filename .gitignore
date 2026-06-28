@@ -209,3 +209,8 @@ data/forward_evidence/operational/input/ohlc/phase_7_2_*.csv
 
 # Generated outputs - Phase 7.3
 reports/phase_7_3_local_ohlc_bridge_compatibility_v1/
+
+# Generated/local inputs - Phase 7.4
+reports/phase_7_4_manual_reviewed_signal_export_adapter_v1/
+data/market_input/manual_reviewed_signal_export/input/*.csv
+data/forward_evidence/operational/input/signals/phase_7_4_*.csv
