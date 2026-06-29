@@ -217,3 +217,8 @@ data/forward_evidence/operational/input/signals/phase_7_4_*.csv
 
 # Generated outputs - Phase 7.5
 reports/phase_7_5_signal_ohlc_compatibility_incomplete_v1/
+
+# Generated/local inputs - Phase 7.6
+reports/phase_7_6_price_levels_adapter_v1/
+data/market_input/manual_reviewed_price_levels/input/*.csv
+data/forward_evidence/operational/input/price_levels/phase_7_6_*.csv
