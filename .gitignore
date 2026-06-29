@@ -222,3 +222,6 @@ reports/phase_7_5_signal_ohlc_compatibility_incomplete_v1/
 reports/phase_7_6_price_levels_adapter_v1/
 data/market_input/manual_reviewed_price_levels/input/*.csv
 data/forward_evidence/operational/input/price_levels/phase_7_6_*.csv
+
+# Generated outputs - Phase 7.7
+reports/phase_7_7_full_local_bridge_input_compatibility_v1/
