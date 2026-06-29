@@ -225,3 +225,7 @@ data/forward_evidence/operational/input/price_levels/phase_7_6_*.csv
 
 # Generated outputs - Phase 7.7
 reports/phase_7_7_full_local_bridge_input_compatibility_v1/
+
+# Generated outputs - Phase 7.8
+reports/phase_7_8_full_local_bridge_evidence_cycle_v1/
+data/forward_evidence/operational/input/ohlc/phase_7_8_*.csv
