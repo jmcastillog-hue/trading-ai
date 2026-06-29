@@ -232,3 +232,6 @@ data/forward_evidence/operational/input/ohlc/phase_7_8_*.csv
 
 # Generated outputs - Phase 7.9
 reports/phase_7_9_real_market_input_bridge_closure_v1/
+
+# Generated outputs - Phase 8.1
+reports/phase_8_1_long_side_validation_contract_v1/
