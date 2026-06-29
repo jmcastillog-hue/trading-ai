@@ -781,21 +781,28 @@ def build_adapter_summary_df(
     signal_rows = len(adapted_signals_df)
     ohlc_rows = len(adapted_ohlc_df)
     price_level_rows = len(adapted_price_levels_df)
+    rejected_files = len(rejected_files_df)
 
     input_ready_for_cycle = (
         validation_ok
+        and validation_errors == 0
         and signal_files_found > 0
         and ohlc_files_found > 0
+        and price_level_files_found > 0
         and signal_rows > 0
         and ohlc_rows > 0
+        and price_level_rows > 0
+        and rejected_files == 0
     )
 
-    if validation_errors > 0:
+    processing_allowed = input_ready_for_cycle
+
+    if validation_errors > 0 or rejected_files > 0:
         adapter_decision = "OPERATIONAL_INPUT_VALIDATION_FAILED"
-    elif input_ready_for_cycle:
-        adapter_decision = "OPERATIONAL_INPUT_VALIDATED_READY_FOR_CYCLE"
-    else:
+    elif not input_ready_for_cycle:
         adapter_decision = "OPERATIONAL_INPUT_WAITING_FOR_FILES"
+    else:
+        adapter_decision = "OPERATIONAL_INPUT_VALIDATED_READY_FOR_CYCLE"
 
     return pd.DataFrame(
         [
@@ -808,9 +815,9 @@ def build_adapter_summary_df(
                 "adapted_signal_rows": signal_rows,
                 "adapted_ohlc_rows": ohlc_rows,
                 "adapted_price_level_rows": price_level_rows,
-                "rejected_files": len(rejected_files_df),
+                "rejected_files": rejected_files,
                 "input_ready_for_cycle": input_ready_for_cycle,
-                "processing_allowed": input_ready_for_cycle,
+                "processing_allowed": processing_allowed,
                 "paper_trade_execution_allowed": False,
                 "real_capital_allowed": False,
                 "live_alerts_allowed": False,

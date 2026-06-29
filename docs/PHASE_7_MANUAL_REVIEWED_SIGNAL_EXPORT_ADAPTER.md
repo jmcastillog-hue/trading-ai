@@ -30,8 +30,7 @@ Phase 7.3 validated that OHLC alone is incomplete and must not generate evidence
 
 Phase 7.4 adds the second required input family:
 
-```text
-signals
+## signals
 
 The signal output must remain watch-only and manually reviewed.
 
@@ -39,38 +38,38 @@ Input schema
 
 The local source signal CSV must contain at least:
 
-observed_at
-symbol
-timeframe
-signal_type
-router_decision
-cost_profile
-context_name
-direction
-manual_review_required
-notes
-Output schema
+    observed_at
+    symbol
+    timeframe
+    signal_type
+    router_decision
+    cost_profile
+    context_name
+    direction
+    manual_review_required
+    notes
+    Output schema
 
 The adapter writes the operational signal schema:
 
-observed_at
-symbol
-timeframe
-signal_type
-router_decision
-cost_profile
-context_name
-direction
-manual_review_required
-notes
-Safety rules
+    observed_at
+    symbol
+    timeframe
+    signal_type
+    router_decision
+    cost_profile
+    context_name
+    direction
+    manual_review_required
+    notes
+    Safety rules
 
 Every generated signal must satisfy:
 
-manual_review_required = True
-router_decision = WATCH_ONLY
-execution_allowed = False
-Directional scope
+    manual_review_required = True
+    router_decision = WATCH_ONLY
+    execution_allowed = False
+    Directional scope
 
 The controlled fixture in Phase 7.4 uses SHORT because the current official research candidate is SHORT-based.
 
@@ -82,25 +81,26 @@ Explicit non-goals
 
 Phase 7.4 does not:
 
-fetch Binance data
-connect to exchange execution
-create orders
-open positions
-close positions
-generate live alerts
-generate price levels
-approve entries
-complete the LONG side
-generate full evidence alone
-Required complete evidence input
+    fetch Binance data
+    connect to exchange execution
+    create orders
+    open positions
+    close positions
+    generate live alerts
+    generate price levels
+    approve entries
+    complete the LONG side
+    generate full evidence alone
+    Required complete evidence input
 
 A complete operational evidence input still requires:
 
-signals
-ohlc
-price_levels
+    signals
+    ohlc
+    price_levels
 
 Phase 7.4 only creates the signal component.
 
 Expected validation decision
-PHASE_7_4_MANUAL_REVIEWED_SIGNAL_EXPORT_ADAPTER_VALIDATED
+    
+    PHASE_7_4_MANUAL_REVIEWED_SIGNAL_EXPORT_ADAPTER_VALIDATED
