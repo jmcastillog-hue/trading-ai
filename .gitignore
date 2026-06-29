@@ -229,3 +229,6 @@ reports/phase_7_7_full_local_bridge_input_compatibility_v1/
 # Generated outputs - Phase 7.8
 reports/phase_7_8_full_local_bridge_evidence_cycle_v1/
 data/forward_evidence/operational/input/ohlc/phase_7_8_*.csv
+
+# Generated outputs - Phase 7.9
+reports/phase_7_9_real_market_input_bridge_closure_v1/
