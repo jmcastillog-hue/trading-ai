@@ -247,3 +247,6 @@ reports/phase_8_4_long_historical_baseline_backtest_v1/
 
 # Generated outputs - Phase 8.5
 reports/phase_8_5_long_candidate_historical_comparison_v1/
+
+# Generated outputs - Phase 8.6
+reports/phase_8_6_long_oos_baseline_validation_v1/
