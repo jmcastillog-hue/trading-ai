@@ -277,3 +277,6 @@ reports/phase_9_3_long_forward_journal_input_validator_v1/
 
 # Generated outputs - Phase 9.4
 reports/phase_9_4_long_forward_journal_controlled_input_run_v1/
+
+# Generated outputs - Phase 9.5
+reports/phase_9_5_long_forward_observation_dataset_bootstrap_v1/
