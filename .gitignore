@@ -283,3 +283,6 @@ reports/phase_9_5_long_forward_observation_dataset_bootstrap_v1/
 
 # Generated outputs - Phase 9.6
 reports/phase_9_6_long_forward_observation_persistence_guard_v1/
+
+# Generated outputs - Phase 9.7
+reports/phase_9_7_long_forward_observation_controlled_dataset_write_v1/
