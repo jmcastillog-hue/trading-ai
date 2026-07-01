@@ -259,3 +259,6 @@ reports/phase_8_8_long_walk_forward_baseline_validation_v1/
 
 # Generated outputs - Phase 8.9
 reports/phase_8_9_long_cost_aware_baseline_validation_v1/
+
+# Generated outputs - Phase 8.10
+reports/phase_8_10_long_monte_carlo_baseline_validation_v1/
