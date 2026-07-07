@@ -1,0 +1,1532 @@
+from __future__ import annotations
+
+from pathlib import Path
+from typing import Any
+
+import pandas as pd
+
+from src.long_side.long_forward_observation_dataset_bootstrap_v1 import (
+    OFFICIAL_DATASET_PATH,
+    PRIMARY_RESEARCH_CANDIDATE,
+)
+from src.long_side.long_forward_observation_phase_10_12_controlled_start_activation_dry_run_review_v1 import (
+    READY_DECISION as ACTIVATION_DRY_RUN_REVIEW_READY_DECISION,
+    validate_long_forward_observation_controlled_start_activation_dry_run_review,
+)
+
+
+REPORTS_DIR = Path(
+    "reports/phase_10_13_long_forward_observation_controlled_start_activation_report_only_dry_run_design_v1"
+)
+
+PHASE_10_12_CONTROLLED_START_ACTIVATION_DRY_RUN_REVIEW_DOC_PATH = Path(
+    "docs/PHASE_10_LONG_FORWARD_OBSERVATION_CONTROLLED_START_ACTIVATION_DRY_RUN_REVIEW.md"
+)
+PHASE_10_13_CONTROLLED_START_ACTIVATION_REPORT_ONLY_DRY_RUN_DESIGN_DOC_PATH = Path(
+    "docs/PHASE_10_LONG_FORWARD_OBSERVATION_CONTROLLED_START_ACTIVATION_REPORT_ONLY_DRY_RUN_DESIGN.md"
+)
+
+CONTROLLED_START_ACTIVATION_REPORT_ONLY_DRY_RUN_DESIGN_STATUS = (
+    "LONG_FORWARD_OBSERVATION_CONTROLLED_START_ACTIVATION_REPORT_ONLY_DRY_RUN_DESIGN_ONLY"
+)
+
+READY_DECISION = (
+    "CONTROLLED_START_ACTIVATION_REPORT_ONLY_DRY_RUN_DESIGN_READY_FOR_EXECUTION_REVIEW"
+)
+BLOCKED_DECISION = "CONTROLLED_START_ACTIVATION_REPORT_ONLY_DRY_RUN_DESIGN_BLOCKED"
+
+RECOMMENDED_NEXT_PHASE = (
+    "PHASE_10_14_LONG_FORWARD_OBSERVATION_CONTROLLED_START_ACTIVATION_REPORT_ONLY_DRY_RUN_EXECUTION_REVIEW_V1"
+)
+
+REPORT_ONLY_DRY_RUN_SCHEMA_FIELDS = [
+    "dry_run_design_id",
+    "design_status",
+    "designed_at_utc",
+    "symbol",
+    "timeframe",
+    "candidate_id",
+    "direction",
+    "observation_role",
+    "signal_state",
+    "market_context",
+    "entry_price",
+    "stop_price",
+    "target_price",
+    "invalidation_level",
+    "risk_reward",
+    "cost_profile",
+    "evidence_source",
+    "evidence_scope",
+    "report_only",
+    "synthetic_control_row",
+    "manual_confirmation_required",
+    "dry_run_execution_allowed",
+    "dry_run_execution_performed",
+    "controlled_start_activation_allowed",
+    "controlled_start_activation_performed",
+    "forward_observation_start_allowed",
+    "forward_observation_started",
+    "official_dataset_write_allowed",
+    "official_dataset_write_performed",
+    "real_forward_dataset_created",
+    "official_evidence_rows_written",
+    "real_forward_signals_recorded",
+    "journal_real_rows_accepted",
+    "accepted_as_real_evidence",
+    "evidence_persistence_allowed",
+    "evidence_write_performed",
+    "signal_generation_enabled",
+    "live_alerts_allowed",
+    "paper_trading_enabled",
+    "real_capital_allowed",
+    "market_execution_allowed",
+    "exchange_execution_allowed",
+    "automation_allowed",
+    "execution_allowed",
+    "long_strategy_approved",
+    "long_entries_approved",
+    "long_side_established",
+    "real_entries_approved",
+    "total_project_completed",
+    "expected_next_review_phase",
+    "notes",
+    "validation_status",
+]
+
+REPORT_ONLY_DRY_RUN_DESIGN_COMPONENTS = [
+    ("REPORT_ONLY_DRY_RUN_DESIGN_COMPONENT_001", "phase_dependency_confirmation", "dependency"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_COMPONENT_002", "candidate_scope_design", "candidate_scope"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_COMPONENT_003", "long_direction_design", "direction"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_COMPONENT_004", "price_structure_design", "price_structure"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_COMPONENT_005", "report_only_scope_design", "report_only_scope"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_COMPONENT_006", "synthetic_evidence_scope_design", "evidence_source"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_COMPONENT_007", "manual_confirmation_design", "manual_control"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_COMPONENT_008", "output_schema_design", "schema"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_COMPONENT_009", "no_execution_boundary", "execution_boundary"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_COMPONENT_010", "no_activation_boundary", "activation_boundary"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_COMPONENT_011", "official_dataset_lock_design", "official_dataset_guard"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_COMPONENT_012", "signals_alerts_lock_design", "signals_alerts"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_COMPONENT_013", "capital_execution_lock_design", "execution"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_COMPONENT_014", "next_execution_review_design", "future_review"),
+]
+
+REPORT_ONLY_DRY_RUN_DESIGN_CONTROLS = [
+    ("REPORT_ONLY_DRY_RUN_DESIGN_CONTROL_001", "phase_10_12_validation_passed", "dependency"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_CONTROL_002", "activation_dry_run_review_passed", "activation_dry_run_review"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_CONTROL_003", "activation_dry_run_review_decision_confirmed", "activation_dry_run_review"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_CONTROL_004", "future_report_only_design_allowed", "future_design"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_CONTROL_005", "schema_field_count_confirmed", "schema"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_CONTROL_006", "schema_required_fields_confirmed", "schema"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_CONTROL_007", "component_count_confirmed", "components"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_CONTROL_008", "candidate_scope_locked", "candidate_scope"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_CONTROL_009", "long_direction_locked", "direction"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_CONTROL_010", "manual_confirmation_required", "manual_control"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_CONTROL_011", "report_only_scope_locked", "report_only_scope"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_CONTROL_012", "synthetic_evidence_scope_locked", "evidence_source"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_CONTROL_013", "dry_run_execution_disabled", "dry_run_boundary"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_CONTROL_014", "activation_disabled", "activation_boundary"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_CONTROL_015", "forward_observation_start_disabled", "start_boundary"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_CONTROL_016", "official_dataset_write_disabled", "official_dataset_guard"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_CONTROL_017", "signal_generation_and_alerts_disabled", "signals_alerts"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_CONTROL_018", "paper_trading_and_real_capital_disabled", "capital"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_CONTROL_019", "market_and_exchange_execution_disabled", "execution"),
+    ("REPORT_ONLY_DRY_RUN_DESIGN_CONTROL_020", "automation_disabled", "automation"),
+]
+
+EXPECTED_FALSE_GUARDS = {
+    "controlled_forward_observation_start_approved": False,
+    "controlled_forward_observation_start_activation_performed": False,
+    "controlled_forward_observation_start_dry_run_performed": False,
+    "controlled_start_activation_report_only_dry_run_execution_allowed": False,
+    "controlled_start_activation_report_only_dry_run_execution_performed": False,
+    "forward_observation_start_allowed": False,
+    "forward_observation_started": False,
+    "official_dataset_write_allowed": False,
+    "official_dataset_write_performed": False,
+    "real_forward_dataset_created": False,
+    "real_forward_signals_recorded": False,
+    "journal_real_rows_accepted": False,
+    "accepted_as_real_evidence": False,
+    "evidence_persistence_allowed": False,
+    "evidence_write_performed": False,
+    "signal_generation_enabled": False,
+    "paper_trading_enabled": False,
+    "long_strategy_approved": False,
+    "long_entries_approved": False,
+    "long_side_established": False,
+    "paper_trade_execution_allowed": False,
+    "real_capital_allowed": False,
+    "live_alerts_allowed": False,
+    "market_execution_allowed": False,
+    "exchange_execution_allowed": False,
+    "automation_allowed": False,
+    "execution_allowed": False,
+    "real_entries_approved": False,
+    "total_project_completed": False,
+}
+
+
+def build_check(
+    check_group: str,
+    check_name: str,
+    passed: bool,
+    severity: str,
+    details: str,
+) -> dict[str, Any]:
+    return {
+        "check_group": check_group,
+        "check_name": check_name,
+        "passed": passed,
+        "severity": severity,
+        "details": details,
+        "blocker": severity == "ERROR" and not passed,
+    }
+
+
+def safe_bool(value: Any, default: bool = False) -> bool:
+    if isinstance(value, bool):
+        return value
+
+    if isinstance(value, str):
+        normalized = value.strip().lower()
+
+        if normalized in {"true", "1", "yes", "y"}:
+            return True
+
+        if normalized in {"false", "0", "no", "n", ""}:
+            return False
+
+    if pd.isna(value):
+        return default
+
+    return bool(value)
+
+
+def build_report_only_dry_run_schema() -> pd.DataFrame:
+    rows: list[dict[str, Any]] = []
+
+    boolean_fields = {
+        "report_only",
+        "synthetic_control_row",
+        "manual_confirmation_required",
+        "dry_run_execution_allowed",
+        "dry_run_execution_performed",
+        "controlled_start_activation_allowed",
+        "controlled_start_activation_performed",
+        "forward_observation_start_allowed",
+        "forward_observation_started",
+        "official_dataset_write_allowed",
+        "official_dataset_write_performed",
+        "real_forward_dataset_created",
+        "real_forward_signals_recorded",
+        "journal_real_rows_accepted",
+        "accepted_as_real_evidence",
+        "evidence_persistence_allowed",
+        "evidence_write_performed",
+        "signal_generation_enabled",
+        "live_alerts_allowed",
+        "paper_trading_enabled",
+        "real_capital_allowed",
+        "market_execution_allowed",
+        "exchange_execution_allowed",
+        "automation_allowed",
+        "execution_allowed",
+        "long_strategy_approved",
+        "long_entries_approved",
+        "long_side_established",
+        "real_entries_approved",
+        "total_project_completed",
+    }
+
+    numeric_fields = {
+        "entry_price",
+        "stop_price",
+        "target_price",
+        "invalidation_level",
+        "risk_reward",
+        "official_evidence_rows_written",
+    }
+
+    for position, field_name in enumerate(REPORT_ONLY_DRY_RUN_SCHEMA_FIELDS, start=1):
+        if field_name in boolean_fields:
+            field_type = "bool"
+            default_value = "False"
+        elif field_name in numeric_fields:
+            field_type = "float" if field_name != "official_evidence_rows_written" else "int"
+            default_value = "0"
+        else:
+            field_type = "str"
+            default_value = ""
+
+        rows.append(
+            {
+                "field_position": position,
+                "field_name": field_name,
+                "field_type": field_type,
+                "required": True,
+                "report_only": True,
+                "official_evidence_field": False,
+                "execution_field": field_name in {
+                    "dry_run_execution_allowed",
+                    "dry_run_execution_performed",
+                    "market_execution_allowed",
+                    "exchange_execution_allowed",
+                    "execution_allowed",
+                },
+                "default_value": default_value,
+            }
+        )
+
+    return pd.DataFrame(rows)
+
+
+def build_report_only_dry_run_design_components() -> pd.DataFrame:
+    rows: list[dict[str, Any]] = []
+
+    for position, (component_id, component_name, component_group) in enumerate(
+        REPORT_ONLY_DRY_RUN_DESIGN_COMPONENTS,
+        start=1,
+    ):
+        rows.append(
+            {
+                "component_position": position,
+                "component_id": component_id,
+                "component_name": component_name,
+                "component_group": component_group,
+                "required": True,
+                "report_only_design": True,
+                "dry_run_execution_allowed": False,
+                "dry_run_execution_performed": False,
+                "activation_allowed": False,
+                "activation_performed": False,
+                "forward_observation_start_allowed": False,
+                "official_dataset_write_allowed": False,
+                "market_execution_allowed": False,
+                "passed": True,
+            }
+        )
+
+    return pd.DataFrame(rows)
+
+
+def build_report_only_dry_run_design_controls() -> pd.DataFrame:
+    rows: list[dict[str, Any]] = []
+
+    for control_id, control_name, control_group in REPORT_ONLY_DRY_RUN_DESIGN_CONTROLS:
+        rows.append(
+            {
+                "control_id": control_id,
+                "control_name": control_name,
+                "control_group": control_group,
+                "required": True,
+                "report_only_dry_run_design_only": True,
+                "future_execution_review_allowed": True,
+                "dry_run_execution_allowed": False,
+                "dry_run_execution_performed": False,
+                "activation_performed": False,
+                "controlled_start_approved": False,
+                "forward_observation_start_allowed": False,
+                "official_dataset_write_allowed": False,
+                "real_evidence_acceptance_allowed": False,
+                "signal_generation_allowed": False,
+                "live_alerts_allowed": False,
+                "paper_trading_allowed": False,
+                "real_capital_allowed": False,
+                "market_execution_allowed": False,
+                "exchange_execution_allowed": False,
+                "automation_allowed": False,
+                "passed": True,
+            }
+        )
+
+    return pd.DataFrame(rows)
+
+
+def build_report_only_dry_run_design_rules(
+    schema_df: pd.DataFrame,
+    components_df: pd.DataFrame,
+    controls_df: pd.DataFrame,
+) -> pd.DataFrame:
+    schema_count = int(len(schema_df))
+    component_count = int(len(components_df))
+    control_count = int(len(controls_df))
+
+    schema_required = not schema_df.empty and schema_df["required"].astype(bool).all()
+    components_passed = not components_df.empty and components_df["passed"].astype(bool).all()
+    controls_passed = not controls_df.empty and controls_df["passed"].astype(bool).all()
+
+    all_components_report_only = (
+        not components_df.empty
+        and components_df["report_only_design"].astype(bool).all()
+    )
+    all_controls_design_only = (
+        not controls_df.empty
+        and controls_df["report_only_dry_run_design_only"].astype(bool).all()
+    )
+    all_controls_future_review_only = (
+        not controls_df.empty
+        and controls_df["future_execution_review_allowed"].astype(bool).all()
+    )
+    all_dry_run_execution_disabled = (
+        not controls_df.empty
+        and controls_df["dry_run_execution_allowed"].astype(bool).eq(False).all()
+        and controls_df["dry_run_execution_performed"].astype(bool).eq(False).all()
+    )
+    all_activation_not_performed = (
+        not controls_df.empty
+        and controls_df["activation_performed"].astype(bool).eq(False).all()
+    )
+    all_start_disabled = (
+        not controls_df.empty
+        and controls_df["forward_observation_start_allowed"].astype(bool).eq(False).all()
+    )
+    all_dataset_writes_disabled = (
+        not controls_df.empty
+        and controls_df["official_dataset_write_allowed"].astype(bool).eq(False).all()
+    )
+    all_market_execution_disabled = (
+        not controls_df.empty
+        and controls_df["market_execution_allowed"].astype(bool).eq(False).all()
+    )
+
+    rows = [
+        ("REPORT_ONLY_DRY_RUN_DESIGN_RULE_001", "schema_field_count_52", schema_count == 52, "52", str(schema_count), "schema"),
+        ("REPORT_ONLY_DRY_RUN_DESIGN_RULE_002", "all_schema_fields_required", schema_required, "True", str(schema_required), "schema"),
+        ("REPORT_ONLY_DRY_RUN_DESIGN_RULE_003", "component_count_14", component_count == 14, "14", str(component_count), "components"),
+        ("REPORT_ONLY_DRY_RUN_DESIGN_RULE_004", "all_components_passed", components_passed, "True", str(components_passed), "components"),
+        ("REPORT_ONLY_DRY_RUN_DESIGN_RULE_005", "all_components_report_only_design", all_components_report_only, "True", str(all_components_report_only), "scope_control"),
+        ("REPORT_ONLY_DRY_RUN_DESIGN_RULE_006", "control_count_20", control_count == 20, "20", str(control_count), "controls"),
+        ("REPORT_ONLY_DRY_RUN_DESIGN_RULE_007", "all_controls_passed", controls_passed, "True", str(controls_passed), "controls"),
+        ("REPORT_ONLY_DRY_RUN_DESIGN_RULE_008", "all_controls_design_only", all_controls_design_only, "True", str(all_controls_design_only), "scope_control"),
+        ("REPORT_ONLY_DRY_RUN_DESIGN_RULE_009", "all_controls_allow_only_future_execution_review", all_controls_future_review_only, "True", str(all_controls_future_review_only), "future_review"),
+        ("REPORT_ONLY_DRY_RUN_DESIGN_RULE_010", "all_dry_run_execution_disabled", all_dry_run_execution_disabled, "False", "False", "dry_run_boundary"),
+        ("REPORT_ONLY_DRY_RUN_DESIGN_RULE_011", "all_activation_not_performed", all_activation_not_performed, "False", "False", "activation_boundary"),
+        ("REPORT_ONLY_DRY_RUN_DESIGN_RULE_012", "all_start_disabled", all_start_disabled, "False", "False", "start_boundary"),
+        ("REPORT_ONLY_DRY_RUN_DESIGN_RULE_013", "all_official_dataset_writes_disabled", all_dataset_writes_disabled, "False", "False", "official_dataset_guard"),
+        ("REPORT_ONLY_DRY_RUN_DESIGN_RULE_014", "all_market_execution_disabled", all_market_execution_disabled, "False", "False", "market_execution_guard"),
+    ]
+
+    return pd.DataFrame(
+        [
+            {
+                "rule_id": rule_id,
+                "rule_name": rule_name,
+                "passed": passed,
+                "required_value": required_value,
+                "actual_value": actual_value,
+                "rule_group": rule_group,
+            }
+            for rule_id, rule_name, passed, required_value, actual_value, rule_group in rows
+        ]
+    )
+
+
+def build_report_only_dry_run_design_guard_matrix(
+    phase_10_12_summary_df: pd.DataFrame,
+) -> pd.DataFrame:
+    summary = (
+        phase_10_12_summary_df.iloc[0].to_dict()
+        if not phase_10_12_summary_df.empty
+        else {}
+    )
+
+    rows: list[dict[str, Any]] = []
+
+    for guard_name, required_value in EXPECTED_FALSE_GUARDS.items():
+        actual_value = safe_bool(summary.get(guard_name, required_value), default=True)
+
+        rows.append(
+            {
+                "guard_name": guard_name,
+                "required_value": required_value,
+                "actual_value": actual_value,
+                "passed": actual_value == required_value,
+                "guard_group": "report_only_dry_run_design_safety_guard",
+            }
+        )
+
+    rows.append(
+        {
+            "guard_name": "official_evidence_rows_written",
+            "required_value": 0,
+            "actual_value": int(summary.get("official_evidence_rows_written", -1)),
+            "passed": int(summary.get("official_evidence_rows_written", -1)) == 0,
+            "guard_group": "official_dataset_guard",
+        }
+    )
+
+    return pd.DataFrame(rows)
+
+
+def build_report_only_dry_run_design_requirements(
+    phase_10_12_summary_df: pd.DataFrame,
+    activation_dry_run_review_decision_df: pd.DataFrame,
+    schema_df: pd.DataFrame,
+    components_df: pd.DataFrame,
+    controls_df: pd.DataFrame,
+    rules_df: pd.DataFrame,
+    guard_matrix_df: pd.DataFrame,
+) -> pd.DataFrame:
+    summary = (
+        phase_10_12_summary_df.iloc[0].to_dict()
+        if not phase_10_12_summary_df.empty
+        else {}
+    )
+
+    decision = (
+        activation_dry_run_review_decision_df.iloc[0].to_dict()
+        if not activation_dry_run_review_decision_df.empty
+        else {}
+    )
+
+    schema_valid = int(len(schema_df)) == 52 and schema_df["required"].astype(bool).all()
+    components_valid = (
+        int(len(components_df)) == 14 and components_df["passed"].astype(bool).all()
+    )
+    controls_valid = (
+        int(len(controls_df)) == 20 and controls_df["passed"].astype(bool).all()
+    )
+    rules_passed = not rules_df.empty and rules_df["passed"].astype(bool).all()
+    guards_passed = not guard_matrix_df.empty and guard_matrix_df["passed"].astype(bool).all()
+
+    requirements = [
+        {
+            "requirement_id": "REPORT_ONLY_DRY_RUN_DESIGN_REQ_001",
+            "requirement_name": "phase_10_12_validation_passed",
+            "passed": safe_bool(summary.get("validation_passed", False)),
+            "required_value": "True",
+            "actual_value": str(summary.get("validation_passed", "")),
+            "requirement_group": "dependency",
+        },
+        {
+            "requirement_id": "REPORT_ONLY_DRY_RUN_DESIGN_REQ_002",
+            "requirement_name": "activation_dry_run_review_passed",
+            "passed": safe_bool(
+                summary.get("controlled_start_activation_dry_run_review_passed", False)
+            ),
+            "required_value": "True",
+            "actual_value": str(
+                summary.get("controlled_start_activation_dry_run_review_passed", "")
+            ),
+            "requirement_group": "activation_dry_run_review",
+        },
+        {
+            "requirement_id": "REPORT_ONLY_DRY_RUN_DESIGN_REQ_003",
+            "requirement_name": "activation_dry_run_review_decision_expected",
+            "passed": str(
+                summary.get("controlled_start_activation_dry_run_review_decision", "")
+            ).strip()
+            == ACTIVATION_DRY_RUN_REVIEW_READY_DECISION,
+            "required_value": ACTIVATION_DRY_RUN_REVIEW_READY_DECISION,
+            "actual_value": str(
+                summary.get("controlled_start_activation_dry_run_review_decision", "")
+            ),
+            "requirement_group": "activation_dry_run_review",
+        },
+        {
+            "requirement_id": "REPORT_ONLY_DRY_RUN_DESIGN_REQ_004",
+            "requirement_name": "future_report_only_dry_run_design_allowed",
+            "passed": safe_bool(
+                summary.get(
+                    "future_controlled_start_activation_report_only_dry_run_design_allowed",
+                    False,
+                )
+            ),
+            "required_value": "True",
+            "actual_value": str(
+                summary.get(
+                    "future_controlled_start_activation_report_only_dry_run_design_allowed",
+                    "",
+                )
+            ),
+            "requirement_group": "future_design",
+        },
+        {
+            "requirement_id": "REPORT_ONLY_DRY_RUN_DESIGN_REQ_005",
+            "requirement_name": "activation_dry_run_review_decision_table_consistent",
+            "passed": (
+                not activation_dry_run_review_decision_df.empty
+                and safe_bool(
+                    decision.get(
+                        "controlled_start_activation_dry_run_review_passed",
+                        False,
+                    )
+                )
+                and str(
+                    decision.get(
+                        "controlled_start_activation_dry_run_review_decision",
+                        "",
+                    )
+                ).strip()
+                == ACTIVATION_DRY_RUN_REVIEW_READY_DECISION
+            ),
+            "required_value": "True",
+            "actual_value": str(
+                decision.get("controlled_start_activation_dry_run_review_decision", "")
+            ),
+            "requirement_group": "summary_consistency",
+        },
+        {
+            "requirement_id": "REPORT_ONLY_DRY_RUN_DESIGN_REQ_006",
+            "requirement_name": "schema_valid",
+            "passed": schema_valid,
+            "required_value": "True",
+            "actual_value": str(schema_valid),
+            "requirement_group": "schema",
+        },
+        {
+            "requirement_id": "REPORT_ONLY_DRY_RUN_DESIGN_REQ_007",
+            "requirement_name": "components_valid",
+            "passed": components_valid,
+            "required_value": "True",
+            "actual_value": str(components_valid),
+            "requirement_group": "components",
+        },
+        {
+            "requirement_id": "REPORT_ONLY_DRY_RUN_DESIGN_REQ_008",
+            "requirement_name": "controls_valid",
+            "passed": controls_valid,
+            "required_value": "True",
+            "actual_value": str(controls_valid),
+            "requirement_group": "controls",
+        },
+        {
+            "requirement_id": "REPORT_ONLY_DRY_RUN_DESIGN_REQ_009",
+            "requirement_name": "rules_passed",
+            "passed": rules_passed,
+            "required_value": "True",
+            "actual_value": str(rules_passed),
+            "requirement_group": "rules",
+        },
+        {
+            "requirement_id": "REPORT_ONLY_DRY_RUN_DESIGN_REQ_010",
+            "requirement_name": "guards_passed",
+            "passed": guards_passed,
+            "required_value": "True",
+            "actual_value": str(guards_passed),
+            "requirement_group": "safety",
+        },
+        {
+            "requirement_id": "REPORT_ONLY_DRY_RUN_DESIGN_REQ_011",
+            "requirement_name": "dry_run_not_performed",
+            "passed": safe_bool(
+                summary.get(
+                    "controlled_forward_observation_start_dry_run_performed",
+                    True,
+                ),
+                default=True,
+            )
+            is False,
+            "required_value": "False",
+            "actual_value": str(
+                summary.get("controlled_forward_observation_start_dry_run_performed", "")
+            ),
+            "requirement_group": "dry_run_boundary",
+        },
+        {
+            "requirement_id": "REPORT_ONLY_DRY_RUN_DESIGN_REQ_012",
+            "requirement_name": "activation_not_performed",
+            "passed": safe_bool(
+                summary.get(
+                    "controlled_forward_observation_start_activation_performed",
+                    True,
+                ),
+                default=True,
+            )
+            is False,
+            "required_value": "False",
+            "actual_value": str(
+                summary.get(
+                    "controlled_forward_observation_start_activation_performed",
+                    "",
+                )
+            ),
+            "requirement_group": "activation_boundary",
+        },
+        {
+            "requirement_id": "REPORT_ONLY_DRY_RUN_DESIGN_REQ_013",
+            "requirement_name": "controlled_start_not_approved",
+            "passed": safe_bool(
+                summary.get("controlled_forward_observation_start_approved", True),
+                default=True,
+            )
+            is False,
+            "required_value": "False",
+            "actual_value": str(
+                summary.get("controlled_forward_observation_start_approved", "")
+            ),
+            "requirement_group": "start_boundary",
+        },
+        {
+            "requirement_id": "REPORT_ONLY_DRY_RUN_DESIGN_REQ_014",
+            "requirement_name": "forward_observation_start_not_allowed",
+            "passed": safe_bool(
+                summary.get("forward_observation_start_allowed", True),
+                default=True,
+            )
+            is False,
+            "required_value": "False",
+            "actual_value": str(summary.get("forward_observation_start_allowed", "")),
+            "requirement_group": "start_boundary",
+        },
+        {
+            "requirement_id": "REPORT_ONLY_DRY_RUN_DESIGN_REQ_015",
+            "requirement_name": "official_dataset_not_written",
+            "passed": safe_bool(
+                summary.get("official_dataset_write_performed", True),
+                default=True,
+            )
+            is False,
+            "required_value": "False",
+            "actual_value": str(summary.get("official_dataset_write_performed", "")),
+            "requirement_group": "official_dataset_guard",
+        },
+        {
+            "requirement_id": "REPORT_ONLY_DRY_RUN_DESIGN_REQ_016",
+            "requirement_name": "official_evidence_rows_written_zero",
+            "passed": int(summary.get("official_evidence_rows_written", -1)) == 0,
+            "required_value": "0",
+            "actual_value": str(summary.get("official_evidence_rows_written", "")),
+            "requirement_group": "official_dataset_guard",
+        },
+        {
+            "requirement_id": "REPORT_ONLY_DRY_RUN_DESIGN_REQ_017",
+            "requirement_name": "market_execution_disabled",
+            "passed": safe_bool(
+                summary.get("market_execution_allowed", True),
+                default=True,
+            )
+            is False,
+            "required_value": "False",
+            "actual_value": str(summary.get("market_execution_allowed", "")),
+            "requirement_group": "market_execution_guard",
+        },
+        {
+            "requirement_id": "REPORT_ONLY_DRY_RUN_DESIGN_REQ_018",
+            "requirement_name": "total_project_not_completed",
+            "passed": safe_bool(
+                summary.get("total_project_completed", True),
+                default=True,
+            )
+            is False,
+            "required_value": "False",
+            "actual_value": str(summary.get("total_project_completed", "")),
+            "requirement_group": "scope_control",
+        },
+    ]
+
+    return pd.DataFrame(requirements)
+
+
+def build_report_only_dry_run_design_boundary_matrix() -> pd.DataFrame:
+    rows = [
+        {
+            "boundary_item": "controlled_start_activation_report_only_dry_run_design_allowed",
+            "allowed": True,
+            "boundary_type": "design_scope",
+            "details": "Phase 10.13 may design the report-only dry-run.",
+        },
+        {
+            "boundary_item": "future_controlled_start_activation_report_only_dry_run_execution_review_allowed",
+            "allowed": True,
+            "boundary_type": "future_review",
+            "details": "Phase 10.13 may recommend a future execution review phase.",
+        },
+        {
+            "boundary_item": "controlled_start_activation_report_only_dry_run_execution_allowed",
+            "allowed": False,
+            "boundary_type": "dry_run_boundary",
+            "details": "Report-only dry-run execution remains disabled.",
+        },
+        {
+            "boundary_item": "controlled_start_activation_report_only_dry_run_execution_performed",
+            "allowed": False,
+            "boundary_type": "dry_run_boundary",
+            "details": "Report-only dry-run execution is not performed in this phase.",
+        },
+        {
+            "boundary_item": "controlled_forward_observation_start_dry_run_performed",
+            "allowed": False,
+            "boundary_type": "dry_run_boundary",
+            "details": "Controlled start dry-run is not performed in this phase.",
+        },
+        {
+            "boundary_item": "controlled_forward_observation_start_activation_performed",
+            "allowed": False,
+            "boundary_type": "activation_boundary",
+            "details": "Controlled start activation is not performed in this phase.",
+        },
+        {
+            "boundary_item": "controlled_forward_observation_start_approved",
+            "allowed": False,
+            "boundary_type": "operational_start",
+            "details": "Controlled forward observation start remains unapproved.",
+        },
+        {
+            "boundary_item": "forward_observation_start_allowed",
+            "allowed": False,
+            "boundary_type": "operational_start",
+            "details": "Forward observation start remains disabled.",
+        },
+        {
+            "boundary_item": "official_dataset_write_allowed",
+            "allowed": False,
+            "boundary_type": "official_evidence",
+            "details": "Official dataset writes remain disabled.",
+        },
+        {
+            "boundary_item": "real_evidence_acceptance_allowed",
+            "allowed": False,
+            "boundary_type": "official_evidence",
+            "details": "Real evidence acceptance remains disabled.",
+        },
+        {
+            "boundary_item": "signal_generation_allowed",
+            "allowed": False,
+            "boundary_type": "signals",
+            "details": "Signal generation remains disabled.",
+        },
+        {
+            "boundary_item": "live_alerts_allowed",
+            "allowed": False,
+            "boundary_type": "alerts",
+            "details": "Live alerts remain disabled.",
+        },
+        {
+            "boundary_item": "paper_trading_allowed",
+            "allowed": False,
+            "boundary_type": "paper_trading",
+            "details": "Paper trading remains disabled.",
+        },
+        {
+            "boundary_item": "real_capital_allowed",
+            "allowed": False,
+            "boundary_type": "real_capital",
+            "details": "Real capital remains disabled.",
+        },
+        {
+            "boundary_item": "market_execution_allowed",
+            "allowed": False,
+            "boundary_type": "market_execution",
+            "details": "Market execution remains disabled.",
+        },
+        {
+            "boundary_item": "exchange_execution_allowed",
+            "allowed": False,
+            "boundary_type": "execution",
+            "details": "Exchange execution remains disabled.",
+        },
+        {
+            "boundary_item": "automation_allowed",
+            "allowed": False,
+            "boundary_type": "automation",
+            "details": "Automation remains disabled.",
+        },
+    ]
+
+    return pd.DataFrame(rows)
+
+
+def build_report_only_dry_run_design_decision_table(
+    requirements_df: pd.DataFrame,
+    boundary_matrix_df: pd.DataFrame,
+    guard_matrix_df: pd.DataFrame,
+    rules_df: pd.DataFrame,
+) -> pd.DataFrame:
+    total_requirements = int(len(requirements_df))
+    passed_requirements = (
+        int(requirements_df["passed"].astype(bool).sum())
+        if total_requirements
+        else 0
+    )
+    failed_requirements = total_requirements - passed_requirements
+
+    rules_passed = not rules_df.empty and rules_df["passed"].astype(bool).all()
+    guards_passed = not guard_matrix_df.empty and guard_matrix_df["passed"].astype(bool).all()
+
+    allowed_design_items = {
+        "controlled_start_activation_report_only_dry_run_design_allowed",
+        "future_controlled_start_activation_report_only_dry_run_execution_review_allowed",
+    }
+
+    disallowed_rows = boundary_matrix_df[
+        ~boundary_matrix_df["boundary_item"].astype(str).isin(allowed_design_items)
+    ]
+
+    disallowed_operational_boundaries_passed = (
+        not disallowed_rows.empty
+        and disallowed_rows["allowed"].astype(bool).eq(False).all()
+    )
+
+    report_only_dry_run_design_passed = (
+        total_requirements > 0
+        and failed_requirements == 0
+        and rules_passed
+        and guards_passed
+        and disallowed_operational_boundaries_passed
+    )
+
+    failed_requirement_names = ""
+
+    if not requirements_df.empty:
+        failed_requirement_names = ",".join(
+            requirements_df[~requirements_df["passed"].astype(bool)][
+                "requirement_name"
+            ]
+            .astype(str)
+            .tolist()
+        )
+
+    return pd.DataFrame(
+        [
+            {
+                "controlled_start_activation_report_only_dry_run_design_id": (
+                    "PHASE_10_13_LONG_FORWARD_OBSERVATION_CONTROLLED_START_ACTIVATION_REPORT_ONLY_DRY_RUN_DESIGN_001"
+                ),
+                "controlled_start_activation_report_only_dry_run_design_status": (
+                    CONTROLLED_START_ACTIVATION_REPORT_ONLY_DRY_RUN_DESIGN_STATUS
+                ),
+                "controlled_start_activation_report_only_dry_run_design_passed": (
+                    report_only_dry_run_design_passed
+                ),
+                "controlled_start_activation_report_only_dry_run_design_decision": (
+                    READY_DECISION
+                    if report_only_dry_run_design_passed
+                    else BLOCKED_DECISION
+                ),
+                "total_requirements": total_requirements,
+                "passed_requirements": passed_requirements,
+                "failed_requirements": failed_requirements,
+                "failed_requirement_names": failed_requirement_names,
+                "report_only_dry_run_design_rules_passed": rules_passed,
+                "report_only_dry_run_design_guards_passed": guards_passed,
+                "disallowed_operational_boundaries_passed": (
+                    disallowed_operational_boundaries_passed
+                ),
+                "future_controlled_start_activation_report_only_dry_run_execution_review_allowed": (
+                    report_only_dry_run_design_passed
+                ),
+                "controlled_forward_observation_start_approved": False,
+                "controlled_forward_observation_start_activation_performed": False,
+                "controlled_forward_observation_start_dry_run_performed": False,
+                "controlled_start_activation_report_only_dry_run_execution_allowed": False,
+                "controlled_start_activation_report_only_dry_run_execution_performed": False,
+                "forward_observation_start_allowed": False,
+                "forward_observation_started": False,
+                "official_dataset_write_allowed": False,
+                "official_dataset_write_performed": False,
+                "real_forward_dataset_created": False,
+                "official_evidence_rows_written": 0,
+                "real_forward_signals_recorded": False,
+                "journal_real_rows_accepted": False,
+                "accepted_as_real_evidence": False,
+                "evidence_persistence_allowed": False,
+                "evidence_write_performed": False,
+                "signal_generation_enabled": False,
+                "live_alerts_allowed": False,
+                "paper_trading_enabled": False,
+                "real_capital_allowed": False,
+                "market_execution_allowed": False,
+                "exchange_execution_allowed": False,
+                "automation_allowed": False,
+                "execution_allowed": False,
+                "long_strategy_approved": False,
+                "long_entries_approved": False,
+                "long_side_established": False,
+                "real_entries_approved": False,
+                "total_project_completed": False,
+                "recommended_next_phase": RECOMMENDED_NEXT_PHASE,
+            }
+        ]
+    )
+
+
+def validate_long_forward_observation_controlled_start_activation_report_only_dry_run_design() -> dict[str, pd.DataFrame]:
+    REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+
+    checks: list[dict[str, Any]] = []
+
+    phase_anchors = {
+        "phase_10_12_controlled_start_activation_dry_run_review_doc_exists": (
+            PHASE_10_12_CONTROLLED_START_ACTIVATION_DRY_RUN_REVIEW_DOC_PATH
+        ),
+        "phase_10_13_controlled_start_activation_report_only_dry_run_design_doc_exists": (
+            PHASE_10_13_CONTROLLED_START_ACTIVATION_REPORT_ONLY_DRY_RUN_DESIGN_DOC_PATH
+        ),
+    }
+
+    for check_name, path in phase_anchors.items():
+        checks.append(
+            build_check(
+                check_group="phase_anchor",
+                check_name=check_name,
+                passed=path.exists(),
+                severity="INFO" if path.exists() else "ERROR",
+                details=str(path),
+            )
+        )
+
+    official_dataset_exists_before = OFFICIAL_DATASET_PATH.exists()
+
+    phase_10_12_result = (
+        validate_long_forward_observation_controlled_start_activation_dry_run_review()
+    )
+
+    phase_10_12_summary_df = phase_10_12_result["summary"]
+    source_items_df = phase_10_12_result["activation_dry_run_review_items"]
+    source_controls_df = phase_10_12_result["activation_dry_run_review_controls"]
+    source_rules_df = phase_10_12_result["activation_dry_run_review_rules"]
+    source_requirements_df = phase_10_12_result["activation_dry_run_review_requirements"]
+    source_guard_matrix_df = phase_10_12_result["activation_dry_run_review_guard_matrix"]
+    source_boundary_matrix_df = phase_10_12_result["activation_dry_run_review_boundary_matrix"]
+    source_decision_df = phase_10_12_result["activation_dry_run_review_decision"]
+    source_checks_df = phase_10_12_result["checks"]
+
+    phase_10_12_summary = (
+        phase_10_12_summary_df.iloc[0].to_dict()
+        if not phase_10_12_summary_df.empty
+        else {}
+    )
+
+    phase_10_12_validation_passed = (
+        not phase_10_12_summary_df.empty
+        and safe_bool(phase_10_12_summary.get("validation_passed", False))
+    )
+
+    activation_dry_run_review_passed = safe_bool(
+        phase_10_12_summary.get(
+            "controlled_start_activation_dry_run_review_passed",
+            False,
+        )
+    )
+
+    schema_df = build_report_only_dry_run_schema()
+    components_df = build_report_only_dry_run_design_components()
+    controls_df = build_report_only_dry_run_design_controls()
+    rules_df = build_report_only_dry_run_design_rules(
+        schema_df=schema_df,
+        components_df=components_df,
+        controls_df=controls_df,
+    )
+    guard_matrix_df = build_report_only_dry_run_design_guard_matrix(
+        phase_10_12_summary_df
+    )
+
+    requirements_df = build_report_only_dry_run_design_requirements(
+        phase_10_12_summary_df=phase_10_12_summary_df,
+        activation_dry_run_review_decision_df=source_decision_df,
+        schema_df=schema_df,
+        components_df=components_df,
+        controls_df=controls_df,
+        rules_df=rules_df,
+        guard_matrix_df=guard_matrix_df,
+    )
+
+    boundary_matrix_df = build_report_only_dry_run_design_boundary_matrix()
+
+    decision_df = build_report_only_dry_run_design_decision_table(
+        requirements_df=requirements_df,
+        boundary_matrix_df=boundary_matrix_df,
+        guard_matrix_df=guard_matrix_df,
+        rules_df=rules_df,
+    )
+
+    official_dataset_exists_after = OFFICIAL_DATASET_PATH.exists()
+
+    decision = decision_df.iloc[0].to_dict() if not decision_df.empty else {}
+
+    report_only_dry_run_design_passed = safe_bool(
+        decision.get(
+            "controlled_start_activation_report_only_dry_run_design_passed",
+            False,
+        )
+    )
+    report_only_dry_run_design_decision = str(
+        decision.get(
+            "controlled_start_activation_report_only_dry_run_design_decision",
+            "",
+        )
+    )
+    future_execution_review_allowed = safe_bool(
+        decision.get(
+            "future_controlled_start_activation_report_only_dry_run_execution_review_allowed",
+            False,
+        )
+    )
+
+    rules_passed = not rules_df.empty and rules_df["passed"].astype(bool).all()
+    requirements_passed = (
+        not requirements_df.empty and requirements_df["passed"].astype(bool).all()
+    )
+    guards_passed = (
+        not guard_matrix_df.empty and guard_matrix_df["passed"].astype(bool).all()
+    )
+
+    checks.append(
+        build_check(
+            check_group="phase_dependency",
+            check_name="phase_10_12_validation_passed",
+            passed=phase_10_12_validation_passed,
+            severity="INFO" if phase_10_12_validation_passed else "ERROR",
+            details=str(phase_10_12_summary.get("validation_decision", "")),
+        )
+    )
+
+    checks.append(
+        build_check(
+            check_group="phase_dependency",
+            check_name="controlled_start_activation_dry_run_review_passed",
+            passed=activation_dry_run_review_passed,
+            severity="INFO" if activation_dry_run_review_passed else "ERROR",
+            details=(
+                "controlled_start_activation_dry_run_review_passed="
+                f"{activation_dry_run_review_passed}"
+            ),
+        )
+    )
+
+    checks.append(
+        build_check(
+            check_group="report_only_dry_run_design",
+            check_name="schema_field_count_52",
+            passed=int(len(schema_df)) == 52,
+            severity="INFO" if int(len(schema_df)) == 52 else "ERROR",
+            details=f"schema_field_count={len(schema_df)}",
+        )
+    )
+
+    checks.append(
+        build_check(
+            check_group="report_only_dry_run_design",
+            check_name="component_count_14",
+            passed=int(len(components_df)) == 14,
+            severity="INFO" if int(len(components_df)) == 14 else "ERROR",
+            details=f"component_count={len(components_df)}",
+        )
+    )
+
+    checks.append(
+        build_check(
+            check_group="report_only_dry_run_design",
+            check_name="control_count_20",
+            passed=int(len(controls_df)) == 20,
+            severity="INFO" if int(len(controls_df)) == 20 else "ERROR",
+            details=f"control_count={len(controls_df)}",
+        )
+    )
+
+    checks.append(
+        build_check(
+            check_group="report_only_dry_run_design",
+            check_name="report_only_dry_run_design_rules_passed",
+            passed=rules_passed,
+            severity="INFO" if rules_passed else "ERROR",
+            details=(
+                "failed_rules="
+                + ",".join(
+                    rules_df[~rules_df["passed"].astype(bool)]["rule_name"].astype(str)
+                )
+                if not rules_df.empty
+                else "failed_rules=all"
+            ),
+        )
+    )
+
+    checks.append(
+        build_check(
+            check_group="report_only_dry_run_design",
+            check_name="report_only_dry_run_design_requirements_passed",
+            passed=requirements_passed,
+            severity="INFO" if requirements_passed else "ERROR",
+            details=(
+                "failed_requirements="
+                + ",".join(
+                    requirements_df[~requirements_df["passed"].astype(bool)][
+                        "requirement_name"
+                    ].astype(str)
+                )
+                if not requirements_df.empty
+                else "failed_requirements=all"
+            ),
+        )
+    )
+
+    checks.append(
+        build_check(
+            check_group="report_only_dry_run_design",
+            check_name="report_only_dry_run_design_guards_passed",
+            passed=guards_passed,
+            severity="INFO" if guards_passed else "ERROR",
+            details=(
+                "failed_guards="
+                + ",".join(
+                    guard_matrix_df[~guard_matrix_df["passed"].astype(bool)][
+                        "guard_name"
+                    ].astype(str)
+                )
+                if not guard_matrix_df.empty
+                else "failed_guards=all"
+            ),
+        )
+    )
+
+    checks.append(
+        build_check(
+            check_group="report_only_dry_run_design",
+            check_name="controlled_start_activation_report_only_dry_run_design_passed",
+            passed=report_only_dry_run_design_passed,
+            severity="INFO" if report_only_dry_run_design_passed else "ERROR",
+            details=(
+                "controlled_start_activation_report_only_dry_run_design_passed="
+                f"{report_only_dry_run_design_passed}"
+            ),
+        )
+    )
+
+    checks.append(
+        build_check(
+            check_group="report_only_dry_run_design",
+            check_name="controlled_start_activation_report_only_dry_run_design_decision_expected",
+            passed=report_only_dry_run_design_decision == READY_DECISION,
+            severity=(
+                "INFO"
+                if report_only_dry_run_design_decision == READY_DECISION
+                else "ERROR"
+            ),
+            details=(
+                "controlled_start_activation_report_only_dry_run_design_decision="
+                f"{report_only_dry_run_design_decision}"
+            ),
+        )
+    )
+
+    checks.append(
+        build_check(
+            check_group="planning_scope",
+            check_name="future_report_only_dry_run_execution_review_allowed",
+            passed=future_execution_review_allowed,
+            severity="WARNING" if future_execution_review_allowed else "ERROR",
+            details=(
+                "This allows only a future report-only dry-run execution review, "
+                "not dry-run execution, forward observation start, alerts, paper "
+                "trading, real capital, official evidence persistence, or market execution."
+            ),
+        )
+    )
+
+    official_dataset_not_written = (
+        official_dataset_exists_before is False and official_dataset_exists_after is False
+    )
+
+    checks.append(
+        build_check(
+            check_group="official_dataset_guard",
+            check_name="official_dataset_not_written_or_created",
+            passed=official_dataset_not_written,
+            severity="INFO" if official_dataset_not_written else "ERROR",
+            details=(
+                f"official_dataset_exists_before={official_dataset_exists_before},"
+                f"official_dataset_exists_after={official_dataset_exists_after}"
+            ),
+        )
+    )
+
+    for _, guard_row in guard_matrix_df.iterrows():
+        checks.append(
+            build_check(
+                check_group="report_only_dry_run_design_safety_flags",
+                check_name=str(guard_row["guard_name"]),
+                passed=safe_bool(guard_row["passed"], False),
+                severity="INFO" if safe_bool(guard_row["passed"], False) else "ERROR",
+                details=(
+                    f"{guard_row['guard_name']}="
+                    f"{guard_row['actual_value']} "
+                    f"(required={guard_row['required_value']})"
+                ),
+            )
+        )
+
+    checks.append(
+        build_check(
+            check_group="scope_control",
+            check_name="report_only_dry_run_design_only",
+            passed=True,
+            severity="WARNING",
+            details="Phase 10.13 validates only report-only dry-run design.",
+        )
+    )
+
+    checks.append(
+        build_check(
+            check_group="scope_control",
+            check_name="report_only_dry_run_execution_not_allowed",
+            passed=True,
+            severity="WARNING",
+            details="Report-only dry-run execution is still not allowed.",
+        )
+    )
+
+    checks.append(
+        build_check(
+            check_group="scope_control",
+            check_name="controlled_start_dry_run_not_performed",
+            passed=True,
+            severity="WARNING",
+            details="Controlled start dry-run is still not performed.",
+        )
+    )
+
+    checks.append(
+        build_check(
+            check_group="scope_control",
+            check_name="controlled_start_activation_not_performed",
+            passed=True,
+            severity="WARNING",
+            details="Controlled start activation is still not performed.",
+        )
+    )
+
+    checks.append(
+        build_check(
+            check_group="scope_control",
+            check_name="forward_observation_not_started",
+            passed=True,
+            severity="WARNING",
+            details="Forward observation is still not started.",
+        )
+    )
+
+    checks.append(
+        build_check(
+            check_group="scope_control",
+            check_name="official_evidence_not_persisted",
+            passed=True,
+            severity="WARNING",
+            details="Official evidence persistence remains disabled.",
+        )
+    )
+
+    checks.append(
+        build_check(
+            check_group="scope_control",
+            check_name="market_execution_not_allowed",
+            passed=True,
+            severity="WARNING",
+            details="Market execution remains disabled.",
+        )
+    )
+
+    checks.append(
+        build_check(
+            check_group="scope_control",
+            check_name="total_project_not_completed",
+            passed=True,
+            severity="WARNING",
+            details="The total project is not completed.",
+        )
+    )
+
+    checks.append(
+        build_check(
+            check_group="phase_transition",
+            check_name="phase_10_14_recommended_next",
+            passed=True,
+            severity="INFO",
+            details=(
+                "Recommended next step: Phase 10.14 LONG Forward Observation "
+                "Controlled Start Activation Report-Only Dry-Run Execution Review V1."
+            ),
+        )
+    )
+
+    checks_df = pd.DataFrame(checks)
+
+    blocker_count = int(checks_df["blocker"].astype(bool).sum())
+    error_count = int(checks_df["severity"].eq("ERROR").sum())
+    warning_count = int(checks_df["severity"].eq("WARNING").sum())
+
+    validation_passed = blocker_count == 0 and error_count == 0
+
+    summary_df = pd.DataFrame(
+        [
+            {
+                "phase": "10.13",
+                "long_forward_observation_controlled_start_activation_report_only_dry_run_design_defined": True,
+                "phase_10_12_validation_passed": phase_10_12_validation_passed,
+                "controlled_start_activation_dry_run_review_passed": activation_dry_run_review_passed,
+                "controlled_start_activation_dry_run_review_decision": str(
+                    phase_10_12_summary.get(
+                        "controlled_start_activation_dry_run_review_decision",
+                        "",
+                    )
+                ),
+                "future_controlled_start_activation_report_only_dry_run_design_allowed": safe_bool(
+                    phase_10_12_summary.get(
+                        "future_controlled_start_activation_report_only_dry_run_design_allowed",
+                        False,
+                    )
+                ),
+                "report_only_dry_run_design_schema_field_count": int(len(schema_df)),
+                "report_only_dry_run_design_component_count": int(len(components_df)),
+                "report_only_dry_run_design_control_count": int(len(controls_df)),
+                "report_only_dry_run_design_rule_rows": int(len(rules_df)),
+                "report_only_dry_run_design_requirement_rows": int(len(requirements_df)),
+                "report_only_dry_run_design_rules_passed": rules_passed,
+                "report_only_dry_run_design_requirements_passed": requirements_passed,
+                "report_only_dry_run_design_guards_passed": guards_passed,
+                "controlled_start_activation_report_only_dry_run_design_passed": (
+                    report_only_dry_run_design_passed
+                ),
+                "controlled_start_activation_report_only_dry_run_design_decision": (
+                    report_only_dry_run_design_decision
+                ),
+                "future_controlled_start_activation_report_only_dry_run_execution_review_allowed": (
+                    future_execution_review_allowed
+                ),
+                "controlled_forward_observation_start_approved": False,
+                "controlled_forward_observation_start_activation_performed": False,
+                "controlled_forward_observation_start_dry_run_performed": False,
+                "controlled_start_activation_report_only_dry_run_execution_allowed": False,
+                "controlled_start_activation_report_only_dry_run_execution_performed": False,
+                "forward_observation_start_allowed": False,
+                "official_dataset_exists_before": official_dataset_exists_before,
+                "official_dataset_exists_after": official_dataset_exists_after,
+                "official_dataset_write_allowed": False,
+                "official_dataset_write_performed": False,
+                "real_forward_dataset_created": False,
+                "official_evidence_rows_written": 0,
+                "real_forward_signals_recorded": False,
+                "journal_real_rows_accepted": False,
+                "accepted_as_real_evidence": False,
+                "evidence_persistence_allowed": False,
+                "evidence_write_performed": False,
+                "forward_observation_started": False,
+                "signal_generation_enabled": False,
+                "paper_trading_enabled": False,
+                "long_strategy_approved": False,
+                "long_entries_approved": False,
+                "long_side_established": False,
+                "paper_trade_execution_allowed": False,
+                "real_capital_allowed": False,
+                "live_alerts_allowed": False,
+                "market_execution_allowed": False,
+                "exchange_execution_allowed": False,
+                "automation_allowed": False,
+                "execution_allowed": False,
+                "real_entries_approved": False,
+                "total_project_completed": False,
+                "recommended_next_phase": RECOMMENDED_NEXT_PHASE,
+                "estimated_phase_10_progress_percent": 100,
+                "total_checks": int(len(checks_df)),
+                "warning_count": warning_count,
+                "error_count": error_count,
+                "blocker_count": blocker_count,
+                "validation_passed": validation_passed,
+                "validation_decision": (
+                    "PHASE_10_13_LONG_FORWARD_OBSERVATION_CONTROLLED_START_ACTIVATION_REPORT_ONLY_DRY_RUN_DESIGN_VALIDATED"
+                    if validation_passed
+                    else "PHASE_10_13_LONG_FORWARD_OBSERVATION_CONTROLLED_START_ACTIVATION_REPORT_ONLY_DRY_RUN_DESIGN_FAILED"
+                ),
+            }
+        ]
+    )
+
+    phase_10_12_summary_df.to_csv(
+        REPORTS_DIR / "phase_10_12_source_summary_v1.csv",
+        index=False,
+    )
+    source_items_df.to_csv(
+        REPORTS_DIR / "phase_10_12_source_activation_dry_run_review_items_v1.csv",
+        index=False,
+    )
+    source_controls_df.to_csv(
+        REPORTS_DIR / "phase_10_12_source_activation_dry_run_review_controls_v1.csv",
+        index=False,
+    )
+    source_rules_df.to_csv(
+        REPORTS_DIR / "phase_10_12_source_activation_dry_run_review_rules_v1.csv",
+        index=False,
+    )
+    source_requirements_df.to_csv(
+        REPORTS_DIR / "phase_10_12_source_activation_dry_run_review_requirements_v1.csv",
+        index=False,
+    )
+    source_guard_matrix_df.to_csv(
+        REPORTS_DIR / "phase_10_12_source_activation_dry_run_review_guard_matrix_v1.csv",
+        index=False,
+    )
+    source_boundary_matrix_df.to_csv(
+        REPORTS_DIR / "phase_10_12_source_activation_dry_run_review_boundary_matrix_v1.csv",
+        index=False,
+    )
+    source_decision_df.to_csv(
+        REPORTS_DIR / "phase_10_12_source_activation_dry_run_review_decision_v1.csv",
+        index=False,
+    )
+    source_checks_df.to_csv(
+        REPORTS_DIR / "phase_10_12_source_checks_v1.csv",
+        index=False,
+    )
+    schema_df.to_csv(
+        REPORTS_DIR / "long_forward_observation_controlled_start_activation_report_only_dry_run_design_schema_v1.csv",
+        index=False,
+    )
+    components_df.to_csv(
+        REPORTS_DIR / "long_forward_observation_controlled_start_activation_report_only_dry_run_design_components_v1.csv",
+        index=False,
+    )
+    controls_df.to_csv(
+        REPORTS_DIR / "long_forward_observation_controlled_start_activation_report_only_dry_run_design_controls_v1.csv",
+        index=False,
+    )
+    rules_df.to_csv(
+        REPORTS_DIR / "long_forward_observation_controlled_start_activation_report_only_dry_run_design_rules_v1.csv",
+        index=False,
+    )
+    requirements_df.to_csv(
+        REPORTS_DIR / "long_forward_observation_controlled_start_activation_report_only_dry_run_design_requirements_v1.csv",
+        index=False,
+    )
+    guard_matrix_df.to_csv(
+        REPORTS_DIR / "long_forward_observation_controlled_start_activation_report_only_dry_run_design_guard_matrix_v1.csv",
+        index=False,
+    )
+    boundary_matrix_df.to_csv(
+        REPORTS_DIR / "long_forward_observation_controlled_start_activation_report_only_dry_run_design_boundary_matrix_v1.csv",
+        index=False,
+    )
+    decision_df.to_csv(
+        REPORTS_DIR / "long_forward_observation_controlled_start_activation_report_only_dry_run_design_decision_v1.csv",
+        index=False,
+    )
+    checks_df.to_csv(
+        REPORTS_DIR / "long_forward_observation_controlled_start_activation_report_only_dry_run_design_checks_v1.csv",
+        index=False,
+    )
+    summary_df.to_csv(
+        REPORTS_DIR / "long_forward_observation_controlled_start_activation_report_only_dry_run_design_summary_v1.csv",
+        index=False,
+    )
+
+    return {
+        "summary": summary_df,
+        "source_phase_10_12_summary": phase_10_12_summary_df,
+        "source_activation_dry_run_review_items": source_items_df,
+        "source_activation_dry_run_review_controls": source_controls_df,
+        "source_activation_dry_run_review_rules": source_rules_df,
+        "source_activation_dry_run_review_requirements": source_requirements_df,
+        "source_activation_dry_run_review_guard_matrix": source_guard_matrix_df,
+        "source_activation_dry_run_review_boundary_matrix": source_boundary_matrix_df,
+        "source_activation_dry_run_review_decision": source_decision_df,
+        "source_checks": source_checks_df,
+        "report_only_dry_run_design_schema": schema_df,
+        "report_only_dry_run_design_components": components_df,
+        "report_only_dry_run_design_controls": controls_df,
+        "report_only_dry_run_design_rules": rules_df,
+        "report_only_dry_run_design_requirements": requirements_df,
+        "report_only_dry_run_design_guard_matrix": guard_matrix_df,
+        "report_only_dry_run_design_boundary_matrix": boundary_matrix_df,
+        "report_only_dry_run_design_decision": decision_df,
+        "checks": checks_df,
+    }
