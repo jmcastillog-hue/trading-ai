@@ -337,3 +337,9 @@ reports/phase_10_12_long_forward_observation_controlled_start_activation_dry_run
 
 # Generated outputs - Phase 10.13
 reports/phase_10_13_long_forward_observation_controlled_start_activation_report_only_dry_run_design_v1/
+
+# Generated outputs - Phase 10.14
+reports/phase_10_14_long_forward_observation_controlled_start_activation_report_only_dry_run_execution_review_v1/
+
+# Generated outputs - Phase 10.14 short path
+reports/p10_14_activation_exec_review_v1/
