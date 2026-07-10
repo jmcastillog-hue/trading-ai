@@ -343,3 +343,6 @@ reports/phase_10_14_long_forward_observation_controlled_start_activation_report_
 
 # Generated outputs - Phase 10.14 short path
 reports/p10_14_activation_exec_review_v1/
+
+# Generated outputs - Phase 10.15
+reports/p10_15_activation_report_only_run_v1/
