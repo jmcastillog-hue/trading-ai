@@ -1,4 +1,4 @@
-﻿# Entorno virtual
+# Entorno virtual
 .venv/
 venv/
 env/
@@ -376,3 +376,7 @@ reports/p10_24_start_dry_run_output_integrity_review_v1/
 
 # Generated outputs - Phase 10.25
 reports/p10_25_start_final_approval_review_v1/
+
+
+# Generated outputs - Phase 10.26
+reports/p10_26_controlled_start_run_v1/
