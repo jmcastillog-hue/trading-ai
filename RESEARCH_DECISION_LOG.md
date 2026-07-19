@@ -271,6 +271,59 @@ permissions remain false.
 
 `PHASE_10_42R_2D_RECOVERY_CANDIDATE_FAMILY_SPECIFICATION_AND_MULTIPLICITY_FREEZE_V1`
 
+### Phase 10.42R.2D — Candidate-family specification and multiplicity freeze
+
+The Phase 2C evidence is now bounded as hypothesis-generating only. Phase 2D
+declares three new SHORT families—upside sweep reversal, breakdown/retest
+rejection and EMA pullback continuation—with two variants each. Their IDs do
+not reuse the retired FIB identity, and their specification cannot import or
+mutate the rejected strategy.
+
+The complete BTCUSDT/ETHUSDT/SOLUSDT cohort, known 2022–2025 boundary,
+closed-candle MTF availability, next-open fill, RR 2.5, five cost profiles,
+parameters and serialization order are immutable. The six future results form
+one Holm-Bonferroni pool; all must be published without interim stopping or
+winner selection.
+
+Future promotion gates are conjunctive and non-overridable. They include 100
+aggregate OOS trades, 20 per symbol, positive Binance-base normalized edge,
+per-symbol stability, non-negative calendar-year and Binance-stress edge, and
+a Holm-adjusted one-sided p-value no greater than 0.05. A later gate pass would
+still require a separate human research decision and would grant no execution
+permission.
+
+Phase 2D itself writes no backtest, candidate metric, comparison, rank or
+winner. Both holdouts and the official forward dataset remain absent; all
+execution, automation and OpenClaw operational flags remain false. The
+canonical manifest binds eight specification tables to baseline `abb2a4b` and
+the real Phase 2C archive hash.
+
+The only allowed post-closure phase is
+`PHASE_10_42R_2E_FROZEN_RECOVERY_CANDIDATE_IMPLEMENTATION_AND_STATIC_CONFORMANCE_V1`,
+limited to implementation of the frozen rules and synthetic conformance tests.
+
+The real Phase 2D archive was independently reviewed at SHA-256
+`7eaa94579fbb2ad000db675c4f3fb13a276a6403b0b484c06d7e16784e7189d8`.
+Its 15-file inventory is exact; Phase 2C lineage is 14/14; all eight
+specification artifacts match the declarative builder and their manifest
+hashes; and the golden root reproduces as
+`0872b2bf7355e8a9b35d5b4e0e05d3edf291006862ce9ee5eae847910ef4c015`.
+
+The run passed 28/28 controls with zero blockers and zero errors. It contains
+three families, six unique and unevaluated variants, zero backtest,
+comparison and candidate-result rows, and no winner. SHORT and LONG decisions
+are unchanged, both holdouts and the official dataset remain absent, and no
+permission is active.
+
+Decision:
+
+`PHASE_10_42R_2D_RECOVERY_CANDIDATE_SPECIFICATION_AND_MULTIPLICITY_FREEZE_COMPLETED`
+
+This closes only the specification. It is not a successful strategy result.
+Phase 2E is restricted to literal implementation of the frozen registry and
+static/synthetic conformance against the golden root; performance metrics,
+comparative backtesting, selection, holdouts and operations remain prohibited.
+
 ---
 
 ## Arquitectura conceptual actual

@@ -2,7 +2,7 @@
 
 ## Snapshot
 
-- Phase 10.42R.2C source baseline: `c8106fe` — Phase 10.42R.2B V2.
+- Phase 10.42R.2D source baseline: `abb2a4b` — completed Phase 10.42R.2C.
 - Phase 10.42R.2 decision: `PHASE_10_42R_2_CLOSED_CANDLE_MTF_REVALIDATION_COMPLETED`.
 - SHORT decision: `REVALIDATED_REJECTED`.
 - LONG decision: `CERTIFIED_UNAFFECTED_AND_CONSISTENCY_REVALIDATED`.
@@ -12,10 +12,12 @@
   `PHASE_10_42R_2B_COST_NORMALIZATION_AND_RECOVERY_PREREGISTRATION_COMPLETED`.
 - Phase 10.42R.2C decision:
   `PHASE_10_42R_2C_PREREGISTERED_DEVELOPMENT_DIAGNOSTIC_COMPLETED`.
+- Phase 10.42R.2D decision:
+  `PHASE_10_42R_2D_RECOVERY_CANDIDATE_SPECIFICATION_AND_MULTIPLICITY_FREEZE_COMPLETED`.
 - Active phase:
-  `PHASE_10_42R_2D_RECOVERY_CANDIDATE_FAMILY_SPECIFICATION_AND_MULTIPLICITY_FREEZE_V1`.
-- OpenClaw read-only status design and Phase 10.43 remain deferred until the
-  recovery candidate-family and multiplicity contract freezes.
+  `PHASE_10_42R_2E_FROZEN_RECOVERY_CANDIDATE_IMPLEMENTATION_AND_STATIC_CONFORMANCE_V1`.
+- OpenClaw read-only status design and Phase 10.43 remain deferred during the
+  frozen candidate implementation and static/synthetic conformance phase.
 - Official forward-evidence dataset: not created.
 - Total project completed: false.
 
@@ -167,7 +169,7 @@ contained only 72 aggregate trades and 15 BTCUSDT trades and turned slightly
 negative under Binance stress. It therefore fails the locked minimum-evidence
 and stress-stability gates and is not an approved recovery candidate.
 
-## Current required phase
+## Completed Phase 10.42R.2D and current required phase
 
 `PHASE_10_42R_2D_RECOVERY_CANDIDATE_FAMILY_SPECIFICATION_AND_MULTIPLICITY_FREEZE_V1`
 
@@ -181,3 +183,30 @@ Phase 2D may use Phase 2C solely to generate hypotheses. It cannot calculate a
 winning result, retrospectively select a favorable slice, open or create either
 holdout, write forward evidence, produce signals, approve LONG or SHORT, or
 enable any execution, automation or OpenClaw operational permission.
+
+The completed freeze contains exactly three newly identified families and two
+variants each: upside-sweep reversal (48/96 bars), breakdown/retest rejection
+(48/96 bars) and EMA pullback continuation (0/0.25 ATR separation). All share
+the full BTCUSDT/ETHUSDT/SOLUSDT cohort, corrected closed-candle context,
+next-open fill and all five fixed cost profiles. None imports or mutates the
+retired SHORT.
+
+All six variants enter a single Holm-Bonferroni pool in declared order. Future
+promotion gates require at least 100 aggregate OOS trades, 20 in each symbol,
+positive base edge and per-symbol stability, non-negative yearly and stress
+edge, and all other frozen integrity gates. Phase 2D produces zero evaluation
+rows and cannot declare a winner.
+
+After a 28/28, zero-blocker, reproducible specification freeze, the only
+allowed next phase is
+`PHASE_10_42R_2E_FROZEN_RECOVERY_CANDIDATE_IMPLEMENTATION_AND_STATIC_CONFORMANCE_V1`.
+That phase remains implementation/synthetic-conformance only; holdout,
+comparative backtest and every operational permission remain prohibited.
+
+The independently reviewed real Phase 2D report archive has SHA-256
+`7eaa94579fbb2ad000db675c4f3fb13a276a6403b0b484c06d7e16784e7189d8`.
+It contains exactly 15 expected CSV files, passes 28/28 controls with zero
+blockers and zero errors, reproduces all eight frozen artifact tables and the
+golden root SHA-256
+`0872b2bf7355e8a9b35d5b4e0e05d3edf291006862ce9ee5eae847910ef4c015`.
+All six variants remain unevaluated with zero result rows and no winner.

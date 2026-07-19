@@ -8,7 +8,7 @@ capital, exchange orders, live trading alerts and automation remain disabled.
 
 ## Current status
 
-- Phase 10.42R.2C source baseline: Phase 10.42R.2B at commit `c8106fe`.
+- Phase 10.42R.2D source baseline: completed Phase 10.42R.2C at commit `abb2a4b`.
 - Phase 10.42R.2 real-data revalidation: completed and integrity-valid.
 - SHORT candidate: `REVALIDATED_REJECTED`.
 - LONG 15m structural chain: `CERTIFIED_UNAFFECTED_AND_CONSISTENCY_REVALIDATED`.
@@ -19,8 +19,11 @@ capital, exchange orders, live trading alerts and automation remain disabled.
   canonical chronological/window summaries.
 - Phase 10.42R.2C real-data diagnostic: completed with 26/26 controls, zero
   blockers and zero errors.
-- Active workstream: Phase 10.42R.2D candidate-family specification and
-  multiplicity freeze; candidate evaluation is not yet allowed.
+- Phase 10.42R.2D specification freeze: completed with 28/28 controls, zero
+  blockers, six unevaluated variants and the reproducible golden root.
+- Active workstream: Phase 10.42R.2E frozen-rule implementation and
+  static/synthetic conformance; backtesting and candidate evaluation are not
+  allowed.
 - The OpenClaw read-only contract remains deferred while the recovery research
   specification is frozen. Operational integration remains prohibited.
 - OpenClaw operational integration and every execution permission: disabled.
@@ -217,6 +220,48 @@ Phase 2C is therefore closed as a valid descriptive diagnostic, not as a
 successful strategy recovery. The only permitted next phase is:
 
 `PHASE_10_42R_2D_RECOVERY_CANDIDATE_FAMILY_SPECIFICATION_AND_MULTIPLICITY_FREEZE_V1`
+
+## Phase 10.42R.2D candidate-family and multiplicity freeze
+
+Phase 2D specifies three new SHORT families with two variants each: upside
+sweep reversal, breakdown/retest rejection and EMA pullback continuation. It
+freezes the complete BTCUSDT/ETHUSDT/SOLUSDT cohort, closed-candle context,
+next-open fill, five cost profiles, RR 2.5, evaluation order and mandatory
+promotion gates. No old SHORT module is imported or repaired.
+
+The six future hypotheses form one Holm-Bonferroni family-wise pool. Promotion
+would require at least 100 aggregate OOS trades, 20 per symbol, positive base
+edge and symbol stability, non-negative yearly and stress results, and every
+additional non-overridable gate. Phase 2D computes none of those outcomes.
+
+```powershell
+python -m unittest tests.test_recovery_candidate_family_specification_and_multiplicity_freeze -v
+python -m py_compile src\analysis\recovery_candidate_family_specification_v1.py src\validation\recovery_candidate_family_specification_and_multiplicity_freeze_v1.py src\workflows\validate_phase_10_42r_2d_recovery_candidate_family_specification_and_multiplicity_freeze.py
+python -m src.workflows.validate_phase_10_42r_2d_recovery_candidate_family_specification_and_multiplicity_freeze --preflight-only
+python -m src.workflows.validate_phase_10_42r_2d_recovery_candidate_family_specification_and_multiplicity_freeze
+```
+
+The workflow must match all 14 frozen Phase 2C reports, pass 28/28 controls,
+emit zero candidate results and reproduce the documented root SHA-256. Both
+holdouts and the official forward dataset remain absent. A clean close permits
+only Phase 2E frozen-rule implementation and synthetic static conformance; it
+does not permit backtesting, winner selection or operations.
+
+The real Phase 2D report archive has SHA-256
+`7eaa94579fbb2ad000db675c4f3fb13a276a6403b0b484c06d7e16784e7189d8`.
+Independent review reproduced all eight artifact tables, their manifest and
+golden root
+`0872b2bf7355e8a9b35d5b4e0e05d3edf291006862ce9ee5eae847910ef4c015`.
+The run passed 28/28 controls with zero blockers and errors, produced zero
+candidate results and selected no winner. Phase 2D is closed as a valid
+specification freeze, not as evidence of strategy performance.
+
+The only permitted next phase is
+`PHASE_10_42R_2E_FROZEN_RECOVERY_CANDIDATE_IMPLEMENTATION_AND_STATIC_CONFORMANCE_V1`.
+It may translate the hash-locked rules into code and verify them against
+deterministic synthetic fixtures. It cannot calculate performance metrics,
+run comparative backtests, rank or select candidates, read holdouts, write
+official evidence, generate operational signals or enable OpenClaw execution.
 
 ## Architecture direction
 
