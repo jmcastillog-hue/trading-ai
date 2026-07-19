@@ -425,3 +425,6 @@ reports/p10_40_evidence_collection_official_dataset_empty_schema_candidate_imple
 
 # Generated outputs - Phase 10.41
 reports/p10_41_evidence_collection_official_dataset_empty_schema_candidate_validation_v1/
+
+# Generated outputs - Phase 10.42
+reports/p10_42_evidence_collection_official_dataset_atomic_write_harness_design_v1/
