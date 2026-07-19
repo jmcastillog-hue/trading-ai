@@ -8,13 +8,17 @@ capital, exchange orders, live trading alerts and automation remain disabled.
 
 ## Current status
 
-- Repository baseline: Phase 10.42R.2 at commit `e696fa2`.
+- Repository baseline: Phase 10.42R.2A at commit `aa51e47`.
 - Phase 10.42R.2 real-data revalidation: completed and integrity-valid.
 - SHORT candidate: `REVALIDATED_REJECTED`.
 - LONG 15m structural chain: `CERTIFIED_UNAFFECTED_AND_CONSISTENCY_REVALIDATED`.
 - Official LONG forward-evidence dataset: absent.
-- Active workstream: Phase 10.42R.2A signal-to-fill timing integrity audit.
-- The OpenClaw read-only contract is deferred until timing and cost lineage are explicit.
+- Phase 10.42R.2A signal-to-fill audit: completed with 17/17 tests,
+  16/16 controls and zero blockers.
+- Active workstream: Phase 10.42R.2B V2 gross-to-net cost normalization,
+  chronological summary correction and strategy-recovery preregistration.
+- The OpenClaw read-only contract is deferred until normalized cost lineage and
+  recovery research boundaries are explicit.
 - OpenClaw operational integration and every execution permission: disabled.
 
 Phase 10.42R changed higher-timeframe feature availability so indicators that
@@ -143,6 +147,34 @@ The revised lineage guard compares the full LONG historical rerun with Phase
 8.4 and independently traces readiness values to the Phase 8.10 post-filter
 Monte Carlo source. Passing the integrity audit validates the measurement, not
 the strategy: every approval and execution permission remains false.
+
+## Phase 10.42R.2B cost normalization and recovery preregistration
+
+The SHORT engine's `result_r` already embeds internal spread and fees. Phase
+10.42R.2B reconstructs frictionless gross R from raw next-open entry/exit
+references and applies each complete cost profile exactly once:
+
+```text
+frictionless gross R - one complete profile cost R = normalized net R
+```
+
+Normalized metrics are diagnostic-only and cannot change the SHORT rejection
+or approve LONG. The protocol labels 2022–2025 as known evidence, seals a
+secondary 2026-H1 retrospective lockbox and reserves 2026-07-20 through
+2027-01-20 as the primary prospective holdout. Neither dataset is downloaded
+or opened in Phase 2B.
+
+The V2 report contract orders aggregate drawdown by realized `exit_time`
+(then entry time, symbol and source row), never by the source file's
+BTC→ETH→SOL concatenation. Positive-window rate uses a fixed
+`symbol × split_name` universe and includes configured windows with zero
+trades in its denominator. These fields are published alongside trade count,
+net expectancy and profit factor, as required by the preregistration.
+
+```powershell
+python -m unittest tests.test_cost_accounting_normalization_and_strategy_recovery_preregistration -v
+python -m src.workflows.validate_phase_10_42r_2b_cost_accounting_normalization_and_strategy_recovery_preregistration
+```
 
 ## Architecture direction
 

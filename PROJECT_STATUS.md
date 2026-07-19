@@ -2,13 +2,14 @@
 
 ## Snapshot
 
-- Baseline commit: `e696fa2` — Phase 10.42R.2 merged to `main`.
+- Baseline commit: `aa51e47` — Phase 10.42R.2A merged to `main`.
 - Phase 10.42R.2 decision: `PHASE_10_42R_2_CLOSED_CANDLE_MTF_REVALIDATION_COMPLETED`.
 - SHORT decision: `REVALIDATED_REJECTED`.
 - LONG decision: `CERTIFIED_UNAFFECTED_AND_CONSISTENCY_REVALIDATED`.
-- Active phase: `PHASE_10_42R_2A_SIGNAL_TO_FILL_TIMING_INTEGRITY_AUDIT_V1`.
-- Phase 10.42R.2A first real run: measurements completed; stage-aware lineage
-  correction pending rerun before closure.
+- Phase 10.42R.2A decision:
+  `PHASE_10_42R_2A_SIGNAL_TO_FILL_TIMING_AUDIT_COMPLETED`.
+- Active phase:
+  `PHASE_10_42R_2B_COST_ACCOUNTING_NORMALIZATION_AND_STRATEGY_RECOVERY_PREREGISTRATION_V2`.
 - OpenClaw read-only status design and Phase 10.43 remain deferred until the
   signal-to-fill and cost-accounting findings are measured.
 - Official forward-evidence dataset: not created.
@@ -119,15 +120,30 @@ The real-data run completed 72 fixed OOS windows, preserved all nine input
 hashes, passed 10/10 integrity and safety controls, produced no errors and
 returned exit code 0. It wrote no official forward rows or artifacts.
 
+`PHASE_10_42R_2A_SIGNAL_TO_FILL_TIMING_INTEGRITY_AUDIT_V1` also completed.
+Its final run passed 17/17 tests and 16/16 controls with zero blockers. SHORT
+remained rejected, LONG historical metrics remained unchanged but unapproved,
+and the cost-overlap finding remained open for normalization.
+
 ## Current required phase
 
-`PHASE_10_42R_2A_SIGNAL_TO_FILL_TIMING_INTEGRITY_AUDIT_V1`
+`PHASE_10_42R_2B_COST_ACCOUNTING_NORMALIZATION_AND_STRATEGY_RECOVERY_PREREGISTRATION_V2`
 
-This report-only phase must reproduce the same-close baseline, measure entry at
-the next 15m open for SHORT and LONG and audit embedded versus additive costs.
-It may not optimize candidates, select a symbol, normalize a cost decision,
-produce signals, persist evidence, modify datasets or call an exchange.
+This report-only phase must reconstruct SHORT frictionless gross R, reconcile
+the existing internal net result and apply each fixed cost profile exactly
+once. It generates diagnostic normalized metrics but cannot publish a cost
+decision or reclassify a candidate.
 
-Its stage-aware preflight additionally requires the Phase 8.4 historical
-metrics and Phase 8.10 Monte Carlo candidate-summary reports. The next phase
-may begin only after the corrected audit returns zero blockers.
+It also preregisters recovery constraints and seals both a retrospective
+lockbox and a prospective holdout. It may not download or open either dataset,
+optimize candidates, select symbols or periods, produce signals, persist
+evidence, modify official datasets or call an exchange.
+
+The first V1 real report reconciled all 1,025 normalized rows and confirmed
+that normalized Binance base performance remained negative. A post-run
+artifact audit nevertheless found that aggregate max drawdown followed source
+concatenation order rather than realized time and that the preregistered
+positive-window rate was absent. V2 corrects those report contracts, includes
+the zero-trade BTC window in the 36-unit symbol/window universe and strengthens
+the exact 205 × 5 source/profile cardinality check. V1 must not be committed as
+the final Phase 2B closure.

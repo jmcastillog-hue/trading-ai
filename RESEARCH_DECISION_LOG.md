@@ -179,6 +179,54 @@ An integrity pass cannot reclassify a strategy. Cost normalization, strategy
 recovery research, signals, evidence persistence, OpenClaw operation and all
 forms of execution remain blocked pending a clean corrected rerun.
 
+### Phase 10.42R.2A final closure
+
+The corrected final run passed 17/17 tests and 16/16 validation controls with
+zero blockers and exit code zero. Stage-aware lineage reproduced Phase 8.4 at
+4/4 candidates and Phase 8.10 to Phase 10.42R.2 readiness at 2/2 candidates.
+
+The closure does not change research decisions:
+
+```text
+SHORT = REVALIDATED_REJECTED_UNCHANGED
+LONG  = HISTORICAL_METRICS_UNCHANGED_NOT_APPROVED
+COST  = NORMALIZATION_REMEDIATION_REQUIRED
+```
+
+### Phase 10.42R.2B — Cost normalization and recovery preregistration
+
+Source mapping established that SHORT `result_r` already contains internal
+spread and fee deductions. Phase 2B therefore defines an independent
+accounting contract starting from raw, frictionless entry and exit references.
+Exactly one complete cost profile is subtracted from gross R. The existing
+historical cost code remains unchanged for reproducibility.
+
+All normalized metrics produced in this phase are diagnostic-only and cannot
+reverse the SHORT rejection or promote LONG. Sixteen recovery rules are frozen
+before the real normalization output is viewed. Known 2022–2025 data can never
+be relabeled as holdout. A secondary retrospective lockbox covers 2026-01-01
+to 2026-07-20, and primary prospective confirmation is reserved for 2026-07-20
+to 2027-01-20. Phase 2B opens neither dataset.
+
+The first V1 real report was independently reconciled row by row. All 205
+source trades were present under all five profiles, every accounting identity
+held within floating-point tolerance and the normalization removed 60.58 R of
+legacy overlap. The best fixed profile still returned -46.05 R, so the SHORT
+rejection was not caused solely by double counting.
+
+That audit also found two summary-contract defects. Aggregate drawdown was
+computed in source-row order, which concatenated BTC, ETH and SOL instead of
+realized time, and positive-window rate was not emitted despite PR-010. V2
+orders drawdown by exit time and defines each window as one configured
+`symbol × split_name` unit. The missing BTC window
+`WF_202210_202310_TO_202310_202401` is retained as a zero-trade denominator
+unit. These corrections do not alter gross-to-net accounting, candidate
+status, holdout sealing or permissions.
+
+The next phase is permitted only after a zero-blocker real run:
+
+`PHASE_10_42R_2C_PREREGISTERED_STRATEGY_RECOVERY_DEVELOPMENT_DIAGNOSTIC_V1`
+
 ---
 
 ## Arquitectura conceptual actual
