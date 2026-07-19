@@ -16,6 +16,24 @@ Y solo al final automatizar.
 
 Este proyecto no está todavía en fase de operación real ni de automatización de órdenes. El objetivo actual es construir un sistema de análisis, validación y soporte de decisión.
 
+## Scientific integrity hold — Phase 10.42R
+
+The project-wide audit after Phase 10.42 found that higher-timeframe features
+calculated from complete 1H and 4H candles were timestamped at candle open.
+Affected SHORT and LONG results are therefore not certified until they are
+repeated with features exposed only after candle close.
+
+Current candidate status:
+
+```text
+TARGET_SHORT_FIB_V5_MTF_V3_1 + FIXED_RR_2_5 = REVALIDATION_REQUIRED
+LONG_BASE_FAILED_BREAKDOWN_V1 = REVALIDATION_REQUIRED
+LONG_BASE_LIQUIDITY_SWEEP_V1 = REVALIDATION_REQUIRED
+```
+
+Phase 10.43 is paused. No forward observation, paper trading, real capital,
+live alert, exchange execution or automation is authorized.
+
 ---
 
 ## Arquitectura conceptual actual

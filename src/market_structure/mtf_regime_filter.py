@@ -1,6 +1,10 @@
 from pathlib import Path
 import pandas as pd
 
+from src.market_structure.closed_candle_mtf import (
+    expose_features_at_candle_close,
+)
+
 
 def load_ohlcv(csv_path: str | Path) -> pd.DataFrame:
     df = pd.read_csv(csv_path)
@@ -51,7 +55,12 @@ def build_regime_df(csv_path: str | Path, timeframe_label: str) -> pd.DataFrame:
 
     df[f"regime_{timeframe_label}"] = df.apply(classify_regime, axis=1)
 
-    return df[["timestamp", f"regime_{timeframe_label}"]].copy()
+    regime_df = df[["timestamp", f"regime_{timeframe_label}"]].copy()
+
+    return expose_features_at_candle_close(
+        regime_df,
+        timeframe=timeframe_label,
+    )
 
 
 def enrich_15m_with_mtf_regime(

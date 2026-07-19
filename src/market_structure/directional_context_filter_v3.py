@@ -1,6 +1,10 @@
 from pathlib import Path
 import pandas as pd
 
+from src.market_structure.closed_candle_mtf import (
+    expose_features_at_candle_close,
+)
+
 
 def normalize_ohlcv_columns(df: pd.DataFrame) -> pd.DataFrame:
     result = df.copy()
@@ -47,7 +51,7 @@ def calculate_rsi(close: pd.Series, period: int = 14) -> pd.Series:
     avg_gain = gain.ewm(alpha=1 / period, adjust=False).mean()
     avg_loss = loss.ewm(alpha=1 / period, adjust=False).mean()
 
-    rs = avg_gain / avg_loss.replace(0, pd.NA)
+    rs = avg_gain / avg_loss.mask(avg_loss.eq(0))
 
     rsi = 100 - (100 / (1 + rs))
 
@@ -131,7 +135,10 @@ def prepare_directional_features(df: pd.DataFrame, prefix: str) -> pd.DataFrame:
     result = result[keep_cols].copy()
     result = result.rename(columns={"close": f"{prefix}_close"})
 
-    return result
+    return expose_features_at_candle_close(
+        result,
+        timeframe=prefix,
+    )
 
 
 def classify_tf_bias(row: pd.Series, prefix: str) -> str:

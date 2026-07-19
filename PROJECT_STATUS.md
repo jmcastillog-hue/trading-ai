@@ -1,79 +1,58 @@
-﻿# Trading-AI — Estado del Proyecto
+# Trading-AI — Project Status
 
-## Objetivo general
+## Snapshot
 
-Construir un sistema local de apoyo a la decisión para trading, basado en Python, OpenClaw, LM Studio, análisis cuantitativo, liquidez, backtesting y reportes automáticos.
+- Baseline commit: `40d1c37` — Phase 10.42 merged to `main`.
+- Active corrective branch: `phase-10-42r-project-scientific-integrity-and-reproducibility-audit-v1`.
+- Current decision: `REVALIDATION_REQUIRED`.
+- Phase 10.43: paused.
+- Official forward-evidence dataset: not created.
+- Total project completed: false.
 
-El objetivo actual no es crear un bot autónomo que opere con dinero real, sino un analista cuantitativo digital que ayude a validar setups antes de arriesgar capital.
+## Scientific-integrity hold
 
----
+The earlier MTF enrichment calculated 1H and 4H indicators from complete
+candles but timestamped those features at candle open. A backward as-of merge
+could therefore expose information before the higher-timeframe candle closed.
 
-## Fase actual
+Phase 10.42R changes the contract to:
 
-Fase 0 — Orden y documentación del proyecto.
+```text
+feature_available_at = candle_open_timestamp + timeframe_duration
+```
 
----
+This correction applies to the MTF regime and Directional Context V3/V3.1
+paths. All strategy metrics that used those paths require new historical,
+out-of-sample, walk-forward, cost-aware and sequence-risk validation.
 
-## Módulos completados
+## Candidate status
 
-- Entorno Python
-- Entorno virtual
-- Git y GitHub
-- OpenClaw
-- LM Studio
-- Modelo local Qwen
-- Integración Python ↔ OpenClaw
-- Excel Analyzer
-- Binance Downloader
-- Quantitative Engine V2
-- Indicator Engine V1
-- Signal Engine V1
-- Analyst Agent V1
-- Liquidity Engine V2
-- Liquidity Filter V1
-- Backtesting Engine V1
-- Backtesting Engine V2
-- FIB V5 Full Cycle Runner
-- MTF Trend Regime Engine
+| Candidate | Current status |
+|---|---|
+| `TARGET_SHORT_FIB_V5_MTF_V3_1 + FIXED_RR_2_5` | `REVALIDATION_REQUIRED` |
+| `LONG_BASE_FAILED_BREAKDOWN_V1` | `REVALIDATION_REQUIRED` |
+| `LONG_BASE_LIQUIDITY_SWEEP_V1` | `REVALIDATION_REQUIRED` |
 
----
+The status change is precautionary. It does not prove that a candidate lacks
+edge; it means the previous metrics are not certified under the corrected
+closed-candle contract.
 
-## Módulos pendientes
+## Permissions
 
-- Backtesting Engine V3
-- Strategy Engine V1
-- Scoring Engine V1
-- Journal inteligente
-- Multi-Timeframe Engine mejorado
-- Fibonacci Engine institucional
-- FVG Engine
-- Order Block Engine
-- Alertas
-- Paper Trading controlado
+The following remain false:
 
----
+- `forward_observation_allowed`
+- `paper_trade_execution_allowed`
+- `real_capital_allowed`
+- `live_alerts_allowed`
+- `exchange_execution_allowed`
+- `automation_allowed`
+- `execution_allowed`
 
-## Regla principal del proyecto
+## Next required phase
 
-Primero medir.
-Después probar.
-Después alertar.
-Después simular.
-Y solo al final automatizar.
+`PHASE_10_42R_2_SHORT_LONG_CLOSED_CANDLE_MTF_REVALIDATION_V1`
 
----
-
-## Próximo paso después de Fase 0
-
-Crear Backtesting Engine V3 con:
-
-- Entrada
-- Stop loss
-- Take profit
-- Relación riesgo/beneficio
-- Fees
-- Spread estimado
-- Equity curve
-- Drawdown
-- Profit factor
-- Expectancy
+This next phase must compare prior and corrected results and may promote a
+candidate only if it independently survives every required gate. Phase 10.43
+may resume only after that decision.
