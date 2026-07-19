@@ -169,7 +169,7 @@ def add_indicators(df: pd.DataFrame) -> pd.DataFrame:
     avg_gain = gain.rolling(14, min_periods=1).mean()
     avg_loss = loss.rolling(14, min_periods=1).mean()
 
-    rs = avg_gain / avg_loss.replace(0, pd.NA)
+    rs = avg_gain / avg_loss.mask(avg_loss.eq(0))
     result_df["rsi14"] = (100 - (100 / (1 + rs))).fillna(50.0)
 
     prev_close = close.shift(1)

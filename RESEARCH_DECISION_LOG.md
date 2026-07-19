@@ -34,6 +34,72 @@ LONG_BASE_LIQUIDITY_SWEEP_V1 = REVALIDATION_REQUIRED
 Phase 10.43 is paused. No forward observation, paper trading, real capital,
 live alert, exchange execution or automation is authorized.
 
+## Phase 10.42R.2 — Closed-candle MTF revalidation harness
+
+The dependency audit refined the affected scope:
+
+```text
+TARGET_SHORT_FIB_V5_MTF_V3_1 + FIXED_RR_2_5 = DIRECTLY_AFFECTED
+LONG_BASE_FAILED_BREAKDOWN_V1 = UNAFFECTED_15M_STRUCTURAL_CHAIN
+LONG_BASE_LIQUIDITY_SWEEP_V1 = UNAFFECTED_15M_STRUCTURAL_CHAIN
+LONG_BASE_MTF_BULLISH_CONTINUATION_V1 = AFFECTED_BUT_ALREADY_REJECTED
+```
+
+The Phase 10.42R.2 harness requires identical dataset hashes for its legacy
+diagnostic and corrected runs, checks 1H/4H availability invariants, repeats
+rolling OOS and cost gates for SHORT, executes deterministic sequence-risk
+simulation and reruns the complete LONG Phase 8 readiness chain.
+
+The legacy mode is comparison-only. It cannot restore a candidate or authorize
+forward observation, alerts, paper trading, real capital, orders or automation.
+
+## Phase 10.42R.2 — Real-data scientific decision
+
+The complete run finished with exit code 0 on the nine BTCUSDT, ETHUSDT and
+SOLUSDT 15m/1H/4H datasets covering 2022-01-01 through 2025-12-31. All input
+hashes remained stable, all 72 fixed OOS windows completed and all ten
+integrity/safety checks passed.
+
+SHORT comparison:
+
+```text
+LEGACY_OPEN_TIMESTAMP_DIAGNOSTIC_ONLY
+  trades = 122
+  compound_oos_return = +0.710594
+  average_profit_factor = 2.424407
+  average_expectancy_r = +0.410642
+  decision = WALK_FORWARD_PASS
+
+CLOSED_CANDLE_CORRECTED
+  trades = 205
+  compound_oos_return = -0.417469
+  average_profit_factor = 0.919596
+  average_expectancy_r = -0.094741
+  decision = WALK_FORWARD_FAILED
+```
+
+All five corrected cost profiles returned `COST_AWARE_FAILED`. The 10,000-run
+deterministic bootstrap under Binance scalp stress returned
+`MONTE_CARLO_FAILED`, with probability of negative return equal to 1.0.
+
+Decision:
+
+```text
+TARGET_SHORT_FIB_V5_MTF_V3_1 + FIXED_RR_2_5 = REVALIDATED_REJECTED
+LONG_BASE_FAILED_BREAKDOWN_V1 = CERTIFIED_UNAFFECTED_AND_CONSISTENCY_REVALIDATED
+LONG_BASE_LIQUIDITY_SWEEP_V1 = CERTIFIED_UNAFFECTED_AND_CONSISTENCY_REVALIDATED
+```
+
+The SHORT candidate is rejected; its legacy positive result was dependent on
+premature higher-timeframe information. The LONG 15m readiness chain is
+scientifically consistent but remains research-only. No official forward
+dataset exists and all signal, persistence, paper, capital, alert, exchange,
+automation, execution and OpenClaw operational permissions remain false.
+
+The next allowed workstream is limited to:
+
+`PHASE_10_42R_3_OPENCLAW_READ_ONLY_RESEARCH_STATUS_CONTRACT_V1`
+
 ---
 
 ## Arquitectura conceptual actual
