@@ -2,12 +2,15 @@
 
 ## Snapshot
 
-- Baseline commit: `7f5bd2b` — Phase 10.42R merged to `main`.
+- Baseline commit: `e696fa2` — Phase 10.42R.2 merged to `main`.
 - Phase 10.42R.2 decision: `PHASE_10_42R_2_CLOSED_CANDLE_MTF_REVALIDATION_COMPLETED`.
 - SHORT decision: `REVALIDATED_REJECTED`.
 - LONG decision: `CERTIFIED_UNAFFECTED_AND_CONSISTENCY_REVALIDATED`.
-- Next phase: `PHASE_10_42R_3_OPENCLAW_READ_ONLY_RESEARCH_STATUS_CONTRACT_V1`.
-- Phase 10.43 design review: allowed, but no operational permission is granted.
+- Active phase: `PHASE_10_42R_2A_SIGNAL_TO_FILL_TIMING_INTEGRITY_AUDIT_V1`.
+- Phase 10.42R.2A first real run: measurements completed; stage-aware lineage
+  correction pending rerun before closure.
+- OpenClaw read-only status design and Phase 10.43 remain deferred until the
+  signal-to-fill and cost-accounting findings are measured.
 - Official forward-evidence dataset: not created.
 - Total project completed: false.
 
@@ -43,7 +46,44 @@ artifact of higher-timeframe lookahead and is not recoverable.
 
 The primary and secondary LONG candidates do not import the affected MTF
 modules. Their complete Phase 8 readiness chain reproduced as a consistency
-control. These remain research-only labels, not approved strategies.
+control. This certification is scoped to the MTF defect. Both historical LONG
+candidates confirm their signal using the current 15m candle and record entry
+at that same close, so their timing metrics require Phase 10.42R.2A.
+
+## Real-data loss attribution
+
+| Corrected cohort | Trades | Compound return | Average PF |
+|---|---:|---:|---:|
+| BTCUSDT | 51 | -13.52% | 0.98 |
+| ETHUSDT | 69 | -26.00% | 0.70 |
+| SOLUSDT | 85 | -8.97% | 1.08 |
+| 2023, all symbols | 41 | -2.79% | 0.98 |
+| 2024, all symbols | 61 | -7.25% | 1.07 |
+| 2025, all symbols | 103 | -35.39% | 0.74 |
+
+The corrected result was worse than the legacy control in 27 of 36 windows,
+better in six and equal in three. Ten windows changed return sign. The cohort
+breakdown is hypothesis-generating only and cannot authorize symbol or date
+selection.
+
+The active SHORT engine already embeds a nominal 0.20% round-trip fee and
+0.02% round-trip spread in net `result_r`. The cost-aware layer then subtracts
+a complete cost profile from that net value. Phase 10.42R.2A records the
+overlap and blocks normalized cost conclusions until the accounting basis is
+made explicit. The raw corrected SHORT rejection is unaffected.
+
+The first Phase 10.42R.2A real timing run produced 205 trades in each SHORT
+mode. Same-close returned -41.7469% and next-open returned -41.7443%; both
+failed walk-forward. The fill repair therefore did not restore the strategy.
+All 64 corrected LONG entries occurred after their signals, while all four
+historical LONG metric rows remained unchanged because adjacent continuous
+candles had equal prior close and next open.
+
+The first harness revision then failed closed on one invalid lineage
+comparison: it compared the full Phase 8.4 historical population with Phase
+8.10 post-OOS stress-cost readiness inputs. The correction requires two
+separate exact reproductions. Audit success means measurement integrity only;
+it cannot change any candidate approval.
 
 ## Permissions
 
@@ -81,8 +121,13 @@ returned exit code 0. It wrote no official forward rows or artifacts.
 
 ## Current required phase
 
-`PHASE_10_42R_3_OPENCLAW_READ_ONLY_RESEARCH_STATUS_CONTRACT_V1`
+`PHASE_10_42R_2A_SIGNAL_TO_FILL_TIMING_INTEGRITY_AUDIT_V1`
 
-This phase may expose a deterministic, read-only research-status payload to
-OpenClaw. It may not produce signals, persist evidence, modify datasets, call
-an exchange, authorize forward collection or reinterpret failed gates.
+This report-only phase must reproduce the same-close baseline, measure entry at
+the next 15m open for SHORT and LONG and audit embedded versus additive costs.
+It may not optimize candidates, select a symbol, normalize a cost decision,
+produce signals, persist evidence, modify datasets or call an exchange.
+
+Its stage-aware preflight additionally requires the Phase 8.4 historical
+metrics and Phase 8.10 Monte Carlo candidate-summary reports. The next phase
+may begin only after the corrected audit returns zero blockers.

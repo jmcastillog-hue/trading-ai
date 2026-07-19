@@ -100,6 +100,85 @@ The next allowed workstream is limited to:
 
 `PHASE_10_42R_3_OPENCLAW_READ_ONLY_RESEARCH_STATUS_CONTRACT_V1`
 
+## Phase 10.42R.2A — Signal-to-fill integrity hold
+
+After the MTF revalidation closed, source inspection identified a second
+historical timing assumption. Both active SHORT and historical LONG logic use
+the current 15m candle to confirm a signal and record the entry at that same
+candle close. A reproducible live contract cannot know the final high, low and
+close and guarantee a fill at that same close.
+
+The next required contract is therefore:
+
+```text
+signal confirmed at 15m close t
+entry reference = 15m open t+1
+entry bar is eligible for stop/target resolution
+spread and fees are explicit
+same-close output = diagnostic-only
+```
+
+The supplied Phase 10.42R.2 report archive had SHA-256
+`846e90fd82f46eaaa16570ece8a4b7c9d41ffb8f4584ea33bd99167959498caa`.
+It contained 72 unique window rows and 360 unique cost-window rows with no
+duplicate keys. Corrected attribution was:
+
+```text
+BTCUSDT: 51 trades, -13.52%, average PF 0.98
+ETHUSDT: 69 trades, -26.00%, average PF 0.70
+SOLUSDT: 85 trades,  -8.97%, average PF 1.08
+
+2023: 41 trades,  -2.79%
+2024: 61 trades,  -7.25%
+2025: 103 trades, -35.39%
+```
+
+The corrected mode underperformed legacy in 27/36 windows and changed the
+return sign in ten. Seven flips were positive legacy to non-positive corrected;
+three moved in the other direction. These observations may generate new
+hypotheses but may not be used to cherry-pick an approved symbol or period.
+
+The active SHORT trade result is already net of internal fees and spread. The
+cost-aware layer subtracts an entire platform cost profile from that net
+`result_r`, creating overlapping fee/spread components. This does not reverse
+the raw SHORT rejection, but cost-aware magnitudes remain unnormalized until a
+single gross-to-net accounting basis is implemented.
+
+Phase 10.42R.2A is audit-only. The earlier OpenClaw phase recommendation is
+superseded temporarily by:
+
+`PHASE_10_42R_2A_SIGNAL_TO_FILL_TIMING_INTEGRITY_AUDIT_V1`
+
+### Phase 10.42R.2A first real run — measured result and harness correction
+
+The real timing audit reproduced all 36 Phase 10.42R.2 SHORT windows. Both
+timing modes produced 205 trades. Same-close compound return was -41.7469%;
+next-open was -41.7443%. Both decisions were `WALK_FORWARD_FAILED`, therefore:
+
+```text
+TARGET_SHORT_FIB_V5_MTF_V3_1 + FIXED_RR_2_5
+= REVALIDATED_REJECTED_UNCHANGED
+```
+
+All 205 SHORT and 64 LONG next-open records had an entry timestamp and index
+after the signal. The LONG historical results were identical in both timing
+modes on this continuous-candle dataset. No LONG candidate was approved.
+
+The audit correctly returned a nonzero exit because one lineage assertion did
+not hold, but the assertion itself crossed stages: full Phase 8.4 historical
+metrics were compared to Phase 8.10 post-OOS stress-cost Monte Carlo inputs
+consumed by readiness. The harness correction preserves fail-closed behavior
+and replaces that assertion with:
+
+```text
+Phase 10.42R.2A same-close historical -> exact Phase 8.4 historical source
+Phase 10.42R.2 readiness values       -> exact Phase 8.10 Monte Carlo source
+```
+
+An integrity pass cannot reclassify a strategy. Cost normalization, strategy
+recovery research, signals, evidence persistence, OpenClaw operation and all
+forms of execution remain blocked pending a clean corrected rerun.
+
 ---
 
 ## Arquitectura conceptual actual
