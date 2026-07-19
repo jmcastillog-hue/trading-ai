@@ -2,16 +2,20 @@
 
 ## Snapshot
 
-- Baseline commit: `aa51e47` — Phase 10.42R.2A merged to `main`.
+- Phase 10.42R.2C source baseline: `c8106fe` — Phase 10.42R.2B V2.
 - Phase 10.42R.2 decision: `PHASE_10_42R_2_CLOSED_CANDLE_MTF_REVALIDATION_COMPLETED`.
 - SHORT decision: `REVALIDATED_REJECTED`.
 - LONG decision: `CERTIFIED_UNAFFECTED_AND_CONSISTENCY_REVALIDATED`.
 - Phase 10.42R.2A decision:
   `PHASE_10_42R_2A_SIGNAL_TO_FILL_TIMING_AUDIT_COMPLETED`.
+- Phase 10.42R.2B decision:
+  `PHASE_10_42R_2B_COST_NORMALIZATION_AND_RECOVERY_PREREGISTRATION_COMPLETED`.
+- Phase 10.42R.2C decision:
+  `PHASE_10_42R_2C_PREREGISTERED_DEVELOPMENT_DIAGNOSTIC_COMPLETED`.
 - Active phase:
-  `PHASE_10_42R_2B_COST_ACCOUNTING_NORMALIZATION_AND_STRATEGY_RECOVERY_PREREGISTRATION_V2`.
+  `PHASE_10_42R_2D_RECOVERY_CANDIDATE_FAMILY_SPECIFICATION_AND_MULTIPLICITY_FREEZE_V1`.
 - OpenClaw read-only status design and Phase 10.43 remain deferred until the
-  signal-to-fill and cost-accounting findings are measured.
+  recovery candidate-family and multiplicity contract freezes.
 - Official forward-evidence dataset: not created.
 - Total project completed: false.
 
@@ -125,25 +129,55 @@ Its final run passed 17/17 tests and 16/16 controls with zero blockers. SHORT
 remained rejected, LONG historical metrics remained unchanged but unapproved,
 and the cost-overlap finding remained open for normalization.
 
+## Completed Phase 10.42R.2C
+
+`PHASE_10_42R_2C_PREREGISTERED_STRATEGY_RECOVERY_DEVELOPMENT_DIAGNOSTIC_V1`
+
+This report-only phase consumed the locked Phase 2B normalization output. It
+explained the rejected SHORT reference across exactly five preregistered
+dimensions and all five fixed cost profiles; it did not repair, rank, optimize,
+select, reclassify or execute a candidate.
+
+There was no download mode. The run hash-matched all nine known 2022–2025 OHLCV
+inputs, kept both holdouts sealed and preserved SHORT as rejected and LONG as
+research-only/not approved.
+
+The Phase 2B V2 real report reconciled all 1,025 normalized rows and confirmed
+that normalized Binance base performance remained negative. A post-run
+artifact audit corrected aggregate max drawdown to realized-time order and
+included the zero-trade BTC window in the 36-unit symbol/window universe. The
+final V2 run passed 16/16 controls with zero blockers and preserved the exact
+205 × 5 source/profile grid.
+
+Phase 2C published only descriptive diagnostics over known 2022–2025 evidence.
+It preserved all three symbols, all five cost profiles and all five
+preregistered dimensions. It did not rank cohorts, tune parameters, modify the
+retired SHORT, specify a winning candidate, open either holdout, write an
+official forward row or enable OpenClaw operations. It recommended only a
+separate Phase 2D family/specification freeze before any candidate evaluation.
+
+The real Phase 2C report archive has SHA-256
+`27d6ccb4e77c2453837df5db48fdea09ce3f6f4733bf00e9c5dd2d22da03bb63`.
+It passed 26/26 controls with zero blockers and zero errors. The exact 205
+source trades, 1,025 normalized rows, five dimensions and 60 metric rows were
+reconciled independently against the Phase 2B and Phase 10.42R.2 archives.
+
+One preregistered trend slice was positive under Binance base costs, but it
+contained only 72 aggregate trades and 15 BTCUSDT trades and turned slightly
+negative under Binance stress. It therefore fails the locked minimum-evidence
+and stress-stability gates and is not an approved recovery candidate.
+
 ## Current required phase
 
-`PHASE_10_42R_2B_COST_ACCOUNTING_NORMALIZATION_AND_STRATEGY_RECOVERY_PREREGISTRATION_V2`
+`PHASE_10_42R_2D_RECOVERY_CANDIDATE_FAMILY_SPECIFICATION_AND_MULTIPLICITY_FREEZE_V1`
 
-This report-only phase must reconstruct SHORT frictionless gross R, reconcile
-the existing internal net result and apply each fixed cost profile exactly
-once. It generates diagnostic normalized metrics but cannot publish a cost
-decision or reclassify a candidate.
+Phase 2D is specification-only. Before evaluating any candidate, it must freeze
+at most three candidate families and four variants per family, their exact
+deterministic rules, timing, parameters, cost profiles, fixed three-symbol
+cohort, family/variant identifiers, multiplicity treatment, evaluation order,
+minimum evidence, promotion gates and a reproducible specification hash.
 
-It also preregisters recovery constraints and seals both a retrospective
-lockbox and a prospective holdout. It may not download or open either dataset,
-optimize candidates, select symbols or periods, produce signals, persist
-evidence, modify official datasets or call an exchange.
-
-The first V1 real report reconciled all 1,025 normalized rows and confirmed
-that normalized Binance base performance remained negative. A post-run
-artifact audit nevertheless found that aggregate max drawdown followed source
-concatenation order rather than realized time and that the preregistered
-positive-window rate was absent. V2 corrects those report contracts, includes
-the zero-trade BTC window in the 36-unit symbol/window universe and strengthens
-the exact 205 × 5 source/profile cardinality check. V1 must not be committed as
-the final Phase 2B closure.
+Phase 2D may use Phase 2C solely to generate hypotheses. It cannot calculate a
+winning result, retrospectively select a favorable slice, open or create either
+holdout, write forward evidence, produce signals, approve LONG or SHORT, or
+enable any execution, automation or OpenClaw operational permission.

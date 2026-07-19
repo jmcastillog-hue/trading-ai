@@ -227,6 +227,50 @@ The next phase is permitted only after a zero-blocker real run:
 
 `PHASE_10_42R_2C_PREREGISTERED_STRATEGY_RECOVERY_DEVELOPMENT_DIAGNOSTIC_V1`
 
+### Phase 10.42R.2C — Preregistered development diagnostic
+
+Phase 2B V2 closed on commit `c8106fe` with 16/16 controls, zero blockers and
+the exact 205 × 5 normalized source/profile grid. Phase 2C consumes those
+report-only artifacts and the same nine hash-locked 2022–2025 OHLCV datasets.
+
+The diagnostic contract fixes five descriptive dimensions before output:
+symbol, calendar year, normalized signal ATR tercile, corrected closed-candle
+1H×4H trend regime and the single retired signal family. Volatility thresholds
+use only `signal_atr / signal_close`; PnL and candidate outcomes cannot affect
+them. Metrics are written in catalog order for all five profiles and never in
+performance order.
+
+The SHORT reference remains
+`RETIRED_REVALIDATED_REJECTED_UNCHANGED`. Phase 2C cannot delete a symbol,
+repair the reference in place, rank slices, optimize thresholds, publish a
+candidate or open a holdout. If the diagnostics close cleanly, the only allowed
+next step is a separate family/variant specification and multiplicity freeze.
+
+The real Phase 2C archive has SHA-256
+`27d6ccb4e77c2453837df5db48fdea09ce3f6f4733bf00e9c5dd2d22da03bb63`.
+Independent reconciliation confirmed 26/26 passed controls, zero blockers,
+zero errors, 205 source trades, 1,025 normalized rows, five dimensions and 60
+all-profile metric rows. All eight Phase 2B artifact hashes and all nine Phase
+10.42R.2 dataset lineage rows matched their previously supplied archives.
+
+The `REGIME_1H=STRONG_BEARISH|REGIME_4H=BEARISH` slice returned `+0.216476 R`
+average under Binance base costs, but only `-0.004166 R` under Binance stress.
+It contains 72 trades, including only 15 BTCUSDT trades, and therefore fails
+both the 100 aggregate / 20 per-symbol evidence gate and stress stability. The
+observed slice may inform a new hypothesis, but it is not a selected cohort,
+repaired strategy or validation result.
+
+Decision:
+
+`PHASE_10_42R_2C_PREREGISTERED_DEVELOPMENT_DIAGNOSTIC_COMPLETED`
+
+SHORT remains `RETIRED_REVALIDATED_REJECTED_UNCHANGED`; LONG remains
+`RESEARCH_ONLY_NOT_APPROVED_UNCHANGED`. Both holdouts and the official dataset
+remain absent, and all execution, automation and OpenClaw operational
+permissions remain false.
+
+`PHASE_10_42R_2D_RECOVERY_CANDIDATE_FAMILY_SPECIFICATION_AND_MULTIPLICITY_FREEZE_V1`
+
 ---
 
 ## Arquitectura conceptual actual

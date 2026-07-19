@@ -8,17 +8,21 @@ capital, exchange orders, live trading alerts and automation remain disabled.
 
 ## Current status
 
-- Repository baseline: Phase 10.42R.2A at commit `aa51e47`.
+- Phase 10.42R.2C source baseline: Phase 10.42R.2B at commit `c8106fe`.
 - Phase 10.42R.2 real-data revalidation: completed and integrity-valid.
 - SHORT candidate: `REVALIDATED_REJECTED`.
 - LONG 15m structural chain: `CERTIFIED_UNAFFECTED_AND_CONSISTENCY_REVALIDATED`.
 - Official LONG forward-evidence dataset: absent.
 - Phase 10.42R.2A signal-to-fill audit: completed with 17/17 tests,
   16/16 controls and zero blockers.
-- Active workstream: Phase 10.42R.2B V2 gross-to-net cost normalization,
-  chronological summary correction and strategy-recovery preregistration.
-- The OpenClaw read-only contract is deferred until normalized cost lineage and
-  recovery research boundaries are explicit.
+- Phase 10.42R.2B V2: completed with 16/16 controls, zero blockers and
+  canonical chronological/window summaries.
+- Phase 10.42R.2C real-data diagnostic: completed with 26/26 controls, zero
+  blockers and zero errors.
+- Active workstream: Phase 10.42R.2D candidate-family specification and
+  multiplicity freeze; candidate evaluation is not yet allowed.
+- The OpenClaw read-only contract remains deferred while the recovery research
+  specification is frozen. Operational integration remains prohibited.
 - OpenClaw operational integration and every execution permission: disabled.
 
 Phase 10.42R changed higher-timeframe feature availability so indicators that
@@ -175,6 +179,44 @@ net expectancy and profit factor, as required by the preregistration.
 python -m unittest tests.test_cost_accounting_normalization_and_strategy_recovery_preregistration -v
 python -m src.workflows.validate_phase_10_42r_2b_cost_accounting_normalization_and_strategy_recovery_preregistration
 ```
+
+## Phase 10.42R.2C preregistered development diagnostic
+
+Phase 2C describes why the retired SHORT reference fails; it does not repair,
+rank, optimize or reactivate it. The harness verifies Phase 2B lineage and all
+nine immutable OHLCV hashes before reconstructing corrected closed-candle 1H
+and 4H regimes at each signal.
+
+The five locked slices are symbol, calendar year, cohort-global normalized ATR
+tercile, closed-candle 1H×4H trend regime and the single retired signal family.
+Every slice is emitted for all five fixed cost profiles in deterministic
+catalog order. Zero-trade symbol/window units remain in positive-window
+denominators; no favorable symbol or period can be deleted.
+
+```powershell
+python -m unittest discover -s tests -p "test_*.py" -v
+python -m src.workflows.validate_phase_10_42r_2c_preregistered_strategy_recovery_development_diagnostic --preflight-only
+python -m src.workflows.validate_phase_10_42r_2c_preregistered_strategy_recovery_development_diagnostic
+```
+
+Phase 2C has no download mode. Both holdouts, the official forward dataset and
+all execution and OpenClaw operational permissions must remain absent/false.
+
+The real report archive has SHA-256
+`27d6ccb4e77c2453837df5db48fdea09ce3f6f4733bf00e9c5dd2d22da03bb63`.
+It passed 26/26 controls over 205 source trades, 1,025 normalized rows, five
+preregistered dimensions and 60 all-profile metric rows.
+
+The only Binance-base positive trend slice contained 72 trades and became
+slightly negative under Binance stress (`-0.004166 R` average). It also had
+only 15 BTCUSDT trades, below the preregistered 20-per-symbol minimum. This is
+hypothesis-generating evidence only: SHORT remains retired, LONG remains
+research-only/not approved and no cohort may be selected.
+
+Phase 2C is therefore closed as a valid descriptive diagnostic, not as a
+successful strategy recovery. The only permitted next phase is:
+
+`PHASE_10_42R_2D_RECOVERY_CANDIDATE_FAMILY_SPECIFICATION_AND_MULTIPLICITY_FREEZE_V1`
 
 ## Architecture direction
 
