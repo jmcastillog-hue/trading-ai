@@ -14,8 +14,10 @@
   `PHASE_10_42R_2C_PREREGISTERED_DEVELOPMENT_DIAGNOSTIC_COMPLETED`.
 - Phase 10.42R.2D decision:
   `PHASE_10_42R_2D_RECOVERY_CANDIDATE_SPECIFICATION_AND_MULTIPLICITY_FREEZE_COMPLETED`.
+- Phase 10.42R.2E decision:
+  `PHASE_10_42R_2E_FROZEN_IMPLEMENTATION_STATIC_CONFORMANCE_COMPLETED`.
 - Active phase:
-  `PHASE_10_42R_2E_FROZEN_RECOVERY_CANDIDATE_IMPLEMENTATION_AND_STATIC_CONFORMANCE_V1`.
+  `PHASE_10_42R_2F_FROZEN_RECOVERY_CANDIDATE_IMPLEMENTATION_INDEPENDENT_CODE_REVIEW_V1`.
 - OpenClaw read-only status design and Phase 10.43 remain deferred during the
   frozen candidate implementation and static/synthetic conformance phase.
 - Official forward-evidence dataset: not created.
@@ -210,3 +212,41 @@ blockers and zero errors, reproduces all eight frozen artifact tables and the
 golden root SHA-256
 `0872b2bf7355e8a9b35d5b4e0e05d3edf291006862ce9ee5eae847910ef4c015`.
 All six variants remain unevaluated with zero result rows and no winner.
+
+## Current Phase 10.42R.2E contract
+
+Phase 2E implements the exact three-family/six-variant registry only after the
+Phase 2D golden root reproduces. The implementation is bound to commit
+`a9ec58c`, the exact Phase 2D specification-module hash and root
+`0872b2bf7355e8a9b35d5b4e0e05d3edf291006862ce9ee5eae847910ef4c015`.
+
+All rule and execution checks use 32 deterministic fixtures carrying an
+explicit synthetic-only marker. They cover positive, negative and equality
+boundaries, closed MTF availability, next-open fill, invalid gaps, overlap,
+stop/target resolution and the 240-bar time exit.
+
+The implementation module contains no filesystem, network, data-frame,
+backtest, result-report or holdout loader. Phase 2E must read zero real OHLCV,
+zero result rows and zero sealed rows. It must emit no performance metric,
+comparison, ranking, candidate result or winner.
+
+Its expected implementation root is
+`c360cae27f60d7854521a769abb569f730f7e50137076b86abf7d1e4e77e4ef1`.
+Passing conformance cannot approve SHORT or LONG and cannot enable any
+execution, automation or OpenClaw operational permission.
+
+The independently reviewed real Phase 2E report archive has SHA-256
+`fb1009b6bd2b7bebc5acb15a2cdfbec4c195e15de8d85f6fa8266e3a527eb371`.
+Its ten-file inventory and every CSV reproduce exactly from the source code.
+All 27 controls and 32 synthetic fixtures pass with zero blockers and errors;
+all manifest hashes and both golden roots are exact.
+
+Independent numerical review also reproduced ATR14 and EMA20/50/200 exactly
+against their Pandas EWM definitions on a separate synthetic series. The
+implementation reads zero real, result-report or holdout rows and emits zero
+performance, comparison, ranking, candidate-result and winner rows. Phase 2E
+is closed as software conformance only.
+
+Phase 2F remains a source-only independent review. It cannot introduce real
+data, backtests, performance metrics, selection, holdout access or any
+operational permission without a separate scientific authorization phase.

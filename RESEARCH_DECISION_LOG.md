@@ -324,6 +324,61 @@ Phase 2E is restricted to literal implementation of the frozen registry and
 static/synthetic conformance against the golden root; performance metrics,
 comparative backtesting, selection, holdouts and operations remain prohibited.
 
+### Phase 10.42R.2E — Frozen implementation and static/synthetic conformance
+
+Source baseline `a9ec58c` closes Phase 2D without candidate evaluation. Phase
+2E may construct an implementation only after reproducing the Phase 2D root
+`0872b2bf7355e8a9b35d5b4e0e05d3edf291006862ce9ee5eae847910ef4c015`
+and exact specification-module hash.
+
+The implementation contains one immutable object per frozen variant and three
+pure family handlers. Registry order, IDs, parameter JSON and family/variant
+hashes are compared exactly with Phase 2D. No rejected strategy module is
+reused or changed in place.
+
+Thirty-two deterministic synthetic cases cover all six positive signals,
+negative and equality boundaries, closed MTF timing, next-open fill, gaps,
+overlap, stop/target/simultaneous resolution, 239/240-bar behavior and ATR/EMA
+minimum periods. These are software-conformance assertions, not trades or
+performance observations.
+
+The implementation has no loader for OHLCV, prior result reports or holdouts.
+It produces zero performance, comparison, ranking, candidate-result and winner
+rows. SHORT remains retired/rejected, LONG remains research-only/not approved,
+and all permissions stay false.
+
+The deterministic Phase 2E catalog, fixture results and contract snapshot bind
+to implementation root
+`c360cae27f60d7854521a769abb569f730f7e50137076b86abf7d1e4e77e4ef1`.
+Passing the phase proves literal code conformance only and cannot authorize any
+candidate or operation.
+
+The real Phase 2E report archive was independently reviewed at SHA-256
+`fb1009b6bd2b7bebc5acb15a2cdfbec4c195e15de8d85f6fa8266e3a527eb371`.
+Its exact ten-file inventory matches a clean in-memory reconstruction of every
+CSV. The six implementation rows equal the Phase 2D registry by ID, order,
+parameters and family/variant hashes; all manifest hashes and both golden roots
+reproduce.
+
+The code review found no filesystem, network, real-data, result-report or
+holdout loader in the implementation. Independent synthetic calculations made
+ATR14 and EMA20/50/200 numerically identical to the frozen Pandas EWM methods.
+Timing, gap, overlap, stop-first and 239/240-bar semantics match Phase 2D.
+
+The real run passed 27/27 controls and 32/32 fixtures with zero blockers and
+errors. All real-data, performance, comparison, ranking, candidate-result and
+winner counts remain zero; all permissions remain false; SHORT and LONG remain
+unchanged.
+
+Decision:
+
+`PHASE_10_42R_2E_FROZEN_IMPLEMENTATION_STATIC_CONFORMANCE_COMPLETED`
+
+This closes implementation conformance only. Phase 2F is restricted to an
+independent source-code review and must remain without real data, backtests,
+metrics, selection, holdouts or operations unless a later, separate scientific
+authorization explicitly changes that boundary.
+
 ---
 
 ## Arquitectura conceptual actual

@@ -21,9 +21,10 @@ capital, exchange orders, live trading alerts and automation remain disabled.
   blockers and zero errors.
 - Phase 10.42R.2D specification freeze: completed with 28/28 controls, zero
   blockers, six unevaluated variants and the reproducible golden root.
-- Active workstream: Phase 10.42R.2E frozen-rule implementation and
-  static/synthetic conformance; backtesting and candidate evaluation are not
-  allowed.
+- Phase 10.42R.2E frozen implementation: completed with 27/27 controls and
+  32/32 deterministic synthetic fixtures.
+- Active workstream: Phase 10.42R.2F independent source-code review; real
+  data, backtesting and candidate evaluation remain prohibited.
 - The OpenClaw read-only contract remains deferred while the recovery research
   specification is frozen. Operational integration remains prohibited.
 - OpenClaw operational integration and every execution permission: disabled.
@@ -262,6 +263,49 @@ It may translate the hash-locked rules into code and verify them against
 deterministic synthetic fixtures. It cannot calculate performance metrics,
 run comparative backtests, rank or select candidates, read holdouts, write
 official evidence, generate operational signals or enable OpenClaw execution.
+
+## Phase 10.42R.2E frozen implementation and synthetic conformance
+
+Phase 2E reconstructs and verifies the Phase 2D golden root before creating
+six immutable implementation objects. Variant order, family IDs, parameter
+JSON and specification hashes must equal the frozen registry exactly.
+
+Three pure handlers implement upside-sweep reversal, breakdown/retest and EMA
+pullback continuation. ATR/EMA calculation, corrected closed-MTF availability,
+next-open fill, gap rejection, overlap blocking, RR 2.5, stop-first resolution
+and the 240-bar time exit are tested only with deterministic synthetic bars.
+
+```powershell
+python -m unittest tests.test_frozen_recovery_candidate_static_conformance -v
+python -m py_compile src\analysis\frozen_recovery_candidate_implementation_v1.py src\validation\frozen_recovery_candidate_static_conformance_v1.py src\workflows\validate_phase_10_42r_2e_frozen_recovery_candidate_implementation_and_static_conformance.py
+python -m src.workflows.validate_phase_10_42r_2e_frozen_recovery_candidate_implementation_and_static_conformance --preflight-only
+python -m src.workflows.validate_phase_10_42r_2e_frozen_recovery_candidate_implementation_and_static_conformance
+```
+
+Preflight requires 12/12 controls. The full workflow requires 27/27, 32/32
+synthetic cases, zero blockers and zero errors. The expected implementation
+root is
+`c360cae27f60d7854521a769abb569f730f7e50137076b86abf7d1e4e77e4ef1`.
+
+No real OHLCV or prior result report is read. No holdout is opened. The phase
+emits no performance metric, candidate comparison, rank, result or winner and
+grants no operational permission.
+
+The real Phase 2E archive has SHA-256
+`fb1009b6bd2b7bebc5acb15a2cdfbec4c195e15de8d85f6fa8266e3a527eb371`.
+Independent review reproduced all ten CSV files, 27/27 checks, 32/32 fixtures,
+the complete implementation catalog, its manifest and implementation root
+`c360cae27f60d7854521a769abb569f730f7e50137076b86abf7d1e4e77e4ef1`.
+
+ATR14 and EMA20/50/200 also matched their frozen Pandas definitions exactly on
+an independently generated synthetic series. No hidden data or report input,
+performance calculation or decision output was found. Phase 2E therefore
+closes as valid software conformance, not as strategy evidence.
+
+The only allowed next phase is
+`PHASE_10_42R_2F_FROZEN_RECOVERY_CANDIDATE_IMPLEMENTATION_INDEPENDENT_CODE_REVIEW_V1`.
+It remains source-only and cannot add real data, backtests, metrics, selection,
+holdouts or operational permissions without separate scientific authorization.
 
 ## Architecture direction
 
