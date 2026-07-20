@@ -8,26 +8,18 @@ capital, exchange orders, live trading alerts and automation remain disabled.
 
 ## Current status
 
-- Phase 10.42R.2D source baseline: completed Phase 10.42R.2C at commit `abb2a4b`.
-- Phase 10.42R.2 real-data revalidation: completed and integrity-valid.
-- SHORT candidate: `REVALIDATED_REJECTED`.
-- LONG 15m structural chain: `CERTIFIED_UNAFFECTED_AND_CONSISTENCY_REVALIDATED`.
-- Official LONG forward-evidence dataset: absent.
-- Phase 10.42R.2A signal-to-fill audit: completed with 17/17 tests,
-  16/16 controls and zero blockers.
-- Phase 10.42R.2B V2: completed with 16/16 controls, zero blockers and
-  canonical chronological/window summaries.
-- Phase 10.42R.2C real-data diagnostic: completed with 26/26 controls, zero
-  blockers and zero errors.
-- Phase 10.42R.2D specification freeze: completed with 28/28 controls, zero
-  blockers, six unevaluated variants and the reproducible golden root.
-- Phase 10.42R.2E frozen implementation: completed with 27/27 controls and
-  32/32 deterministic synthetic fixtures.
-- Active workstream: Phase 10.42R.2F independent source-code review; real
-  data, backtesting and candidate evaluation remain prohibited.
-- The OpenClaw read-only contract remains deferred while the recovery research
-  specification is frozen. Operational integration remains prohibited.
-- OpenClaw operational integration and every execution permission: disabled.
+- Phase 10.42 atomic-write harness: validated design only; Phase 10.43 design review is allowed but not started.
+- Phase 10.42R scientific remediation and corrected revalidation: completed.
+- Former official SHORT candidate: `REVALIDATED_REJECTED`.
+- SHORT recovery line: closed after six of six variants were independently rejected; zero survivors.
+- Primary LONG candidate: research-only, certified unaffected and consistency revalidated.
+- Secondary LONG candidate: watchlist-only, certified unaffected and consistency revalidated.
+- Official LONG evidence artifact: tracked 54-column empty-schema candidate with zero evidence rows.
+- Retrospective lockbox and prospective holdout: sealed.
+- Phase 10.42R.3 master disposition and OpenClaw read-only research status contract: validated and closed.
+- OpenClaw runtime integration: not implemented; Python remains the source of truth and human review is mandatory.
+- Next independent routes: Phase 10.43 design review and Phase 10.42R.4 read-only status export implementation.
+- Paper trading, live alerts, real capital, exchange execution and automation: disabled.
 
 Phase 10.42R changed higher-timeframe feature availability so indicators that
 use a complete 1H or 4H candle become visible only after that candle closes.

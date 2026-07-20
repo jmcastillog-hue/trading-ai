@@ -1,0 +1,91 @@
+{
+  "$id": "https://trading-ai.local/schemas/openclaw_read_only_research_status_contract_v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "contract": {
+      "additionalProperties": false,
+      "properties": {
+        "freshness_basis": {
+          "const": "SOURCE_COMMIT_BOUND"
+        },
+        "generated_at_utc": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "mode": {
+          "const": "DESIGN_ONLY_READ_ONLY_STATUS_CONTRACT"
+        },
+        "phase": {
+          "const": "10.42R.3"
+        },
+        "schema_version": {
+          "const": "OPENCLAW_READ_ONLY_RESEARCH_STATUS_CONTRACT_V1"
+        },
+        "stale_when": {
+          "const": "SOURCE_COMMIT_OR_CONTRACT_VERSION_DIFFERS"
+        },
+        "wall_clock_expiry_seconds": {
+          "const": 0
+        }
+      },
+      "required": [
+        "phase",
+        "schema_version",
+        "mode",
+        "generated_at_utc",
+        "freshness_basis",
+        "stale_when",
+        "wall_clock_expiry_seconds"
+      ],
+      "type": "object"
+    },
+    "contract_root_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "evidence_summary": {
+      "type": "object"
+    },
+    "master_disposition": {
+      "type": "object"
+    },
+    "next_routes": {
+      "type": "object"
+    },
+    "openclaw_policy": {
+      "type": "object"
+    },
+    "permissions": {
+      "additionalProperties": false,
+      "properties": {
+        "prohibited_capabilities": {
+          "type": "object"
+        },
+        "read_only_capabilities": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "read_only_capabilities",
+        "prohibited_capabilities"
+      ],
+      "type": "object"
+    },
+    "source_anchors": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "contract",
+    "source_anchors",
+    "master_disposition",
+    "evidence_summary",
+    "permissions",
+    "openclaw_policy",
+    "next_routes",
+    "contract_root_sha256"
+  ],
+  "title": "OpenClaw Read-Only Research Status Contract V1",
+  "type": "object"
+}
