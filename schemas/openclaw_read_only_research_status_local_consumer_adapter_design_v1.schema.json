@@ -1,0 +1,74 @@
+{
+  "$id": "https://trading-ai.local/schemas/openclaw_read_only_research_status_local_consumer_adapter_design_v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adapter_mode": {
+      "const": "DESIGN_ONLY_LOCAL_READ_ONLY_NO_RUNTIME_INTEGRATION"
+    },
+    "decision_boundary": {
+      "additionalProperties": false,
+      "properties": {
+        "design_only": {"const": true},
+        "human_review_required": {"const": true},
+        "implementation_allowed": {"const": false},
+        "python_source_of_truth": {"const": true},
+        "runtime_integration_allowed": {"const": false},
+        "tool_registration_allowed": {"const": false}
+      },
+      "required": [
+        "design_only",
+        "implementation_allowed",
+        "runtime_integration_allowed",
+        "tool_registration_allowed",
+        "human_review_required",
+        "python_source_of_truth"
+      ],
+      "type": "object"
+    },
+    "design_root_sha256": {
+      "const": "b7336e60c705841f3ff313016816d9115fb46485d67d3a016d0206ab43d89e21"
+    },
+    "error_registry": {"type": "object"},
+    "exit_code_contract": {"type": "object"},
+    "next_routes": {"type": "object"},
+    "operational_permissions": {"type": "object"},
+    "phase": {"const": "10.42R.6"},
+    "read_boundary": {"type": "object"},
+    "request_contract": {"type": "object"},
+    "response_contract": {"type": "object"},
+    "sample_request": {"type": "object"},
+    "sample_response": {"type": "object"},
+    "schema_version": {
+      "const": "OPENCLAW_READ_ONLY_RESEARCH_STATUS_LOCAL_CONSUMER_ADAPTER_DESIGN_V1"
+    },
+    "source_authority": {"type": "object"},
+    "total_project_completed": {"const": false},
+    "transport_boundary": {"type": "object"},
+    "validation_sequence": {"type": "array"},
+    "write_boundary": {"type": "object"}
+  },
+  "required": [
+    "phase",
+    "schema_version",
+    "adapter_mode",
+    "decision_boundary",
+    "source_authority",
+    "request_contract",
+    "response_contract",
+    "validation_sequence",
+    "read_boundary",
+    "write_boundary",
+    "transport_boundary",
+    "operational_permissions",
+    "error_registry",
+    "exit_code_contract",
+    "sample_request",
+    "sample_response",
+    "next_routes",
+    "total_project_completed",
+    "design_root_sha256"
+  ],
+  "title": "OpenClaw Read-Only Research Status Local Consumer Adapter Design V1",
+  "type": "object"
+}
