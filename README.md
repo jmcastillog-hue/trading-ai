@@ -8,9 +8,9 @@ capital, exchange orders, live trading alerts and automation remain disabled.
 
 ## Current status
 
-- Phase 10.43 atomic-write harness final design review: validated and closed.
-- Next finite milestone: Phase 10.44 create-only atomic-write harness implementation in isolated temporary test directories.
-- First controlled creation of the official empty LONG dataset is reserved for Phase 10.45.
+- Phase 10.44 create-only atomic-write harness implementation: validated in isolated temporary test directories.
+- Next finite milestone: Phase 10.45 controlled create-only initialization of the official empty LONG dataset.
+- The official dataset remains absent with zero evidence rows until Phase 10.45 is explicitly executed.
 - Phase 10.42R scientific remediation and corrected revalidation: completed.
 - Former official SHORT candidate: `REVALIDATED_REJECTED`.
 - SHORT recovery line: closed after six of six variants were independently rejected; zero survivors.
