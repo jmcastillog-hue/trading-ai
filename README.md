@@ -8,7 +8,9 @@ capital, exchange orders, live trading alerts and automation remain disabled.
 
 ## Current status
 
-- Phase 10.42 atomic-write harness: validated design only; Phase 10.43 design review is allowed but not started.
+- Phase 10.43 atomic-write harness final design review: validated and closed.
+- Next finite milestone: Phase 10.44 create-only atomic-write harness implementation in isolated temporary test directories.
+- First controlled creation of the official empty LONG dataset is reserved for Phase 10.45.
 - Phase 10.42R scientific remediation and corrected revalidation: completed.
 - Former official SHORT candidate: `REVALIDATED_REJECTED`.
 - SHORT recovery line: closed after six of six variants were independently rejected; zero survivors.
@@ -16,9 +18,9 @@ capital, exchange orders, live trading alerts and automation remain disabled.
 - Secondary LONG candidate: watchlist-only, certified unaffected and consistency revalidated.
 - Official LONG evidence artifact: tracked 54-column empty-schema candidate with zero evidence rows.
 - Retrospective lockbox and prospective holdout: sealed.
-- Phase 10.42R.3 master disposition and OpenClaw read-only research status contract: validated and closed.
-- OpenClaw runtime integration: not implemented; Python remains the source of truth and human review is mandatory.
-- Next independent routes: Phase 10.43 design review and Phase 10.42R.4 read-only status export implementation.
+- OpenClaw local one-shot read-only adapter baseline: implemented, independently accepted and closed through Phase 10.42R.9.
+- OpenClaw runtime connection: not implemented; Python remains the source of truth and human review is mandatory.
+- Review-by-inertia is closed; another review requires a material reproducible trigger.
 - Paper trading, live alerts, real capital, exchange execution and automation: disabled.
 
 Phase 10.42R changed higher-timeframe feature availability so indicators that
