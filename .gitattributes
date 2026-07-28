@@ -1,2 +1,5 @@
 # Canonical forward-observation schema candidates
 data/forward/candidates/long_forward_observation_dataset_v1.empty_candidate.csv text eol=lf
+data/forward/long_forward_observation_dataset_v1.csv text eol=lf
+data/forward/long_forward_observation_dataset_v1.manifest.csv text eol=lf
+PHASE_10_45_MANIFEST.sha256 text eol=lf
