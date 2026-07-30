@@ -1,0 +1,39 @@
+{
+  "agent": "trading-ai",
+  "agent_process_exit_code": 0,
+  "agent_report": "FINISH_STATE: CONTINUE\nPHASE_STATE: Phase 11.1 prueba read-only\nEVIDENCE: El candidato LONG primario est\u251c\u00ed certificado solo para investigaci\u251c\u2502n, sin cambios y con consistencia revalidada. El dataset oficial est\u251c\u00ed inicializado, vac\u251c\u00a1o y preparado para evidencia controlada; contiene 0 filas de evidencia. Siguen prohibidos trading, se\u251c\u2592ales, paper trading, automatizaci\u251c\u2502n, capital real, ejecuci\u251c\u2502n de mercado, escritura del dataset e integraci\u251c\u2502n operativa; solo se permite consulta local read-only y explicaci\u251c\u2502n humana.\nACTION_COMPLETED: Ejecutado una vez el comando exacto de conexi\u251c\u2502n local read-only y le\u251c\u00a1da su respuesta JSON.\nNEXT_ACTION: Realizar la revisi\u251c\u2502n humana requerida antes de incorporar evidencia controlada.\nAPPROVAL_REQUIRED: no; la \u251c\u2551nica acci\u251c\u2502n solicitada y autorizada fue de solo lectura.",
+  "agent_run_completed": true,
+  "command": "C:\\Users\\jmcas\\OpenClawProjects\\trading-ai\\.venv\\Scripts\\python.exe -m src.workflows.run_openclaw_read_only_local_connection_v1",
+  "decision": "FIRST_CONTROLLED_OPENCLAW_READ_ONLY_EXECUTION_PASSED",
+  "evidence_schema_version": "PHASE_11_1_FIRST_CONTROLLED_OPENCLAW_READ_ONLY_EXECUTION_EVIDENCE_V1",
+  "execution_mode": "OPENCLAW_LOCAL_AGENT_READ_ONLY",
+  "expected_tool": "exec",
+  "expected_tool_call_count": 1,
+  "expected_tool_failure_count": 0,
+  "model": "gpt-5.6-sol",
+  "phase": "11.1",
+  "provider": "openai",
+  "restrictions": {
+    "actionable_trading_fields_present": false,
+    "automation_allowed": false,
+    "human_explanation_only": true,
+    "market_execution_allowed": false,
+    "official_dataset_write_allowed": false,
+    "openclaw_operational_integration_allowed": false,
+    "paper_trade_execution_allowed": false,
+    "real_capital_allowed": false,
+    "signal_generation_enabled": false
+  },
+  "tool_calls": 1,
+  "tool_failures": 0,
+  "tools_used": [
+    "exec"
+  ],
+  "verified_status": {
+    "human_review_required": true,
+    "long_primary_candidate": "RESEARCH_ONLY_CERTIFIED_UNAFFECTED_AND_CONSISTENCY_REVALIDATED",
+    "official_dataset_state": "INITIALIZED_EMPTY_READY_FOR_CONTROLLED_EVIDENCE",
+    "official_evidence_row_count": 0
+  },
+  "working_directory": "C:\\Users\\jmcas\\OpenClawProjects\\trading-ai"
+}
