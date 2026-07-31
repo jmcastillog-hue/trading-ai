@@ -8,21 +8,16 @@ capital, exchange orders, live trading alerts and automation remain disabled.
 
 ## Current status
 
-- Phase 10.44 create-only atomic-write harness implementation: validated in isolated temporary test directories.
-- Next finite milestone: Phase 10.45 controlled create-only initialization of the official empty LONG dataset.
-- The official dataset remains absent with zero evidence rows until Phase 10.45 is explicitly executed.
-- Phase 10.42R scientific remediation and corrected revalidation: completed.
-- Former official SHORT candidate: `REVALIDATED_REJECTED`.
-- SHORT recovery line: closed after six of six variants were independently rejected; zero survivors.
-- Primary LONG candidate: research-only, certified unaffected and consistency revalidated.
-- Secondary LONG candidate: watchlist-only, certified unaffected and consistency revalidated.
-- Official LONG evidence artifact: tracked 54-column empty-schema candidate with zero evidence rows.
+- Phase 10.45 official LONG dataset initialization: completed with 54 columns and zero evidence rows.
+- Phase 11.1 OpenClaw local read-only connection: validated through one real controlled agent execution.
+- Phase 11.2 end-to-end runbook and recovery: implemented and validated.
+- OpenClaw read-only MVP: complete; Python remains the source of truth and human review is mandatory.
+- Next finite milestone: Phase 11.3 Local Auxiliary Model Routing V1.
+- Local Ollama routing is not integrated yet and will be limited to low-risk language utilities.
+- Former official SHORT candidate and all six recovery variants: rejected; recovery line closed.
+- Primary LONG candidate: research-only; official evidence rows remain zero.
 - Retrospective lockbox and prospective holdout: sealed.
-- OpenClaw local one-shot read-only adapter baseline: implemented, independently accepted and closed through Phase 10.42R.9.
-- OpenClaw runtime connection: not implemented; Python remains the source of truth and human review is mandatory.
-- Review-by-inertia is closed; another review requires a material reproducible trigger.
-- Paper trading, live alerts, real capital, exchange execution and automation: disabled.
-
+- Paper trading, live alerts, browser control, messaging, real capital, exchange execution and automation: disabled.
 Phase 10.42R changed higher-timeframe feature availability so indicators that
 use a complete 1H or 4H candle become visible only after that candle closes.
 The real-data Phase 10.42R.2 run completed over nine immutable-by-run datasets.
@@ -161,15 +156,15 @@ frictionless gross R - one complete profile cost R = normalized net R
 ```
 
 Normalized metrics are diagnostic-only and cannot change the SHORT rejection
-or approve LONG. The protocol labels 2022–2025 as known evidence, seals a
+or approve LONG. The protocol labels 2022â€“2025 as known evidence, seals a
 secondary 2026-H1 retrospective lockbox and reserves 2026-07-20 through
 2027-01-20 as the primary prospective holdout. Neither dataset is downloaded
 or opened in Phase 2B.
 
 The V2 report contract orders aggregate drawdown by realized `exit_time`
 (then entry time, symbol and source row), never by the source file's
-BTC→ETH→SOL concatenation. Positive-window rate uses a fixed
-`symbol × split_name` universe and includes configured windows with zero
+BTCâ†’ETHâ†’SOL concatenation. Positive-window rate uses a fixed
+`symbol Ã— split_name` universe and includes configured windows with zero
 trades in its denominator. These fields are published alongside trade count,
 net expectancy and profit factor, as required by the preregistration.
 
@@ -186,7 +181,7 @@ nine immutable OHLCV hashes before reconstructing corrected closed-candle 1H
 and 4H regimes at each signal.
 
 The five locked slices are symbol, calendar year, cohort-global normalized ATR
-tercile, closed-candle 1H×4H trend regime and the single retired signal family.
+tercile, closed-candle 1HÃ—4H trend regime and the single retired signal family.
 Every slice is emitted for all five fixed cost profiles in deterministic
 catalog order. Zero-trade symbol/window units remain in positive-window
 denominators; no favorable symbol or period can be deleted.
@@ -305,15 +300,15 @@ holdouts or operational permissions without separate scientific authorization.
 
 ```text
 Public market data
-        ↓
+        â†“
 Deterministic Python engines
-        ↓
+        â†“
 Validation and safety gates
-        ↓
+        â†“
 Read-only structured output
-        ↓
+        â†“
 OpenClaw / local model summary
-        ↓
+        â†“
 Human decision
 ```
 
