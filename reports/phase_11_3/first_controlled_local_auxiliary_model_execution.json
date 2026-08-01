@@ -1,0 +1,25 @@
+{
+  "browser_control_allowed": false,
+  "decision": "FIRST_CONTROLLED_LOCAL_AUXILIARY_MODEL_EXECUTION_PASSED",
+  "endpoint": "http://127.0.0.1:11434/api/chat",
+  "evidence_schema_version": "PHASE_11_3_FIRST_CONTROLLED_LOCAL_AUXILIARY_MODEL_EXECUTION_V1",
+  "external_action_allowed": false,
+  "human_review_required": true,
+  "message_send_allowed": false,
+  "metrics": {
+    "output_tokens": 38,
+    "prompt_tokens": 186,
+    "total_duration_ns": 23225303900
+  },
+  "model": "trading-ai-local-fast",
+  "official_dataset_write_allowed": false,
+  "phase": "11.3",
+  "result_character_count": 151,
+  "result_sha256": "11bec175aae4fdfcc3e32c97b26d1afc89eba7c57685a2e9061a877d8ca148c1",
+  "route": "LOCAL_OLLAMA",
+  "stream": false,
+  "task_type": "REWRITE_MESSAGE",
+  "think": false,
+  "tools_present": false,
+  "trading_execution_allowed": false
+}

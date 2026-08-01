@@ -12,8 +12,9 @@ capital, exchange orders, live trading alerts and automation remain disabled.
 - Phase 11.1 OpenClaw local read-only connection: validated through one real controlled agent execution.
 - Phase 11.2 end-to-end runbook and recovery: implemented and validated.
 - OpenClaw read-only MVP: complete; Python remains the source of truth and human review is mandatory.
-- Next finite milestone: Phase 11.3 Local Auxiliary Model Routing V1.
-- Local Ollama routing is not integrated yet and will be limited to low-risk language utilities.
+- Phase 11.3 Local Auxiliary Model Routing: implemented with deterministic templates, strict Ollama routing and principal-model escalation.
+- Local Ollama model `trading-ai-local-fast`: limited to low-risk language utilities with `think=false`, structured output and mandatory human review.
+- Next finite milestone: Phase 11.4 OpenClaw Controlled Local Utility Connection V1.
 - Former official SHORT candidate and all six recovery variants: rejected; recovery line closed.
 - Primary LONG candidate: research-only; official evidence rows remain zero.
 - Retrospective lockbox and prospective holdout: sealed.
@@ -156,15 +157,15 @@ frictionless gross R - one complete profile cost R = normalized net R
 ```
 
 Normalized metrics are diagnostic-only and cannot change the SHORT rejection
-or approve LONG. The protocol labels 2022â€“2025 as known evidence, seals a
+or approve LONG. The protocol labels 2022–2025 as known evidence, seals a
 secondary 2026-H1 retrospective lockbox and reserves 2026-07-20 through
 2027-01-20 as the primary prospective holdout. Neither dataset is downloaded
 or opened in Phase 2B.
 
 The V2 report contract orders aggregate drawdown by realized `exit_time`
 (then entry time, symbol and source row), never by the source file's
-BTCâ†’ETHâ†’SOL concatenation. Positive-window rate uses a fixed
-`symbol Ã— split_name` universe and includes configured windows with zero
+BTC→ETH→SOL concatenation. Positive-window rate uses a fixed
+`symbol × split_name` universe and includes configured windows with zero
 trades in its denominator. These fields are published alongside trade count,
 net expectancy and profit factor, as required by the preregistration.
 
@@ -181,7 +182,7 @@ nine immutable OHLCV hashes before reconstructing corrected closed-candle 1H
 and 4H regimes at each signal.
 
 The five locked slices are symbol, calendar year, cohort-global normalized ATR
-tercile, closed-candle 1HÃ—4H trend regime and the single retired signal family.
+tercile, closed-candle 1H×4H trend regime and the single retired signal family.
 Every slice is emitted for all five fixed cost profiles in deterministic
 catalog order. Zero-trade symbol/window units remain in positive-window
 denominators; no favorable symbol or period can be deleted.
@@ -300,15 +301,15 @@ holdouts or operational permissions without separate scientific authorization.
 
 ```text
 Public market data
-        â†“
+        ↓
 Deterministic Python engines
-        â†“
+        ↓
 Validation and safety gates
-        â†“
+        ↓
 Read-only structured output
-        â†“
+        ↓
 OpenClaw / local model summary
-        â†“
+        ↓
 Human decision
 ```
 
