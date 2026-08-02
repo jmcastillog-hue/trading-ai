@@ -481,3 +481,6 @@ reports/phase_11_3/*.tmp
 
 # Generated outputs - Phase 11.4
 reports/phase_11_4/*.tmp
+
+# Phase 11.5 transient validation artifacts
+/reports/phase_11_5/

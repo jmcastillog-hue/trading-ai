@@ -1,0 +1,106 @@
+{
+  "agent": "trading-ai",
+  "approval_policy": {
+    "ask": "off",
+    "ask_fallback": "deny",
+    "auto_allow_skills": false,
+    "exact_rule_count": 1,
+    "path_only_python_rule_count": 0,
+    "phase_rule_count": 1,
+    "policy_hash": "e04420476fce6529ef7badf54961b3efc6c62e426fa3b801c64e87cee904cb79",
+    "security": "allowlist",
+    "total_rule_count": 5
+  },
+  "browser_action_performed": false,
+  "decision": "FIRST_CONTROLLED_OPENCLAW_READ_ONLY_RESEARCH_WORKFLOW_EXECUTION_PASSED",
+  "duration_ms": 22833,
+  "evidence_schema_version": "PHASE_11_5_FIRST_CONTROLLED_OPENCLAW_READ_ONLY_RESEARCH_WORKFLOW_EXECUTION_EVIDENCE_V1",
+  "external_action_performed": false,
+  "foreground_execution": {
+    "background_process_used": false,
+    "process_follow_up_used": false,
+    "request_token_redacted": true,
+    "timeout_seconds": 180,
+    "workflow_module": "src.workflows.run_openclaw_controlled_read_only_research_workflow_v1",
+    "working_directory": "C:\\Users\\jmcas\\OpenClawProjects\\trading-ai",
+    "yield_ms": 120000
+  },
+  "human_review_required": true,
+  "message_sent": false,
+  "official_sources": {
+    "dataset_changed": false,
+    "dataset_sha256": "e3fa86a461fd46f4d66dc2e03f185e49b7b3438d3cbc33340c01f51310514ff1",
+    "manifest_changed": false,
+    "manifest_sha256": "99fc1f3f0e57bc11ec79c2c08481450a1bda1d7eaf8b84e85962fd25c3d4806e",
+    "official_evidence_rows": 0
+  },
+  "paper_trade_execution_performed": false,
+  "phase": "11.5",
+  "principal_model": "gpt-5.6-sol",
+  "provider": "openai",
+  "real_capital_used": false,
+  "repository_modified_by_openclaw": false,
+  "request_token_present": false,
+  "run_id": "ca3e73c6-e1d8-4e32-921c-3267fbae9d51",
+  "session_id": "744567c7-6661-493e-b09f-c9661673d219",
+  "tool_summary": {
+    "calls": 1,
+    "failures": 0,
+    "tools": [
+      "exec"
+    ]
+  },
+  "trading_execution_performed": false,
+  "workflow_response": {
+    "decision": "OPENCLAW_CONTROLLED_READ_ONLY_RESEARCH_WORKFLOW_COMPLETED_FOR_HUMAN_REVIEW",
+    "explanation_decision": "VALIDATED_RESEARCH_STATUS_FORMATTED_FOR_HUMAN_REVIEW",
+    "explanation_mode": "DETERMINISTIC_TEMPLATE",
+    "explanation_output": {
+      "result": "Estado cient\u00edfico validado de Trading-AI:\n- legacy_short_candidate: REVALIDATED_REJECTED\n- short_recovery_line: CLOSED_ALL_VARIANTS_REJECTED\n- short_recovery_surviving_variant_count: 0\n- long_primary_candidate: RESEARCH_ONLY_CERTIFIED_UNAFFECTED_AND_CONSISTENCY_REVALIDATED\n- long_secondary_candidate: WATCHLIST_ONLY_CERTIFIED_UNAFFECTED_AND_CONSISTENCY_REVALIDATED\n- long_official_dataset_state: INITIALIZED_EMPTY_READY_FOR_CONTROLLED_EVIDENCE\n- long_official_evidence_row_count: 0\n- retrospective_lockbox: SEALED\n- prospective_holdout: SEALED\n- total_project_completed: False\n- human_review_required: true\n- official_dataset_write_allowed: false\n- signal_generation_enabled: false\n- paper_trade_execution_allowed: false\n- real_capital_allowed: false\n- market_execution_allowed: false\n- automation_allowed: false"
+    },
+    "explanation_route": "PYTHON_TEMPLATE",
+    "human_review": {
+      "permission_override_allowed": false,
+      "required": true,
+      "unknown_status_inference_allowed": false
+    },
+    "local_model_called": false,
+    "operation": "GET_AND_EXPLAIN_VALIDATED_RESEARCH_STATUS",
+    "phase": "11.5",
+    "request_id": "phase-11-5-first-controlled-research-summary-v1",
+    "research_status": {
+      "legacy_short_candidate": "REVALIDATED_REJECTED",
+      "long_official_dataset_state": "INITIALIZED_EMPTY_READY_FOR_CONTROLLED_EVIDENCE",
+      "long_official_evidence_row_count": 0,
+      "long_primary_candidate": "RESEARCH_ONLY_CERTIFIED_UNAFFECTED_AND_CONSISTENCY_REVALIDATED",
+      "long_secondary_candidate": "WATCHLIST_ONLY_CERTIFIED_UNAFFECTED_AND_CONSISTENCY_REVALIDATED",
+      "prospective_holdout": "SEALED",
+      "retrospective_lockbox": "SEALED",
+      "short_recovery_line": "CLOSED_ALL_VARIANTS_REJECTED",
+      "short_recovery_surviving_variant_count": 0,
+      "total_project_completed": false
+    },
+    "restrictions": {
+      "actionable_trading_fields_present": false,
+      "automation_allowed": false,
+      "browser_control_allowed": false,
+      "controlled_local_explanation_allowed": true,
+      "external_action_allowed": false,
+      "human_explanation_only": true,
+      "local_read_only_status_consumption_allowed": true,
+      "market_execution_allowed": false,
+      "message_send_allowed": false,
+      "official_dataset_write_allowed": false,
+      "openclaw_operational_integration_allowed": false,
+      "other_openclaw_tool_invocation_allowed": false,
+      "paper_trade_execution_allowed": false,
+      "real_capital_allowed": false,
+      "signal_generation_enabled": false,
+      "status_command_invocation_allowed": true,
+      "trading_execution_allowed": false
+    },
+    "source_connection_decision": "CURRENT_VALIDATED_RESEARCH_STATUS_CONNECTED_FOR_HUMAN_EXPLANATION_ONLY",
+    "source_connection_schema_version": "OPENCLAW_READ_ONLY_LOCAL_CONNECTION_V1",
+    "workflow_schema_version": "OPENCLAW_CONTROLLED_READ_ONLY_RESEARCH_WORKFLOW_V1"
+  }
+}

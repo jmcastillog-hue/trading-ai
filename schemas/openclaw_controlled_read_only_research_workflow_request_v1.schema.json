@@ -1,0 +1,41 @@
+{
+  "$id": "https://trading-ai.local/schemas/openclaw_controlled_read_only_research_workflow_request_v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "explanation_mode": {
+      "enum": [
+        "DETERMINISTIC_TEMPLATE",
+        "LOCAL_OLLAMA_SUMMARY"
+      ]
+    },
+    "human_review_required": {
+      "const": true
+    },
+    "max_output_tokens": {
+      "maximum": 160,
+      "minimum": 64,
+      "type": "integer"
+    },
+    "operation": {
+      "const": "GET_AND_EXPLAIN_VALIDATED_RESEARCH_STATUS"
+    },
+    "request_id": {
+      "pattern": "^phase-11-5-[a-z0-9][a-z0-9-]{0,79}$",
+      "type": "string"
+    },
+    "workflow_request_schema_version": {
+      "const": "OPENCLAW_CONTROLLED_READ_ONLY_RESEARCH_WORKFLOW_REQUEST_V1"
+    }
+  },
+  "required": [
+    "workflow_request_schema_version",
+    "request_id",
+    "operation",
+    "explanation_mode",
+    "max_output_tokens",
+    "human_review_required"
+  ],
+  "title": "OpenClaw Controlled Read-Only Research Workflow Request V1",
+  "type": "object"
+}

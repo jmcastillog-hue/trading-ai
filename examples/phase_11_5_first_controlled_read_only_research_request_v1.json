@@ -1,0 +1,8 @@
+{
+  "explanation_mode": "DETERMINISTIC_TEMPLATE",
+  "human_review_required": true,
+  "max_output_tokens": 112,
+  "operation": "GET_AND_EXPLAIN_VALIDATED_RESEARCH_STATUS",
+  "request_id": "phase-11-5-first-controlled-research-summary-v1",
+  "workflow_request_schema_version": "OPENCLAW_CONTROLLED_READ_ONLY_RESEARCH_WORKFLOW_REQUEST_V1"
+}
