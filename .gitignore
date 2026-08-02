@@ -478,3 +478,6 @@ reports/phase_11_2/
 
 # Generated outputs - Phase 11.3
 reports/phase_11_3/*.tmp
+
+# Generated outputs - Phase 11.4
+reports/phase_11_4/*.tmp

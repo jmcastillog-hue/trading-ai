@@ -22,3 +22,14 @@ src/workflows/run_local_auxiliary_model_routing_v1.py text eol=lf
 src/workflows/validate_local_auxiliary_model_routing_v1.py text eol=lf
 tests/test_local_auxiliary_model_routing_v1.py text eol=lf
 reports/phase_11_3/first_controlled_local_auxiliary_model_execution.json text eol=lf
+
+PHASE_11_4_MANIFEST.sha256 text eol=lf
+docs/PHASE_11_4_FIRST_CONTROLLED_OPENCLAW_PROMPT_V1.md text eol=lf
+docs/PHASE_11_4_OPENCLAW_CONTROLLED_LOCAL_UTILITY_CONNECTION_V1.md text eol=lf
+examples/phase_11_4_first_controlled_local_utility_request_v1.json text eol=lf
+schemas/openclaw_controlled_local_utility_request_v1.schema.json text eol=lf
+src/integration/openclaw_controlled_local_utility_connection_v1.py text eol=lf
+src/workflows/run_openclaw_controlled_local_utility_connection_v1.py text eol=lf
+src/workflows/validate_openclaw_controlled_local_utility_connection_v1.py text eol=lf
+tests/test_openclaw_controlled_local_utility_connection_v1.py text eol=lf
+reports/phase_11_4/first_controlled_openclaw_local_utility_execution.json text eol=lf

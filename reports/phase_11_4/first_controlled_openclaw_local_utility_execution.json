@@ -1,0 +1,74 @@
+{
+  "agent": "trading-ai",
+  "agent_session_id": "c53c5f31-5ac1-45c0-8f39-724d06911bcf",
+  "connection_response": {
+    "connection_schema_version": "OPENCLAW_CONTROLLED_LOCAL_UTILITY_CONNECTION_V1",
+    "decision": "OPENCLAW_CONTROLLED_LOCAL_UTILITY_COMPLETED_FOR_HUMAN_REVIEW",
+    "delegated_decision": "LOCAL_LANGUAGE_UTILITY_COMPLETED_FOR_HUMAN_REVIEW",
+    "delegated_route": "LOCAL_OLLAMA",
+    "delegated_routing_schema_version": "LOCAL_AUXILIARY_MODEL_ROUTING_V1",
+    "local_metrics": {
+      "output_tokens": 39,
+      "prompt_tokens": 187,
+      "total_duration_ns": 22221364600
+    },
+    "local_model": "trading-ai-local-fast",
+    "local_model_called": true,
+    "output": {
+      "result": "El conjunto de datos oficial est\u00e1 disponible, pero carece de pruebas; se requiere una revisi\u00f3n humana antes que cualquier acci\u00f3n ejecutiva sea posible."
+    },
+    "phase": "11.4",
+    "request_id": "phase-11-4-first-controlled-rewrite-v1",
+    "restrictions": {
+      "automation_allowed": false,
+      "browser_control_allowed": false,
+      "external_action_allowed": false,
+      "human_review_required": true,
+      "market_execution_allowed": false,
+      "message_send_allowed": false,
+      "official_dataset_write_allowed": false,
+      "other_openclaw_tool_invocation_allowed": false,
+      "paper_trade_execution_allowed": false,
+      "real_capital_allowed": false,
+      "signal_generation_enabled": false,
+      "trading_execution_allowed": false
+    },
+    "task_type": "REWRITE_MESSAGE"
+  },
+  "console_rendering_warning": "PowerShell displayed mojibake for some accented characters. The structured UTF-8 session response is the authoritative evidence.",
+  "decision": "FIRST_CONTROLLED_OPENCLAW_LOCAL_UTILITY_EXECUTION_PASSED",
+  "duration_ms": 42680,
+  "evidence_schema_version": "PHASE_11_4_FIRST_CONTROLLED_OPENCLAW_LOCAL_UTILITY_EXECUTION_EVIDENCE_V1",
+  "external_delivery_performed": false,
+  "foreground_execution": {
+    "background_process_used": false,
+    "process_follow_up_used": false,
+    "process_timeout_seconds": 180,
+    "request_token_redacted": true,
+    "workflow_module": "src.workflows.run_openclaw_controlled_local_utility_connection_v1",
+    "working_directory": "C:\\Users\\jmcas\\OpenClawProjects\\trading-ai",
+    "yield_ms": 120000
+  },
+  "human_review_required": true,
+  "phase": "11.4",
+  "previous_controlled_attempts": [
+    {
+      "outcome": "EXEC_DENIED_NO_WORKFLOW_EXECUTION"
+    },
+    {
+      "outcome": "EXEC_STARTED_IN_BACKGROUND_RESULT_SESSION_EXPIRED"
+    },
+    {
+      "outcome": "PROCESS_SESSION_NOT_FOUND_NO_WORKFLOW_REEXECUTION"
+    }
+  ],
+  "principal_model": "gpt-5.6-sol",
+  "provider": "openai",
+  "repository_write_by_openclaw_performed": false,
+  "run_id": "6e78dc6c-890f-4bc4-8387-b499a3481d32",
+  "tool_calls": 1,
+  "tool_failures": 0,
+  "tools_used": [
+    "exec"
+  ]
+}

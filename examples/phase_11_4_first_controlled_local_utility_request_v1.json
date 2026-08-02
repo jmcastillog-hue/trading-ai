@@ -1,0 +1,10 @@
+{
+  "connection_request_schema_version": "OPENCLAW_CONTROLLED_LOCAL_UTILITY_REQUEST_V1",
+  "request_id": "phase-11-4-first-controlled-rewrite-v1",
+  "task_type": "REWRITE_MESSAGE",
+  "payload": {
+    "text": "El dataset oficial está disponible y contiene cero filas de evidencia. La revisión humana es obligatoria y la ejecución operativa no está permitida."
+  },
+  "max_output_tokens": 96,
+  "human_review_required": true
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "openclaw_controlled_local_utility_request_v1.schema.json",
+  "title": "OpenClaw Controlled Local Utility Request V1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "connection_request_schema_version",
+    "request_id",
+    "task_type",
+    "payload",
+    "max_output_tokens",
+    "human_review_required"
+  ],
+  "properties": {
+    "connection_request_schema_version": {
+      "const": "OPENCLAW_CONTROLLED_LOCAL_UTILITY_REQUEST_V1"
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^phase-11-4-[a-z0-9][a-z0-9-]{0,79}$"
+    },
+    "task_type": {
+      "enum": [
+        "BUILD_VALIDATED_STATUS_MESSAGE",
+        "BUILD_BLOCKED_ACTION_MESSAGE",
+        "REWRITE_MESSAGE",
+        "SUMMARIZE_VALIDATED_TEXT",
+        "SIMPLIFY_EXPLANATION",
+        "FORMAT_HUMAN_MESSAGE",
+        "CLASSIFY_TEXT",
+        "EXTRACT_FIELDS"
+      ]
+    },
+    "payload": {
+      "type": "object"
+    },
+    "max_output_tokens": {
+      "type": "integer",
+      "minimum": 64,
+      "maximum": 160
+    },
+    "human_review_required": {
+      "const": true
+    }
+  }
+}
