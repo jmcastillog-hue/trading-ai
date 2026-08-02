@@ -484,3 +484,7 @@ reports/phase_11_4/*.tmp
 
 # Phase 11.5 transient validation artifacts
 /reports/phase_11_5/
+
+# BEGIN PHASE 11.6 LOCAL VALIDATION
+.phase_11_6_local/
+# END PHASE 11.6 LOCAL VALIDATION

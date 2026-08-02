@@ -1,0 +1,6 @@
+{
+  "query_request_schema_version": "OPENCLAW_SUPERVISED_READ_ONLY_RESEARCH_QUERY_REQUEST_V1",
+  "request_id": "phase-11-6-first-controlled-evidence-status-v1",
+  "query_id": "EVIDENCE_DATASET_STATUS",
+  "human_review_required": true
+}

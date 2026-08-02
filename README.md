@@ -14,7 +14,10 @@ capital, exchange orders, live trading alerts and automation remain disabled.
 - OpenClaw read-only MVP: complete; Python remains the source of truth and human review is mandatory.
 - Phase 11.3 Local Auxiliary Model Routing: implemented with deterministic templates, strict Ollama routing and principal-model escalation.
 - Local Ollama model `trading-ai-local-fast`: limited to low-risk language utilities with `think=false`, structured output and mandatory human review.
-- Next finite milestone: Phase 11.4 OpenClaw Controlled Local Utility Connection V1.
+- Phase 11.4 OpenClaw Controlled Local Utility Connection V1: implemented and validated.
+- Phase 11.5 OpenClaw Controlled Read-Only Research Workflow V1: implemented, validated and exercised through one real controlled read-only workflow.
+- Phase 11.6 OpenClaw Supervised Read-Only Research Query V1: implemented, validated and exercised through one real supervised read-only query; its temporary authorization was revoked.
+- Next finite milestone: follow the repository-defined route toward controlled prospective LONG evidence collection. Paper trading, real capital, operational signals, external automation and exchange execution remain prohibited.
 - Former official SHORT candidate and all six recovery variants: rejected; recovery line closed.
 - Primary LONG candidate: research-only; official evidence rows remain zero.
 - Retrospective lockbox and prospective holdout: sealed.

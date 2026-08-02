@@ -44,3 +44,16 @@ reports/phase_11_4/first_controlled_openclaw_local_utility_execution.json text e
 /src/workflows/validate_openclaw_controlled_read_only_research_workflow_v1.py text eol=lf
 /tests/test_openclaw_controlled_read_only_research_workflow_v1.py text eol=lf
 /reports/phase_11_5/first_controlled_openclaw_read_only_research_workflow_execution.json text eol=lf
+
+# BEGIN PHASE 11.6 GENERATED ATTRIBUTES
+PHASE_11_6_MANIFEST.sha256 text eol=lf
+docs/PHASE_11_6_CHAT_VALIDATION_RESULTS_V1.md text eol=lf
+docs/PHASE_11_6_OPENCLAW_SUPERVISED_READ_ONLY_RESEARCH_QUERY_V1.md text eol=lf
+docs/PHASE_11_6_FIRST_CONTROLLED_OPENCLAW_SUPERVISED_QUERY_PROMPT_V1.md text eol=lf
+examples/phase_11_6_first_controlled_supervised_query_request_v1.json text eol=lf
+schemas/openclaw_supervised_read_only_research_query_request_v1.schema.json text eol=lf
+src/integration/openclaw_supervised_read_only_research_query_v1.py text eol=lf
+src/workflows/run_openclaw_supervised_read_only_research_query_v1.py text eol=lf
+src/workflows/validate_openclaw_supervised_read_only_research_query_v1.py text eol=lf
+tests/test_openclaw_supervised_read_only_research_query_v1.py text eol=lf
+# END PHASE 11.6 GENERATED ATTRIBUTES
