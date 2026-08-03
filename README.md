@@ -17,7 +17,8 @@ capital, exchange orders, live trading alerts and automation remain disabled.
 - Phase 11.4 OpenClaw Controlled Local Utility Connection V1: implemented and validated.
 - Phase 11.5 OpenClaw Controlled Read-Only Research Workflow V1: implemented, validated and exercised through one real controlled read-only workflow.
 - Phase 11.6 OpenClaw Supervised Read-Only Research Query V1: implemented, validated and exercised through one real supervised read-only query; its temporary authorization was revoked.
-- Next finite milestone: follow the repository-defined route toward controlled prospective LONG evidence collection. Paper trading, real capital, operational signals, external automation and exchange execution remain prohibited.
+- LONG official prospective evidence append capability: implemented and sandbox-validated; no official row has been appended and the official append environment gate remains disabled.
+- Next finite milestone: prepare one real human-reviewed LONG evidence input and a separate approval package; this increment does not authorize or perform the first official append. Paper trading, capital, actionable alerts, external automation and exchange execution remain prohibited.
 - Former official SHORT candidate and all six recovery variants: rejected; recovery line closed.
 - Primary LONG candidate: research-only; official evidence rows remain zero.
 - Retrospective lockbox and prospective holdout: sealed.
@@ -211,7 +212,7 @@ hypothesis-generating evidence only: SHORT remains retired, LONG remains
 research-only/not approved and no cohort may be selected.
 
 Phase 2C is therefore closed as a valid descriptive diagnostic, not as a
-successful strategy recovery. The only permitted next phase is:
+successful strategy recovery. At that historical checkpoint, the next phase was:
 
 `PHASE_10_42R_2D_RECOVERY_CANDIDATE_FAMILY_SPECIFICATION_AND_MULTIPLICITY_FREEZE_V1`
 
@@ -250,7 +251,7 @@ The run passed 28/28 controls with zero blockers and errors, produced zero
 candidate results and selected no winner. Phase 2D is closed as a valid
 specification freeze, not as evidence of strategy performance.
 
-The only permitted next phase is
+At that historical checkpoint, the next phase was
 `PHASE_10_42R_2E_FROZEN_RECOVERY_CANDIDATE_IMPLEMENTATION_AND_STATIC_CONFORMANCE_V1`.
 It may translate the hash-locked rules into code and verify them against
 deterministic synthetic fixtures. It cannot calculate performance metrics,
@@ -295,7 +296,7 @@ an independently generated synthetic series. No hidden data or report input,
 performance calculation or decision output was found. Phase 2E therefore
 closes as valid software conformance, not as strategy evidence.
 
-The only allowed next phase is
+At that historical checkpoint, the next phase was
 `PHASE_10_42R_2F_FROZEN_RECOVERY_CANDIDATE_IMPLEMENTATION_INDEPENDENT_CODE_REVIEW_V1`.
 It remains source-only and cannot add real data, backtests, metrics, selection,
 holdouts or operational permissions without separate scientific authorization.

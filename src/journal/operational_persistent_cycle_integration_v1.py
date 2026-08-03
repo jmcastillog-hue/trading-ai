@@ -870,7 +870,7 @@ def run_operational_persistent_cycle_integration(
     )
 
     if not all_execution_flags_false(final_dataset_df):
-        integration_summary_df.loc[:, "execution_allowed"] = True
+        integration_summary_df.loc[:, "execution_allowed"] = False
         integration_summary_df.loc[
             :,
             "integration_decision",

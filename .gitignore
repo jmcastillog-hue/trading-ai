@@ -488,3 +488,6 @@ reports/phase_11_4/*.tmp
 # BEGIN PHASE 11.6 LOCAL VALIDATION
 .phase_11_6_local/
 # END PHASE 11.6 LOCAL VALIDATION
+
+# Generated outputs - LONG official prospective evidence append V1
+reports/long_official_prospective_evidence_append_v1/
