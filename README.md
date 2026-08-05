@@ -18,7 +18,8 @@ capital, exchange orders, live trading alerts and automation remain disabled.
 - Phase 11.5 OpenClaw Controlled Read-Only Research Workflow V1: implemented, validated and exercised through one real controlled read-only workflow.
 - Phase 11.6 OpenClaw Supervised Read-Only Research Query V1: implemented, validated and exercised through one real supervised read-only query; its temporary authorization was revoked.
 - LONG official prospective evidence append capability: implemented and sandbox-validated; no official row has been appended and the official append environment gate remains disabled.
-- Next finite milestone: prepare one real human-reviewed LONG evidence input and a separate approval package; this increment does not authorize or perform the first official append. Paper trading, capital, actionable alerts, external automation and exchange execution remain prohibited.
+- Primary LONG prospective source adapter: implemented and sandbox-validated; it evaluates only the latest closed BTCUSDT 15m candle and creates external pending-review packages without official dataset writes.
+- Next finite milestone: capture one real latest-closed BTCUSDT 15m source artifact and prepare its external pending-review package. Human approval and the first official append remain separate and unauthorized. Paper trading, capital, actionable alerts, external automation and exchange execution remain prohibited.
 - Former official SHORT candidate and all six recovery variants: rejected; recovery line closed.
 - Primary LONG candidate: research-only; official evidence rows remain zero.
 - Retrospective lockbox and prospective holdout: sealed.
