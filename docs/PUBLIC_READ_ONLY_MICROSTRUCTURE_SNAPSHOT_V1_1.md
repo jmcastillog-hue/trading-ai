@@ -26,7 +26,11 @@ Exactly seven sequential GET requests remain allowed per real snapshot:
 6. `/futures/data/takerlongshortRatio` — two 15m taker buy/sell-volume observations.
 7. `/futures/data/globalLongShortAccountRatio` — two 15m global account-ratio observations.
 
-The authorization string remains `CAPTURE_ONE_SHOT_BINANCE_USDM_PUBLIC_MICROSTRUCTURE_V1` to preserve the already reviewed one-shot public capture boundary. No API key, signature, account endpoint, order endpoint, websocket, retry loop, scheduler, background process, or authenticated endpoint is permitted.
+The V1.1 authorization contract is repaired after a supervised review identified that the original V1.1 implementation incorrectly reused the already-consumed V1 token. A future real V1.1 snapshot now requires the exact fresh, version-specific authorization `CAPTURE_ONE_SHOT_BINANCE_USDM_PUBLIC_MICROSTRUCTURE_V1_1`. The legacy token `CAPTURE_ONE_SHOT_BINANCE_USDM_PUBLIC_MICROSTRUCTURE_V1` is explicitly rejected by the V1.1 capture entry point. The previously preserved real V1.1 artifact captured under the legacy token remains an incident/research artifact and is not retrospectively promoted to formally authorized V1.1 evidence. No automatic recapture is authorized by this repair.
+
+No API key, signature, account endpoint, order endpoint, websocket, retry loop, scheduler, background process, or authenticated endpoint is permitted.
+
+`SYNCHRONIZED_15M_OBSERVATION_V1_1` was published before this authorization repair and still delegates the legacy V1 microstructure token. Therefore a new real synchronized V1.1 session must remain prohibited until a separate additive downstream authorization-propagation repair is implemented and validated. This repair intentionally does not mutate the already closed Synchronized Observation V1.1 implementation.
 
 ## Depth coverage contract
 

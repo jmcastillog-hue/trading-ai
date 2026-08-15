@@ -48,7 +48,10 @@ def run() -> dict:
         })
 
     check("capability_identity", m.CAPABILITY == "PUBLIC_READ_ONLY_MICROSTRUCTURE_SNAPSHOT_V1_1", m.CAPABILITY)
-    check("authorization_exact_preserved", m.AUTHORIZATION == "CAPTURE_ONE_SHOT_BINANCE_USDM_PUBLIC_MICROSTRUCTURE_V1", m.AUTHORIZATION)
+    check("authorization_v1_1_exact", m.AUTHORIZATION == "CAPTURE_ONE_SHOT_BINANCE_USDM_PUBLIC_MICROSTRUCTURE_V1_1", m.AUTHORIZATION)
+    check("legacy_v1_authorization_rejected", m.AUTHORIZATION != "CAPTURE_ONE_SHOT_BINANCE_USDM_PUBLIC_MICROSTRUCTURE_V1", m.AUTHORIZATION)
+    check("docs_authorization_repair", "CAPTURE_ONE_SHOT_BINANCE_USDM_PUBLIC_MICROSTRUCTURE_V1_1" in docs and "legacy token" in docs.lower() and "not retrospectively promoted" in docs, "V1.1-specific authorization and incident treatment documented")
+    check("docs_downstream_sync_v1_1_blocked", "new real synchronized V1.1 session must remain prohibited" in docs and "authorization-propagation repair" in docs, "downstream synchronized V1.1 remains fail-closed until additive repair")
     check("symbol_timeframe_frozen", m.SYMBOL == "BTCUSDT" and m.TIMEFRAME == "15m", f"{m.SYMBOL}/{m.TIMEFRAME}")
     check("endpoint_count_7", len(m.ENDPOINTS) == 7, str(len(m.ENDPOINTS)))
     expected = [

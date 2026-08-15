@@ -129,6 +129,26 @@ class Tests(unittest.TestCase):
         )
         return out, result, get
 
+    def test_00_authorization_v1_1_exact(self):
+        self.assertEqual(
+            AUTHORIZATION,
+            "CAPTURE_ONE_SHOT_BINANCE_USDM_PUBLIC_MICROSTRUCTURE_V1_1",
+        )
+
+    def test_00b_legacy_v1_authorization_rejected_without_requests(self):
+        get = MockGet()
+        out = self.external / "legacy-auth"
+        with self.assertRaises(MicrostructureSnapshotError):
+            capture_public_read_only_microstructure_snapshot_v1_1(
+                repo_root=self.repo,
+                output_directory=out,
+                authorization="CAPTURE_ONE_SHOT_BINANCE_USDM_PUBLIC_MICROSTRUCTURE_V1",
+                request_get=get,
+                clock=lambda: FIXED,
+            )
+        self.assertEqual(get.calls, [])
+        self.assertFalse(out.exists())
+
     def test_01_authorization_required(self):
         with self.assertRaises(MicrostructureSnapshotError):
             capture_public_read_only_microstructure_snapshot_v1_1(
