@@ -1,0 +1,35 @@
+{
+  "calendar_dates_are_reference_days_not_block_timestamps": true,
+  "future_halving_time_estimated": false,
+  "genesis_block_subsidy_btc": "50",
+  "historical_halvings": [
+    {
+      "block_height": 210000,
+      "calendar_date_utc": "2012-11-28",
+      "halving_index": 1,
+      "post_halving_subsidy_btc": "25"
+    },
+    {
+      "block_height": 420000,
+      "calendar_date_utc": "2016-07-09",
+      "halving_index": 2,
+      "post_halving_subsidy_btc": "12.5"
+    },
+    {
+      "block_height": 630000,
+      "calendar_date_utc": "2020-05-11",
+      "halving_index": 3,
+      "post_halving_subsidy_btc": "6.25"
+    },
+    {
+      "block_height": 840000,
+      "calendar_date_utc": "2024-04-20",
+      "halving_index": 4,
+      "post_halving_subsidy_btc": "3.125"
+    }
+  ],
+  "next_protocol_halving_block_height_after_latest_record": 1050000,
+  "protocol_halving_interval_blocks": 210000,
+  "schema_version": "BTC_CYCLE_HALVING_CALENDAR_V1",
+  "time_basis": "UTC_CALENDAR_DAY_START_REFERENCE_NOT_BLOCK_TIMESTAMP"
+}
