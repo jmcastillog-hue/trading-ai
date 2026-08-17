@@ -1,0 +1,42 @@
+{
+  "directional_meaning_assigned": false,
+  "event_surprise_used": false,
+  "event_types": [
+    {
+      "authority_family": "FEDERAL_RESERVE",
+      "event_type": "FOMC_RATE_DECISION"
+    },
+    {
+      "authority_family": "FEDERAL_RESERVE",
+      "event_type": "FOMC_MINUTES"
+    },
+    {
+      "authority_family": "BLS",
+      "event_type": "US_CPI"
+    },
+    {
+      "authority_family": "BLS",
+      "event_type": "US_PPI"
+    },
+    {
+      "authority_family": "BLS",
+      "event_type": "US_NONFARM_PAYROLLS"
+    },
+    {
+      "authority_family": "BEA",
+      "event_type": "US_CORE_PCE"
+    },
+    {
+      "authority_family": "BEA",
+      "event_type": "US_GDP_ADVANCE"
+    },
+    {
+      "authority_family": "CENSUS",
+      "event_type": "US_RETAIL_SALES"
+    }
+  ],
+  "importance_score_assigned": false,
+  "market_reaction_used": false,
+  "schema_version": "EVENT_RISK_CALENDAR_TAXONOMY_V1",
+  "semantics": "DESCRIPTIVE_SCHEDULED_EVENT_PROXIMITY_ONLY"
+}
