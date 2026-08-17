@@ -1,0 +1,32 @@
+{
+  "composite_score_assigned": false,
+  "directional_meaning_assigned": false,
+  "feature_id": "SYNCHRONIZED_MICROSTRUCTURE_CONTEXT_V1",
+  "historical_component_exact_reference_boundary_equality_required": true,
+  "misaligned_historical_component_preserved_but_not_usable": true,
+  "optional_depth_bands_bps": [
+    25,
+    50
+  ],
+  "point_in_time_components_are_not_historical_reconstruction": true,
+  "policy_effective_from_utc": "2026-08-17T00:00:00+00:00",
+  "required_depth_bands_bps": [
+    5,
+    10
+  ],
+  "retrospective_source_before_policy_effective_is_not_point_in_time_eligible": true,
+  "schema_version": "SYNCHRONIZED_MICROSTRUCTURE_CONTEXT_POLICY_V1",
+  "signal_semantics": false,
+  "source_depth_bands_bps": [
+    5,
+    10,
+    25,
+    50
+  ],
+  "source_depth_limit": 1000,
+  "source_provider": "BINANCE_USDM_PUBLIC_REST",
+  "source_snapshot_capability": "PUBLIC_READ_ONLY_MICROSTRUCTURE_SNAPSHOT_V1_1",
+  "source_symbol": "BTCUSDT",
+  "source_timeframe": "15m",
+  "temporal_alignment_policy_version": "SYNCHRONIZED_COMPONENT_TIMESTAMP_ELIGIBILITY_V1"
+}
