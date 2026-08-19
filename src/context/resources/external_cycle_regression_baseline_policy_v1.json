@@ -1,0 +1,20 @@
+{
+  "composite_score_assigned": false,
+  "directional_meaning_assigned": false,
+  "external_frozen_snapshot_required": true,
+  "external_snapshot_schema_version": "EXTERNAL_CYCLE_REGRESSION_BASELINE_SNAPSHOT_V1",
+  "feature_id": "EXTERNAL_CYCLE_REGRESSION_BASELINE_V1",
+  "fit_sample_end_not_after_information_cutoff_required": true,
+  "future_outcomes_used": false,
+  "information_cutoff_not_after_model_generated_required": true,
+  "model_generated_not_after_snapshot_created_required": true,
+  "policy_effective_from_utc": "2026-08-19T00:40:00+00:00",
+  "producer_market_price_input_allowed": false,
+  "producer_model_fit_allowed": false,
+  "producer_network_fetch_allowed": false,
+  "producer_residual_calculation_allowed": false,
+  "reference_time_exact_observation_boundary_required": true,
+  "schema_version": "EXTERNAL_CYCLE_REGRESSION_BASELINE_POLICY_V1",
+  "signal_semantics": false,
+  "value_unit": "USD_PER_BTC"
+}
