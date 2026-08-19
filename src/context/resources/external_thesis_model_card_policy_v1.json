@@ -1,0 +1,21 @@
+{
+  "composite_score_assigned": false,
+  "confidence_scores_ingested": false,
+  "directional_meaning_assigned": false,
+  "external_frozen_snapshot_required": true,
+  "external_snapshot_schema_version": "EXTERNAL_THESIS_MODEL_CARD_SNAPSHOT_V1",
+  "feature_id": "EXTERNAL_THESIS_MODEL_CARD_V1",
+  "future_outcomes_used": false,
+  "information_cutoff_not_after_thesis_generated_required": true,
+  "opaque_state_code_required": true,
+  "policy_effective_from_utc": "2026-08-19T01:02:00+00:00",
+  "producer_model_execution_allowed": false,
+  "producer_network_fetch_allowed": false,
+  "reference_inside_declared_applicability_required": true,
+  "schema_version": "EXTERNAL_THESIS_MODEL_CARD_POLICY_V1",
+  "signal_semantics": false,
+  "source_published_not_after_information_cutoff_required": true,
+  "target_prices_ingested": false,
+  "text_claims_ingested": false,
+  "thesis_generated_not_after_snapshot_created_required": true
+}
