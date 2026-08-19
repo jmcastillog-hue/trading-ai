@@ -1,0 +1,21 @@
+{
+  "atr_bars": 14,
+  "composite_score_assigned": false,
+  "directional_meaning_assigned": false,
+  "feature_id": "LIQUIDITY_SWEEP_PATTERN_CONTEXT_V1",
+  "future_bar_confirmation_used": false,
+  "hidden_stop_orders_observed": false,
+  "liquidations_observed": false,
+  "policy_effective_from_utc": "2026-08-17T00:00:00+00:00",
+  "primary_candidate_semantics_reused": false,
+  "rolling_extreme_lookback_bars": 48,
+  "same_bar_response_only": true,
+  "schema_version": "LIQUIDITY_SWEEP_PATTERN_CONTEXT_POLICY_V1",
+  "signal_semantics": false,
+  "source_capture_capability": "LONG_PRIMARY_PUBLIC_CLOSED_CANDLE_CAPTURE_V1",
+  "source_provider": "BINANCE_PUBLIC_SPOT_API",
+  "source_symbol": "BTCUSDT",
+  "source_timeframe": "15m",
+  "sweep_is_price_action_proxy_only": true,
+  "symmetric_high_low_context": true
+}
