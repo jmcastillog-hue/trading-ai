@@ -57,3 +57,17 @@ src/workflows/run_openclaw_supervised_read_only_research_query_v1.py text eol=lf
 src/workflows/validate_openclaw_supervised_read_only_research_query_v1.py text eol=lf
 tests/test_openclaw_supervised_read_only_research_query_v1.py text eol=lf
 # END PHASE 11.6 GENERATED ATTRIBUTES
+
+# BEGIN CONTEXT LEVEL A DUAL DAILY 30 V2 ATTRIBUTES
+/.gitattributes text eol=lf
+/docs/CONTEXT_LEVEL_A_DUAL_DAILY_30_V1.md text eol=lf
+/docs/CONTEXT_LEVEL_A_DUAL_DAILY_30_V2.md text eol=lf
+/research/context_evaluation/context_evaluation_dual_daily_30_plan_v1.json text eol=lf
+/research/context_evaluation/context_evaluation_dual_daily_30_plan_v2.json text eol=lf
+/research/context_evaluation/reference_runners/context_slot_reference_s008_v1_1.py text eol=lf
+/research/context_evaluation/reference_runners/outcome_binding_reference_s008_v1.py text eol=lf
+/tests/test_context_evaluation_dual_daily_30_v1.py text eol=lf
+/tests/test_context_evaluation_dual_daily_30_v2.py text eol=lf
+/tools/context_evaluation_dual_daily_runner_v1.py text eol=lf
+/tools/context_evaluation_dual_daily_runner_v2.py text eol=lf
+# END CONTEXT LEVEL A DUAL DAILY 30 V2 ATTRIBUTES
