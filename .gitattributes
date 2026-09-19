@@ -71,3 +71,8 @@ tests/test_openclaw_supervised_read_only_research_query_v1.py text eol=lf
 /tools/context_evaluation_dual_daily_runner_v1.py text eol=lf
 /tools/context_evaluation_dual_daily_runner_v2.py text eol=lf
 # END CONTEXT LEVEL A DUAL DAILY 30 V2 ATTRIBUTES
+# BEGIN CONTEXT LEVEL A DAILY EVENING 30 V3 ATTRIBUTES
+/research/context_evaluation/context_evaluation_daily_evening_30_plan_v3.json text eol=lf
+/research/context_evaluation/context_evaluation_daily_evening_30_protocol_v3.json text eol=lf
+/tools/context_evaluation_daily_evening_runner_v3.py text eol=lf
+# END CONTEXT LEVEL A DAILY EVENING 30 V3 ATTRIBUTES
