@@ -372,9 +372,38 @@ function Assert-Definition {
         $Settings.RestartCount -eq 0
     ) "Automatic restart is enabled for $TaskMode."
 
+    $ExpectedPrincipalSid = (
+        [System.Security.Principal.NTAccount]::new(
+            [string]$UserId
+        )
+    ).Translate(
+        [System.Security.Principal.SecurityIdentifier]
+    ).Value
+
+    $ActualPrincipalText = [string]$Principal.UserId
+
+    if ($ActualPrincipalText -match "^S-\d-") {
+        $ActualPrincipalSid = (
+            [System.Security.Principal.SecurityIdentifier]::new(
+                $ActualPrincipalText
+            )
+        ).Value
+    }
+    else {
+        $ActualPrincipalSid = (
+            [System.Security.Principal.NTAccount]::new(
+                $ActualPrincipalText
+            )
+        ).Translate(
+            [System.Security.Principal.SecurityIdentifier]
+        ).Value
+    }
+
     Assert-True (
-        $Principal.UserId -eq $UserId
-    ) "Principal user mismatch for $TaskMode."
+        -not [string]::IsNullOrWhiteSpace($ExpectedPrincipalSid) -and
+        -not [string]::IsNullOrWhiteSpace($ActualPrincipalSid) -and
+        $ActualPrincipalSid -eq $ExpectedPrincipalSid
+    ) "Principal SID mismatch for $TaskMode."
 
     if ($TaskMode -eq "Context") {
         Assert-True $Settings.WakeToRun `
