@@ -84,3 +84,7 @@ tests/test_openclaw_supervised_read_only_research_query_v1.py text eol=lf
 /src/exchange/binance_public_historical_closed_candle_capture_v2.py text eol=lf
 /tools/context_evaluation_daily_evening_hybrid_runner_v4.py text eol=lf
 # END CONTEXT LEVEL A DAILY EVENING 30 V4 HYBRID ATTRIBUTES
+# BEGIN CONTEXT LEVEL A DAILY EVENING 30 V4 WINDOWS TASK ATTRIBUTES
+/tools/windows/context_evaluation_daily_evening_v4_task.ps1 text eol=lf
+/tools/windows/register_context_evaluation_daily_evening_v4_tasks.ps1 text eol=lf
+# END CONTEXT LEVEL A DAILY EVENING 30 V4 WINDOWS TASK ATTRIBUTES
